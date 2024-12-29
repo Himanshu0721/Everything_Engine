@@ -21,12 +21,8 @@ const Dashboard = () => {
           />
           <div>
             <div className="btn-container">
-              <button>
-                <TbMessageChatbot /> Assistant
-              </button>
-              <button>
-                <TbMessageChatbot /> Web-Search
-              </button>
+              <button>Assistant</button>
+              <button>Web-Search</button>
               <button>Claude-3.5-Sonnet</button>
               <button onClick={openModal}>More</button>
             </div>
