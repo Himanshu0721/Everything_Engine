@@ -9,8 +9,6 @@ import Navbar from "./Components/Navbar/Navbar";
 import Profile from "./Pages/Profile/Profile";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import Login from "./Components/Login/Login";
-import Register from "./Components/Login/Register";
 
 function App() {
   {
