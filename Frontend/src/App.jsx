@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Pages/home/Home";
 import Sidebar from "./Components/Sidebar/Sidebar";
@@ -9,6 +9,8 @@ import Navbar from "./Components/Navbar/Navbar";
 import Profile from "./Pages/Profile/Profile";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import Login from "./Components/Login/Login";
+import Register from "./Components/Login/Register";
 
 function App() {
   {
