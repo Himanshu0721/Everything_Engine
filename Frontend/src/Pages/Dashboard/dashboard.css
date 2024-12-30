@@ -5,7 +5,7 @@
 }
 .container {
   width: 100%;
-  height: 75vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,4 +55,28 @@
 .search-box:focus {
   outline: 3px solid #7ea4e0;
   outline-offset: 1px;
+}
+@media screen and (max-width: 1100px) {
+  .btn-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .btn-container button {
+    margin-top: 15px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .container-info {
+    width: 100%;
+    border: 1px solid black;
+  }
+  .btn-container {
+    justify-content: center;
+  }
+  .search-box {
+    width: 100%;
+  }
 }

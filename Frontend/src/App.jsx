@@ -14,12 +14,11 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import Dashboard from "./Components/Login/Dashboard";
 
 function App() {
-  {
-    /* It is for sidebar */
-  }
-
   const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 1024);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
   const [isUser, setIsUser] = useState(false);
 
   useEffect(() => {
@@ -58,7 +57,7 @@ function App() {
           />
         </div>
         <div
-          className={`flex-1 p-4 pr-0 transition-all duration-300 xs:pl-[20%] sm:pl-[20%] md:pl-[20%] xl:pl-[10%] ${
+          className={`flex-1 p-0 pr-0 transition-all duration-300 xs:pl-[20%] sm:pl-[20%] md:pl-[20%] xl:pl-[5%] ${
             isSidebarOpen && window.innerWidth < 1024
               ? "opacity-60 pointer-events-none "
               : "opacity-100"

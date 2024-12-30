@@ -33,6 +33,7 @@
   height: 100px;
 }
 .info h2 {
+  color: black;
   font-weight: 700;
   font-size: 1.2rem;
 }
@@ -83,4 +84,21 @@
 .bots-btn button:focus {
   border-bottom: 2px solid #3b3abe;
   color: #3b3abe;
+}
+
+@media screen and (max-width: 1400px) {
+  .profile-section {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 320px) {
+  .profile-container {
+    padding: 0;
+  }
+  .profile-header {
+    width: 95%;
+  }
+  .profile-img img {
+    margin-right: 0;
+  }
 }

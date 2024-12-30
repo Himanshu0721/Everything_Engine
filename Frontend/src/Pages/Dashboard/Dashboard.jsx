@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { TbMessageChatbot } from "react-icons/tb";
 import "./dashboard.css";
-import Modal from "./Modal";
+import Modal from "../../Components/Modal/Modal";
 
 const Dashboard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
