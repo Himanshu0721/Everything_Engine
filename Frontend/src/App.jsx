@@ -7,8 +7,11 @@ import Privacy from "./Pages/privacy/Privacy";
 import TermCondition from "./Pages/termCondition/TermCondition";
 import Navbar from "./Components/Navbar/Navbar";
 import Profile from "./Pages/Profile/Profile";
+import Login from "./Components/Login/Login";
+import Register from "./Components/Login/Register";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import Dashboard from "./Components/Login/Dashboard";
 
 function App() {
   {
@@ -16,6 +19,9 @@ function App() {
   }
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 1024);
+
+  const [isUser, setIsUser] = useState(false);
+
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
@@ -63,6 +69,9 @@ function App() {
             <Route path="/privacy-policy" element={<Privacy />} />
             <Route path="/term-condition" element={<TermCondition />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/register" element={<Register />} />
           </Routes>
         </div>
       </div>

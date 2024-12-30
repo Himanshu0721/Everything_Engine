@@ -46,7 +46,7 @@ const Register = () => {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-
+  console.log(formData);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
