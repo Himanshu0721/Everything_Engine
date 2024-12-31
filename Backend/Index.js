@@ -2,6 +2,10 @@ const express = require("express");
 const app = express();
 const MongoDB = require("./Config/config");
 const authRouter = require("./Routes/Auth.Router");
+const dotenv = require("dotenv");
+
+dotenv.config();
+
 const port = 5000;
 app.use(express.json());
 MongoDB();
