@@ -12,6 +12,7 @@ import Register from "./Components/Login/Register";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import Dashboard from "./Components/Login/Dashboard";
+import Explore from "./Pages/Explorer/Explore";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 1024);
@@ -43,14 +44,16 @@ function App() {
           onClick={toggleSidebar}
           className={`absolute top-5 ${
             isSidebarOpen ? "left-[17rem]" : "left-6"
-          } text-black text-2xl  transition-all duration-300 z-50`}>
+          } text-black text-2xl  transition-all duration-300 z-50`}
+        >
           <FontAwesomeIcon icon={faBars} />
         </button>
         <Navbar toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
         <div
           className={`fixed top-0 ${
             isSidebarOpen ? "left-0" : "-left-full"
-          } w-64 h-full bg-transparent  z-40 transition-transform duration-300 lg:left-0 lg:static`}>
+          } w-64 h-full bg-transparent  z-40 transition-transform duration-300 lg:left-0 lg:static`}
+        >
           <Sidebar
             isSidebarOpen={isSidebarOpen}
             toggleSidebar={toggleSidebar}
@@ -61,12 +64,14 @@ function App() {
             isSidebarOpen && window.innerWidth < 1024
               ? "opacity-60 pointer-events-none "
               : "opacity-100"
-          }`}>
+          }`}
+        >
           {/* CONTINUE WITH YOUR PERSPECTIVE ROUTING BELOW */}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/privacy-policy" element={<Privacy />} />
             <Route path="/term-condition" element={<TermCondition />} />
+            <Route path="/explore" element={<Explore />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/login" element={<Login />} />
             <Route path="/dashboard" element={<Dashboard />} />
