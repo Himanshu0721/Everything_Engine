@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { TbMessageChatbot } from "react-icons/tb";
 import "./dashboard.css";
+import logo from "../../assets/logo.svg";
+
 import Modal from "../../Components/Modal/Modal";
 
 const Dashboard = () => {
@@ -14,21 +16,16 @@ const Dashboard = () => {
       <div className="container">
         <Modal isOpen={isModalOpen} closeModal={closeModal} />
         <div className="container-info">
-          <img
-            className="dashboard-img"
-            src="https://psc2.cf2.poecdn.net/assets/_next/static/media/poeFullMultibot.aa56caf5.svg"
-            alt=""
-          />
+          <img className="dashboard-img" src={logo} alt="img" />
+          <h2 className="title">TEN - EVERYTHING AI</h2>
           <div>
             <div className="btn-container">
-              <button>
-                <TbMessageChatbot /> Assistant
+              <button className="dashboard-btn">Assistant</button>
+              <button className="dashboard-btn">Web-Search</button>
+              <button className="dashboard-btn">Claude-3.5-Sonnet</button>
+              <button className="dashboard-btn" onClick={openModal}>
+                More
               </button>
-              <button>
-                <TbMessageChatbot /> Web-Search
-              </button>
-              <button>Claude-3.5-Sonnet</button>
-              <button onClick={openModal}>More</button>
             </div>
           </div>
           <div className="search-container">

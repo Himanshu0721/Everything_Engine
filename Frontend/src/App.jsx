@@ -14,14 +14,11 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import Dashboard from "./Components/Login/Dashboard";
 import Explore from "./Pages/Explorer/Explore";
 import CreateBot from "./Pages/CreateBot/CreateBot";
+import Subscribe from "./Pages/Subscribe/Subscribe";
+import FeedBack from "./Pages/Feedback/FeedBack";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 1024);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
-  const [isUser, setIsUser] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -73,7 +70,9 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/login" element={<Login />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/subscribe" element={<Subscribe />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/feedback" element={<FeedBack />} />
             <Route path="/create-bot" element={<CreateBot />} />
           </Routes>
         </div>
