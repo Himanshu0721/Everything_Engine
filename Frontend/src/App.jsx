@@ -10,6 +10,8 @@ import Profile from "./Pages/Profile/Profile";
 import Login from "./Components/Login/Login";
 import Register from "./Components/Login/Register";
 import Dashboard from "./Components/Login/Dashboard";
+import Explore from "./Pages/Explorer/Explore";
+import CreateBot from "./Pages/CreateBot/CreateBot";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 1024);

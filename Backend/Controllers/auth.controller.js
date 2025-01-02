@@ -1,5 +1,6 @@
 const bcryptjs = require("bcryptjs");
 const User = require("../Models/user.model");
+const jwt = require("jsonwebtoken");
 
 const SingUpHandler = async (req, res) => {
   try {
@@ -10,10 +11,12 @@ const SingUpHandler = async (req, res) => {
         .status(400)
         .json({ success: false, message: "All fields are required" });
     }
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return res.status(400).json({ success: false, message: "Invalid email" });
     }
+
     const existingUserByEmail = await User.findOne({ email: email });
     if (existingUserByEmail) {
       return res
@@ -29,17 +32,25 @@ const SingUpHandler = async (req, res) => {
 
     const salt = await bcryptjs.genSalt(10);
     const hashedPassword = await bcryptjs.hash(password, salt);
+
     const newUser = new User({
       email,
       password: hashedPassword,
       username,
     });
+
     await newUser.save();
+
+    const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, {
+      expiresIn: "1h",
+    });
+
     res.status(201).json({
       success: true,
       user: {
         ...newUser._doc,
         password: "",
+        token,
       },
     });
   } catch (error) {
@@ -70,11 +81,17 @@ const LogInHandler = async (req, res) => {
         .status(400)
         .json({ success: false, message: "Invalid credentials" });
     }
+
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+      expiresIn: "1h",
+    });
+
     res.status(200).json({
       success: true,
       user: {
         ...user._doc,
         password: "",
+        token,
       },
     });
   } catch (error) {
