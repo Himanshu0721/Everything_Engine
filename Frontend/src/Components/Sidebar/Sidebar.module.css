@@ -5,12 +5,12 @@
 
 .sidebar {
     width: 320px;
-    height: 100vh;
     background-color: #fff;
     display: flex;
     flex-direction: column;
-    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.1); 
+    scroll-behavior: smooth;
 }
+  
  
 .logo {
     font-size: 1.2em;
@@ -24,6 +24,7 @@
 .nav {
     display: flex;
     flex-direction: column;
+    height: full;
 }
   
 .navButtons {
@@ -91,7 +92,6 @@
 @media screen and (min-width: 768px) {
     .sidebar {
         width: 320px;
-        height: 85%;  
     }
 }
   
