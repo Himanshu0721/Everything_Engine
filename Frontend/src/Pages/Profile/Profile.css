@@ -71,7 +71,7 @@
   justify-content: space-around;
   align-items: center;
 }
-.bots-btn button {
+.bots-btn .bot-btn {
   padding: 10px 0px;
   width: 100%;
   background-color: transparent;
@@ -81,7 +81,7 @@
   font-size: 15px;
   font-weight: 600;
 }
-.bots-btn button:focus {
+.bots-btn .bot-btn:focus {
   border-bottom: 2px solid #3b3abe;
   color: #3b3abe;
 }
@@ -91,7 +91,7 @@
     width: 100%;
   }
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 428px) {
   .profile-container {
     padding: 0;
   }

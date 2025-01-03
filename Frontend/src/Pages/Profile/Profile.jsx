@@ -70,9 +70,9 @@ const Profile = () => {
           </div>
           <div className="bots">
             <div className="bots-btn">
-              <button>0 Bots</button>
-              <button>0 Posts</button>
-              <button>0 Follow bots</button>
+              <button className="bot-btn">0 Bots</button>
+              <button className="bot-btn">0 Posts</button>
+              <button className="bot-btn">0 Follow bots</button>
             </div>
           </div>
         </div>

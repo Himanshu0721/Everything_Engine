@@ -16,11 +16,7 @@ const Modal = ({ isOpen, closeModal }) => {
         <button className="modal-close-btn" onClick={closeModal}>
           <IoMdClose />
         </button>
-        <input
-          type="search"
-          className="modal-search"
-          placeholder="Search from more bots"
-        />
+        <h1>Coming Soon ! </h1>
       </div>
     </div>
   );
