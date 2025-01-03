@@ -43,11 +43,13 @@ const Sidebar = ({ isSidebarOpen }) => {
         isSidebarOpen
           ? "transform-x-0 open"
           : "transform -translate-x-full closed"
-      }`}>
+      }`}
+    >
       <div className={styles.sidebar}>
         <div
           className={styles.logo}
-          style={{ display: "flex", alignItems: "center" }}>
+          style={{ display: "flex", alignItems: "center" }}
+        >
           <img
             src={logo}
             style={{ width: "40px", height: "40px", marginRight: "6px" }}
@@ -80,7 +82,8 @@ const Sidebar = ({ isSidebarOpen }) => {
                     viewBox="0 0 24 24"
                     strokeWidth={2}
                     stroke="currentColor"
-                    className="w-4 h-6 ml-10">
+                    className="w-4 h-6 ml-10"
+                  >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -109,7 +112,8 @@ const Sidebar = ({ isSidebarOpen }) => {
                     viewBox="0 0 24 24"
                     strokeWidth={2}
                     stroke="currentColor"
-                    className="w-4 h-4 ml-2">
+                    className="w-4 h-4 ml-2"
+                  >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -127,7 +131,8 @@ const Sidebar = ({ isSidebarOpen }) => {
                 <Link
                   to="/chats"
                   className="flex items-center space-x-2 border-gray-200 gap-10 hover:bg-gray-100 p-4 hover:p-4"
-                  style={{ borderBottom: "7px solid #e5e7eb" }}>
+                  style={{ borderBottom: "7px solid #e5e7eb" }}
+                >
                   <img
                     src={allchats}
                     style={{
@@ -147,7 +152,8 @@ const Sidebar = ({ isSidebarOpen }) => {
                 <Link
                   to=""
                   className="flex items-center space-x-2  border-gray-200 gap-10 hover:bg-gray-100 p-4"
-                  style={{ borderBottom: "7px solid #e5e7eb" }}>
+                  style={{ borderBottom: "7px solid #e5e7eb" }}
+                >
                   <img
                     src={yourbots}
                     style={{
@@ -166,7 +172,8 @@ const Sidebar = ({ isSidebarOpen }) => {
               <li>
                 <Link
                   to="/subscribe"
-                  className="flex items-center space-x-2 border-b border-gray-200 gap-10 hover:bg-gray-100 p-4">
+                  className="flex items-center space-x-2 border-b border-gray-200 gap-10 hover:bg-gray-100 p-4"
+                >
                   <img
                     src={subscribe}
                     style={{
@@ -185,7 +192,8 @@ const Sidebar = ({ isSidebarOpen }) => {
               <li>
                 <Link
                   to="/creators"
-                  className="flex items-center space-x-2 border-b border-gray-200 gap-10 hover:bg-gray-100 p-4">
+                  className="flex items-center space-x-2 border-b border-gray-200 gap-10 hover:bg-gray-100 p-4"
+                >
                   <img
                     src={creators}
                     style={{
@@ -205,7 +213,8 @@ const Sidebar = ({ isSidebarOpen }) => {
               <li>
                 <Link
                   to="/profile"
-                  className="flex items-center space-x-2 border-b border-gray-200 gap-10 hover:bg-gray-100 p-4">
+                  className="flex items-center space-x-2 border-b border-gray-200 gap-10 hover:bg-gray-100 p-4"
+                >
                   <img
                     src={profile}
                     style={{
@@ -226,7 +235,8 @@ const Sidebar = ({ isSidebarOpen }) => {
                 <Link
                   to="/settings"
                   className="flex items-center space-x-2 border-gray-200 gap-10 hover:bg-gray-100 p-4"
-                  style={{ borderBottom: "7px solid #e5e7eb" }}>
+                  style={{ borderBottom: "7px solid #e5e7eb" }}
+                >
                   <img
                     src={setting}
                     style={{
@@ -249,7 +259,8 @@ const Sidebar = ({ isSidebarOpen }) => {
               <li>
                 <Link
                   to="/feedback"
-                  className="flex items-center space-x-2 border-b-2 border-gray-200 gap-10 hover:bg-gray-100 p-4">
+                  className="flex items-center space-x-2 border-b-2 border-gray-200 gap-10 hover:bg-gray-100 p-4"
+                >
                   <img
                     src={feedback}
                     style={{
@@ -274,7 +285,8 @@ const Sidebar = ({ isSidebarOpen }) => {
                   className="flex items-center gap-4 cursor-pointer hover:text-gray-600 text-sm sm:text-sm md:text-base"
                   onClick={() =>
                     (window.location.href = "https://www.linkedin.com")
-                  }>
+                  }
+                >
                   Follow Us
                   <span className="text-blue-500">
                     <FontAwesomeIcon
@@ -293,7 +305,8 @@ const Sidebar = ({ isSidebarOpen }) => {
                   className="flex items-center gap-4 cursor-pointer hover:text-gray-600 text-sm sm:text-sm md:text-base"
                   onClick={() =>
                     (window.location.href = "https://www.linkedin.com")
-                  }>
+                  }
+                >
                   Join Us
                   <span className="text-blue-500">
                     <FontAwesomeIcon
@@ -319,7 +332,8 @@ const Sidebar = ({ isSidebarOpen }) => {
                   <li className=" ml-6">
                     <a
                       href="/about"
-                      className="text-gray-600 hover:text-gray-900">
+                      className="text-gray-600 hover:text-gray-900"
+                    >
                       About
                     </a>
                   </li>
@@ -327,7 +341,9 @@ const Sidebar = ({ isSidebarOpen }) => {
                   <li className=" ml-4">
                     <a
                       href="/blog"
-                      className="text-gray-600 hover:text-gray-900">
+                      target="_blank"
+                      className="text-gray-600 hover:text-gray-900"
+                    >
                       Blog
                     </a>
                   </li>
@@ -335,7 +351,8 @@ const Sidebar = ({ isSidebarOpen }) => {
                   <li className=" ml-4">
                     <a
                       href="/careers"
-                      className="text-gray-600 hover:text-gray-900">
+                      className="text-gray-600 hover:text-gray-900"
+                    >
                       Careers
                     </a>
                   </li>
@@ -343,7 +360,8 @@ const Sidebar = ({ isSidebarOpen }) => {
                   <li className=" ml-6">
                     <a
                       href="/help-center"
-                      className="text-gray-600 hover:text-gray-900">
+                      className="text-gray-600 hover:text-gray-900"
+                    >
                       Help Center
                     </a>
                   </li>
@@ -351,7 +369,8 @@ const Sidebar = ({ isSidebarOpen }) => {
                   <li className=" ml-4">
                     <a
                       href="/privacy-policy"
-                      className="text-gray-600 hover:text-gray-900">
+                      className="text-gray-600 hover:text-gray-900"
+                    >
                       Privacy Policy
                     </a>
                   </li>
@@ -359,7 +378,8 @@ const Sidebar = ({ isSidebarOpen }) => {
                   <li className=" ml-6">
                     <a
                       href="/term-condition"
-                      className="text-gray-600 hover:text-gray-900">
+                      className="text-gray-600 hover:text-gray-900"
+                    >
                       Terms & Conditions
                     </a>
                   </li>
