@@ -25,9 +25,8 @@ const Profile = () => {
   return (
     <>
       <div className="profile-section">
-        <header className="header">
-          <h2>Profile</h2>
-        </header>
+      <header className="text-center bg-gray-100 m-0 p-5 text-2xl font-semibold">Profile</header>
+
         <div className="profile-container">
           <div className="profile-header">
             <div className="profile-info">

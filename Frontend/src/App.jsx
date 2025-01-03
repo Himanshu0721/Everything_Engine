@@ -15,6 +15,7 @@ import Subscribe from "./Pages/Subscribe/Subscribe";
 import FeedBack from "./Pages/Feedback/FeedBack";
 import Blog from "./Pages/BLog/Blog";
 import Admin from "./Components/Admin/Admin";
+import Creators from "./Pages/creators/Creators";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 1024);
@@ -65,6 +66,7 @@ function App() {
                   <Route path="/term-condition" element={<TermCondition />} />
                   <Route path="/profile" element={<Profile />} />
                   <Route path="/login" element={<Login />} />
+                  <Route path="/creators" element={<Creators />} />
                   <Route path="/dashboard" element={<Dashboard />} />
                   <Route path="/explore" element={<Explore />} />
                   <Route path="/create-bot" element={<CreateBot />} />
