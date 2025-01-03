@@ -14,6 +14,7 @@ import Explore from "./Pages/Explorer/Explore";
 import CreateBot from "./Pages/CreateBot/CreateBot";
 import Subscribe from "./Pages/Subscribe/Subscribe";
 import FeedBack from "./Pages/Feedback/FeedBack";
+import Creators from "./Pages/creators/Creators";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 1024);
@@ -39,8 +40,8 @@ function App() {
         <Sidebar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
       )}
       <main
-        className={`flex-1 p-0 transition-all duration-300 ${
-          isSidebarOpen && window.innerWidth > 1024 ? "pl-[21rem]" : "pl-0"
+        className={`flex-1  transition-all duration-300 ${
+          isSidebarOpen && window.innerWidth > 1024 ? "pl-[21rem]" : "p-0"
         }`}>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -52,6 +53,7 @@ function App() {
           <Route path="/explore" element={<Explore />} />
           <Route path="/create-bot" element={<CreateBot />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/creators" element={<Creators />} />
           <Route path="/subscribe" element={<Subscribe />} />
           <Route path="/feedback" element={<FeedBack />} />
         </Routes>

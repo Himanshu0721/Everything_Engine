@@ -22,7 +22,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => (
   <aside
     className={`fixed top-0 transition-transform duration-300 ${
       isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-    } w-71 h-full bg-gray-100 z-40 bg-white overflow-y-auto shadow border-r-4`}>
+    } w-71 h-full bg-gray-100 z-40 bg-white overflow-y-auto shadow border-r-2`}>
     <div className={styles.sidebar}>
       <div
         className={styles.logo}
@@ -44,7 +44,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => (
         </button>
       </div>
       <nav className={styles.nav}>
-        <div className="lg:flex space-x-2 border-b-2 border-gray-200 p-4">
+        <div className="lg:flex space-x-5 border-b-2 border-gray-200 p-4">
           <Link to="/explore">
             <button className="w-32 bg-gray-100 text-[#000] px-2 py-1 rounded-md hover:bg-gray-300 hover:text-black transition text-sm  items-start mb-2 mt-2">
               <img
@@ -272,12 +272,12 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => (
           <div className="flex flex-col gap-2 bg-white">
             <div className="flex flex-row items-center gap-4 ml-12">
               <p
-                className="flex items-center gap-4 cursor-pointer hover:text-blue-500 text-sm sm:text-sm md:text-base"
+                className="flex items-center gap-4 cursor-pointer hover:text-[#5d5cdd] text-sm sm:text-sm md:text-base"
                 onClick={() =>
                   (window.location.href = "https://www.linkedin.com")
                 }>
                 Follow Us
-                <span className="text-blue-500">
+                <span className="text-[#5d5cde]">
                   <FontAwesomeIcon
                     icon={faLinkedin}
                     style={{
@@ -291,12 +291,12 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => (
                 </span>
               </p>
               <p
-                className="flex items-center gap-4 cursor-pointer hover:text-blue-600 text-sm sm:text-sm md:text-base"
+                className="flex items-center gap-4 cursor-pointer hover:text-[#5d5cdd] text-sm sm:text-sm md:text-base"
                 onClick={() =>
                   (window.location.href = "info@entrepreneurshipnetwork.net")
                 }>
                 Join Us
-                <span className="text-blue-500">
+                <span className="text-[#5d5cde]">
                   <FontAwesomeIcon
                     onClick={() =>
                       (window.location.href =
@@ -304,7 +304,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => (
                     }
                     icon={faEnvelope}
                     style={{
-                      color: "#f77a32",
+                      color: "#5d5cde",
                       fontSize: "1.2rem",
                       cursor: "pointer",
                     }}
