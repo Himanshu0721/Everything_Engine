@@ -14,6 +14,7 @@ import CreateBot from "./Pages/CreateBot/CreateBot";
 import Subscribe from "./Pages/Subscribe/Subscribe";
 import FeedBack from "./Pages/Feedback/FeedBack";
 import Blog from "./Pages/BLog/Blog";
+import Creators from "./Pages/creators/Creators";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 1024);
@@ -45,7 +46,7 @@ function App() {
           location !== "/blog"
             ? `flex-1 p-0 transition-all duration-300 ${
                 isSidebarOpen && window.innerWidth > 1024
-                  ? "pl-[21rem]"
+                  ? "pl-[20rem]"
                   : "pl-0"
               }`
             : ""
@@ -65,6 +66,7 @@ function App() {
               <Route path="/create-bot" element={<CreateBot />} />
               <Route path="/register" element={<Register />} />
               <Route path="/subscribe" element={<Subscribe />} />
+              <Route path="/creators" element={<Creators />} />
               <Route path="/feedback" element={<FeedBack />} />
             </>
           )}
