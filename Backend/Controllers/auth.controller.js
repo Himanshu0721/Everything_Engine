@@ -85,7 +85,6 @@ const LogInHandler = async (req, res) => {
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
-
     res.status(200).json({
       success: true,
       user: {
@@ -100,4 +99,14 @@ const LogInHandler = async (req, res) => {
   }
 };
 
-module.exports = { SingUpHandler, LogInHandler };
+const logout = async (req, res) => {
+  try {
+    res.clearCookie("jwt-ten");
+    res.status(200).json({ success: true, message: "Logged out successfully" });
+  } catch (error) {
+    console.log("Error in logout controller", error.message);
+    res.status(500).json({ success: false, message: "Internal server error" });
+  }
+};
+
+module.exports = { SingUpHandler, LogInHandler, logout };

@@ -18,7 +18,7 @@ const cards = [
   {
     id: 1,
     title: "Bronze",
-    img: "https://i.pinimg.com/736x/ee/20/d6/ee20d64932ad3df04f6da6d222da7f5b.jpg",
+    img: "https://i.pinimg.com/736x/ae/22/09/ae2209b8396e625c3aaa2a76de1fab0a.jpg",
     price: "₹ 1500",
   },
 ];
