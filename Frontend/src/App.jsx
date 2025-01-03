@@ -14,6 +14,7 @@ import Explore from "./Pages/Explorer/Explore";
 import CreateBot from "./Pages/CreateBot/CreateBot";
 import Subscribe from "./Pages/Subscribe/Subscribe";
 import FeedBack from "./Pages/Feedback/FeedBack";
+import Settings from "./Pages/Settings/Settings";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 1024);
@@ -54,6 +55,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/subscribe" element={<Subscribe />} />
           <Route path="/feedback" element={<FeedBack />} />
+          <Route path="/settings" element={<Settings />} />
         </Routes>
       </main>
       <Footer />
