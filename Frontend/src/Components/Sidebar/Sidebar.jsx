@@ -22,7 +22,8 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => (
   <aside
     className={`fixed top-0 transition-transform duration-300 ${
       isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-    } w-71 h-full bg-gray-100 z-40 bg-white overflow-y-auto shadow border-r-2`}>
+    } w-71 h-full bg-gray-100 z-40 bg-white overflow-y-auto shadow border-r-4`}
+  >
     <div className={styles.sidebar}>
       <div
         className={styles.logo}
@@ -30,14 +31,15 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => (
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-        }}>
+        }}
+      >
         <img
           src={logo}
           style={{ width: "40px", height: "40px", marginRight: "6px" }}
         />
         <div className="text-base md:text-base lg:text-lg xl:text-xl">
           {" "}
-          TEN - Everything AI{" "}
+          <Link to="/">TEN - Everything AI </Link>
         </div>
         <button onClick={toggleSidebar} className={`pl-[30px] pt-[5px]`}>
           <FontAwesomeIcon icon={faBars} className="text-2xl  text-gray-700" />
@@ -66,7 +68,8 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => (
                   viewBox="0 0 24 24"
                   strokeWidth={2}
                   stroke="currentColor"
-                  className="w-4 h-6 ml-10">
+                  className="w-4 h-6 ml-10"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -95,7 +98,8 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => (
                   viewBox="0 0 24 24"
                   strokeWidth={2}
                   stroke="currentColor"
-                  className="w-4 h-4 ml-2">
+                  className="w-4 h-4 ml-2"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -112,7 +116,8 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => (
               <Link
                 to="/chats"
                 className="flex items-center space-x-2 border-gray-200 gap-10 hover:bg-gray-100 p-4 hover:p-4"
-                style={{ borderBottom: "7px solid #e5e7eb" }}>
+                style={{ borderBottom: "7px solid #e5e7eb" }}
+              >
                 <img
                   src={allchats}
                   style={{
@@ -132,7 +137,8 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => (
               <Link
                 to="/your-bots"
                 className="flex items-center space-x-2  border-gray-200 gap-10 hover:bg-gray-100 p-4"
-                style={{ borderBottom: "7px solid #e5e7eb" }}>
+                style={{ borderBottom: "7px solid #e5e7eb" }}
+              >
                 <img
                   src={yourbots}
                   style={{
@@ -151,7 +157,8 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => (
             <li>
               <Link
                 to="/subscribe"
-                className="flex items-center space-x-2 border-b border-gray-200 gap-10 hover:bg-gray-100 p-4">
+                className="flex items-center space-x-2 border-b border-gray-200 gap-10 hover:bg-gray-100 p-4"
+              >
                 <img
                   src={subscribe}
                   style={{
@@ -170,7 +177,8 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => (
             <li>
               <Link
                 to="/creators"
-                className="flex items-center space-x-2 border-b border-gray-200 gap-10 hover:bg-gray-100 p-4">
+                className="flex items-center space-x-2 border-b border-gray-200 gap-10 hover:bg-gray-100 p-4"
+              >
                 <img
                   src={creators}
                   style={{
@@ -190,7 +198,8 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => (
             <li>
               <Link
                 to="/profile"
-                className="flex items-center space-x-2 border-b border-gray-200 gap-10 hover:bg-gray-100 p-4">
+                className="flex items-center space-x-2 border-b border-gray-200 gap-10 hover:bg-gray-100 p-4"
+              >
                 <img
                   src={profile}
                   style={{
@@ -211,7 +220,8 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => (
               <Link
                 to="/settings"
                 className="flex items-center space-x-2 border-gray-200 gap-10 hover:bg-gray-100 p-4"
-                style={{ borderBottom: "7px solid #e5e7eb" }}>
+                style={{ borderBottom: "7px solid #e5e7eb" }}
+              >
                 <img
                   src={setting}
                   style={{
@@ -234,7 +244,8 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => (
             <li>
               <Link
                 to="/feedback"
-                className="flex items-center space-x-2 border-b-2 border-gray-200 gap-10 hover:bg-gray-100 p-4">
+                className="flex items-center space-x-2 border-b-2 border-gray-200 gap-10 hover:bg-gray-100 p-4"
+              >
                 <img
                   src={feedback}
                   style={{
@@ -252,7 +263,8 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => (
             <li>
               <Link
                 to="/contact"
-                className="flex items-center space-x-2 border-b-2 border-gray-200 gap-10 hover:bg-gray-100 p-4">
+                className="flex items-center space-x-2 border-b-2 border-gray-200 gap-10 hover:bg-gray-100 p-4"
+              >
                 <FontAwesomeIcon
                   icon={faPhoneAlt}
                   className="text-black-300"
@@ -275,7 +287,8 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => (
                 className="flex items-center gap-4 cursor-pointer hover:text-[#5d5cdd] text-sm sm:text-sm md:text-base"
                 onClick={() =>
                   (window.location.href = "https://www.linkedin.com")
-                }>
+                }
+              >
                 Follow Us
                 <span className="text-[#5d5cde]">
                   <FontAwesomeIcon
@@ -294,7 +307,8 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => (
                 className="flex items-center gap-4 cursor-pointer hover:text-[#5d5cdd] text-sm sm:text-sm md:text-base"
                 onClick={() =>
                   (window.location.href = "info@entrepreneurshipnetwork.net")
-                }>
+                }
+              >
                 Join Us
                 <span className="text-[#5d5cde]">
                   <FontAwesomeIcon
@@ -320,7 +334,8 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => (
                 <li className=" ml-6">
                   <a
                     href="/about"
-                    className="text-gray-600 hover:text-gray-900">
+                    className="text-gray-600 hover:text-gray-900"
+                  >
                     About
                   </a>
                 </li>
@@ -334,7 +349,8 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => (
                 <li className=" ml-4">
                   <a
                     href="/careers"
-                    className="text-gray-600 hover:text-gray-900">
+                    className="text-gray-600 hover:text-gray-900"
+                  >
                     Careers
                   </a>
                 </li>
@@ -342,7 +358,8 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => (
                 <li className=" ml-6">
                   <a
                     href="/help-center"
-                    className="text-gray-600 hover:text-gray-900">
+                    className="text-gray-600 hover:text-gray-900"
+                  >
                     Help Center
                   </a>
                 </li>
@@ -350,7 +367,8 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => (
                 <li className=" ml-4">
                   <a
                     href="/privacy-policy"
-                    className="text-gray-600 hover:text-gray-900">
+                    className="text-gray-600 hover:text-gray-900"
+                  >
                     Privacy Policy
                   </a>
                 </li>
@@ -358,7 +376,8 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => (
                 <li className=" ml-6">
                   <a
                     href="/term-condition"
-                    className="text-gray-600 hover:text-gray-900">
+                    className="text-gray-600 hover:text-gray-900"
+                  >
                     Terms & Conditions
                   </a>
                 </li>
