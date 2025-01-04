@@ -3,6 +3,8 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const MongoDB = require("./Config/config");
 const multer = require("multer");
+const fs = require("fs");
+const path = require("path");
 const authRouter = require("./Routes/Auth.Router");
 const contactRoute = require("./Routes/Contact.Router");
 const protectRoute = require("./Authmiddleware/authMiddleware");
@@ -12,31 +14,46 @@ const port = 5000;
 dotenv.config();
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 MongoDB();
 
+const uploadDir = path.join(process.cwd(), "uploads");
+
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
+
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "./uploads");
+  destination: function (req, file, cb) {
+    cb(null, uploadDir);
   },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + "-" + file.originalname);
+  filename: function (req, file, cb) {
+    const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
+    cb(
+      null,
+      `${file.fieldname}-${uniqueSuffix}${path.extname(file.originalname)}`
+    );
   },
 });
 
-const uploads = multer({ storage });
+const upload = multer({ storage });
 
-// app.use((req, res, next) => {
-//   console.log(req.headers);
-//   next();
-// });
+app.use("/uploads", express.static(uploadDir));
 
-app.post("/single", uploads.single("images"), (req, res) => {
+app.post("/single-file", upload.single("file"), (req, res) => {
   try {
-    console.log(req.file); //undefined
-    res.send("File uploaded successfully");
+    console.log("Headers:", req.headers);
+    console.log("Uploaded file", req.file);
+    if (!req.file) {
+      return res.status(400).send("No file uploaded.");
+    }
+    res
+      .status(200)
+      .send({ message: "File uploaded successfully", file: req.file });
   } catch (error) {
     console.log(error);
+    res.status(500).send("Error uploading file.");
   }
 });
 
