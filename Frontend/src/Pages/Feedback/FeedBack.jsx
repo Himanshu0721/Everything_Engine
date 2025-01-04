@@ -28,6 +28,22 @@ const FeedBack = () => {
             <span>Good</span>
             <span>Excellent</span>
           </div>
+          <div className="feedBackForm">
+            <label>Name</label>
+            <input
+              type="text"
+              className="feedBack-input"
+              placeholder="Enter Your Name"
+            />
+            <label>FeedBack</label>
+
+            <textarea
+              className="feedBack-input"
+              type="textArea"
+              placeholder="Give your FeedBack"
+            />
+          </div>
+          <button className="submit-btn">Submit</button>
         </div>
       </div>
     </>

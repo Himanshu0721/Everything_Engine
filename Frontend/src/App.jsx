@@ -58,8 +58,7 @@ function App() {
                   isSidebarOpen && window.innerWidth > 1024
                     ? "pl-[21rem]"
                     : "pl-0"
-                }`}
-              >
+                }`}>
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/privacy-policy" element={<Privacy />} />
