@@ -3,20 +3,25 @@ import React, { useState } from "react";
 import "./feedBack.css";
 
 const FeedBack = () => {
-  const [count, setCount] = useState([1, 2, 3, 4, 5]);
+  const [starCount, setStarCount] = useState(0);
 
   return (
     <>
       <div className="feedback-container">
-        <h1>Share your experience</h1>
+        <h1 className="title">Share your experience</h1>
 
         <div className="rating-container">
           <div className="count-container">
-            {count.map((num, index) => (
-              <button key={index} className="count-btn">
-                {num}
-              </button>
-            ))}
+            {[...Array(5)].map((_, index) => {
+              return (
+                <span
+                  key={index}
+                  className={index + 1 <= starCount ? `selected` : ""}
+                  onClick={() => setStarCount(index + 1)}>
+                  &#9733;
+                </span>
+              );
+            })}
           </div>
           <div className="expression">
             <span>Bad</span>
