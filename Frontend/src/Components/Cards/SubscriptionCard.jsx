@@ -8,6 +8,9 @@ const SubscriptionCard = ({ item }) => {
         <div className="img-container">
           <img src={item.img} alt="" />
         </div>
+        <div className="months-container">
+          <h2>{item.months} </h2>
+        </div>
         <div className="price-section">
           <h3>Price {item.price} </h3>
           <button>Subscribe</button>
