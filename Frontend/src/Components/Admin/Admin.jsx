@@ -72,7 +72,7 @@ const Admin = () => {
       <aside
         className={`fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } border-r sm:translate-x-0`}
+        } border-r md:translate-x-0`}
         style={{ background: "linear-gradient(to bottom, #000000, #434343)" }}
         aria-label="Sidebar"
       >
@@ -142,7 +142,11 @@ const Admin = () => {
         </div>
       </aside>
 
-      <div className="flex flex-col items-center justify-center h-screen">
+      <div
+        className={`md:ml-64 p-4 transition-all ${
+          isSidebarOpen ? "ml-64" : ""
+        }`}
+      >
         <div className="mt-14">{renderPage()}</div>
       </div>
     </>
