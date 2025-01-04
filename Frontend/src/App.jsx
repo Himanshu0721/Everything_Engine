@@ -17,6 +17,13 @@ import Blog from "./Pages/BLog/Blog";
 import Admin from "./Components/Admin/Admin";
 import Creators from "./Pages/creators/Creators";
 import Settings from "./Pages/Settings/Settings";
+import HelpCenter from "./Pages/helpCenter/HelpCenter";
+import General from "./Pages/helpCenter/general/General";
+import FaqGeneral from "./Pages/helpCenter/general/faqGeneral";
+import CreatorMonetization from "./Pages/helpCenter/creatorMonetization/CreatorMonetization";
+import Subscriptions from "./Pages/helpCenter/subscriptions/Subscriptions";
+import FaqSubscriptions from "./Pages/helpCenter/subscriptions/faqSubscriptions";
+import FaqCreator from "./Pages/helpCenter/creatorMonetization/faqCreator";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 1024);
@@ -59,7 +66,8 @@ function App() {
                   isSidebarOpen && window.innerWidth > 1024
                     ? "pl-[21rem]"
                     : "pl-0"
-                }`}>
+                }`}
+              >
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/privacy-policy" element={<Privacy />} />
@@ -74,6 +82,28 @@ function App() {
                   <Route path="/subscribe" element={<Subscribe />} />
                   <Route path="/feedback" element={<FeedBack />} />
                   <Route path="/settings" element={<Settings />} />
+                  <Route path="/help-center" element={<HelpCenter />} />
+                  <Route path="/help-center/general" element={<General />} />
+                  <Route
+                    path="/help-center/creator-monetization"
+                    element={<CreatorMonetization />}
+                  />
+                  <Route
+                    path="/help-center/creator-monetization/faqs"
+                    element={<FaqCreator />}
+                  />
+                  <Route
+                    path="/help-center/subscriptions"
+                    element={<Subscriptions />}
+                  />
+                  <Route
+                    path="/help-center/subscriptions/faqs"
+                    element={<FaqSubscriptions />}
+                  />
+                  <Route
+                    path="/help-center/general/faqs"
+                    element={<FaqGeneral />}
+                  />
                 </Routes>
               </main>
             </>
