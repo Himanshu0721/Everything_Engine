@@ -91,9 +91,9 @@
     width: 100%;
   }
 }
-@media screen and (max-width: 428px) {
+@media screen and (max-width: 490px) {
   .profile-container {
-    padding: 0;
+    padding: 5%;
   }
   .profile-header {
     width: 95%;

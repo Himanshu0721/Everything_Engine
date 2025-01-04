@@ -38,19 +38,19 @@ const ProfileModal = ({
                 />
                 <input
                   type="file"
-                  className="bg-red-500"
-                  accept="image/*"
-                  alt="Upload File"
+                  id="image"
+                  name="image"
+                  className="mt-1 block w-full text-sm  text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
                   onChange={handleImageChange}
                 />
               </div>
             </div>
-            <div>
-              <div className="user-info">
+            <div className="user-info">
+              <div className="flex mt-2">
                 <label>Name</label>
                 <input className="input-name" type="text" placeholder="Name" />
               </div>
-              <div>
+              <div className="flex mt-2">
                 <label>UserName</label>
                 <input
                   type="text"

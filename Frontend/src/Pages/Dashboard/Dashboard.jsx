@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { TbMessageChatbot } from "react-icons/tb";
 import "./dashboard.css";
 import logo from "../../assets/logo.svg";
 
@@ -13,7 +12,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="dashboard-container">
         <Modal isOpen={isModalOpen} closeModal={closeModal} />
         <div className="container-info">
           <img className="dashboard-img" src={logo} alt="img" />
