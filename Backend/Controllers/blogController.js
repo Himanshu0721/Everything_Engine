@@ -26,4 +26,81 @@ const createBlog = async (req, res) => {
   }
 };
 
-module.exports = { createBlog };
+const getBlogs = async (req, res) => {
+  try {
+    const blogs = await Blog.find();
+
+    if (!blogs) {
+      return res.status(404).json({ message: "No blog found" });
+    }
+
+    res.status(200).json({ message: "Fetched successfully", blogs });
+  } catch (error) {
+    res.status(500).json({ error: "Fetched failed", error });
+  }
+};
+
+const getBlogById = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const existBlog = await Blog.findById(id);
+
+    if (!existBlog) {
+      return res.status(404).json({ message: "Blog not found" });
+    }
+
+    res
+      .status(200)
+      .json({ message: "Single blog fetched successfully", existBlog });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch blog." });
+  }
+};
+
+const updatesBlog = async (req, res) => {
+  const { id } = req.params;
+  const { title, date, description } = req.body;
+  const image = req.file ? req.file.path : "Image file is required";
+  try {
+    const updateBlog = await Blog.findByIdAndUpdate(
+      id,
+      {
+        title,
+        date,
+        image,
+        description,
+      },
+      { new: true }
+    );
+
+    if (!updateBlog) {
+      return res.status(404).json({ message: "Blog not found" });
+    }
+
+    res
+      .status(200)
+      .json({ message: "Blog updated successfully", blog: updateBlog });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to update blog.", error });
+  }
+};
+
+const deleteBlog = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const deletedBlog = await Blog.findByIdAndDelete(id);
+
+    if (!deletedBlog) {
+      return res.status(404).json({ message: "Blog not found" });
+    }
+
+    res
+      .status(200)
+      .json({ message: "Blog deleted successfully", blog: deletedBlog });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to blog deleted", error });
+  }
+};
+
+module.exports = { createBlog, getBlogs, getBlogById, updatesBlog, deleteBlog };
