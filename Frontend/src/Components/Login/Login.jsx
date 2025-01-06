@@ -29,7 +29,7 @@ const Login = () => {
         <img src={logo} alt="logo" className="custom-image" />
       </div>
       <div className="text">
-        <p>
+        <p className="dark:text-[#a5acac]">
           Talk to the best AI models like ChatGPT, GPT-4, Claude 3.5 Sonnet,
           FLUX1.1, and millions of others - all on Poe.
         </p>
@@ -42,16 +42,16 @@ const Login = () => {
             name="email"
             placeholder="Email address"
             required
-            className="email-input"
+            className="email-input dark:bg-[#242424]"
           />
           <input
             type="password"
             name="password"
             placeholder="Password"
             required
-            className="password-input"
+            className="password-input dark:bg-[#242424]"
           />
-          <button type="submit" className="login-button email">
+          <button type="submit" className="login-button dark:bg-purple-500 hover:dark:bg-purple-800 email">
             Login
           </button>
         </form>
@@ -62,14 +62,14 @@ const Login = () => {
             name="phone"
             placeholder="Phone number"
             required
-            className="phone-input"
+            className="phone-input dark:bg-[#242424]"
           />
           <input
             type="password"
             name="password"
             placeholder="Password"
             required
-            className="password-input"
+            className="password-input dark:bg-[#242424]"
           />
           <button type="submit" className="login-button phone">
             Login
@@ -78,19 +78,19 @@ const Login = () => {
       )}
 
       <button
-        className="toggle-login"
+        className="toggle-login dark:bg-[#242424] dark:border-white dark:text-white dark:hover:bg-gray-800"
         onClick={() => setIsPhoneLogin((prev) => !prev)}>
         {isPhoneLogin ? "Use email" : "Use phone"}
       </button>
 
-      <p className="register-option">
+      <p className="register-option dark:text-[#a5acac]">
         Don't have an account?{" "}
         <button className="register-link" onClick={() => navigate("/register")}>
           Register here
         </button>
       </p>
 
-      <p className="terms">
+      <p className="terms dark:text-[#a5acac]">
         By continuing, you are agreeing to Ten Everything{" "}
         <a href="#terms">Terms of Service</a> and{" "}
         <a href="#privacy">Privacy Policy</a>.
