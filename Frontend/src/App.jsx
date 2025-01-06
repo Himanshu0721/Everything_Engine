@@ -24,7 +24,7 @@ import CreatorMonetization from "./Pages/helpCenter/creatorMonetization/CreatorM
 import Subscriptions from "./Pages/helpCenter/subscriptions/Subscriptions";
 import FaqSubscriptions from "./Pages/helpCenter/subscriptions/faqSubscriptions";
 import FaqCreator from "./Pages/helpCenter/creatorMonetization/faqCreator";
-
+import Contact from "./Pages/Contact/Contact"
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 1024);
 
@@ -84,6 +84,7 @@ function App() {
                   <Route path="/settings" element={<Settings />} />
                   <Route path="/help-center" element={<HelpCenter />} />
                   <Route path="/help-center/general" element={<General />} />
+                  <Route path="/contact" element={<Contact />}/>
                   <Route
                     path="/help-center/creator-monetization"
                     element={<CreatorMonetization />}
