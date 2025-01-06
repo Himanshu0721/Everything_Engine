@@ -4,12 +4,12 @@ const SubscriptionCard = ({ item }) => {
   return (
     <>
       <div className="card">
-        <h2>{item.title}</h2>
+        <h2 className="dark:text-white">{item.title}</h2>
         <div className="img-container">
           <img src={item.img} alt="" />
         </div>
         <div className="months-container">
-          <h2>{item.months} </h2>
+          <h2 className="dark:text-white">{item.months} </h2>
         </div>
         <div className="price-section">
           <h3>Price {item.price} </h3>

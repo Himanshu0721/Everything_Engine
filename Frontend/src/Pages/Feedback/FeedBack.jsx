@@ -8,7 +8,7 @@ const FeedBack = () => {
   return (
     <>
       <div className="feedback-container">
-        <h1 className="title">Share your experience</h1>
+        <h1 className="title dark:text-white">Share your experience</h1>
 
         <div className="rating-container">
           <div className="count-container">
@@ -29,16 +29,16 @@ const FeedBack = () => {
             <span>Excellent</span>
           </div>
           <div className="feedBackForm">
-            <label>Name</label>
+            <label className="dark:text-[#a5acac]">Name</label>
             <input
               type="text"
-              className="feedBack-input"
+              className="feedBack-input dark:bg-[#242424]"
               placeholder="Enter Your Name"
             />
-            <label>FeedBack</label>
+            <label className="dark:text-[#a5acac]">FeedBack</label>
 
             <textarea
-              className="feedBack-input"
+              className="feedBack-input dark:bg-[#242424]"
               type="textArea"
               placeholder="Give your FeedBack"
             />

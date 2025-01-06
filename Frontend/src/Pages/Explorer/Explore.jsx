@@ -58,14 +58,14 @@ export default function Explore() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-[#181818]">
       <div className="flex">
         <main className="flex-1 px-4 py-6">
           <div className="mx-auto max-w-6xl space-y-6">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
               <input
-                className="w-full rounded-lg border border-gray-200 pl-10 py-2 outline-none focus:border-gray-400"
+                className="w-full rounded-lg border border-gray-200 dark:bg-[#181818] pl-10 py-2 outline-none focus:border-gray-400"
                 placeholder="Search for bots or people"
                 type="search"
               />
@@ -79,7 +79,7 @@ export default function Explore() {
                   className={`px-4 py-1 rounded-full text-sm transition-colors ${
                     activeFilter.includes(filter)
                       ? "bg-blue-500 text-white hover:bg-blue-600"
-                      : "bg-gray-100 hover:bg-gray-200"
+                      : "bg-gray-100 dark:bg-[#242424] hover:bg-gray-200"
                   }`}
                 >
                   {filter}
@@ -107,7 +107,7 @@ export default function Explore() {
                         </span>
                       )}
                     </div>
-                    <p className="text-sm text-gray-600">{bot.description}</p>
+                    <p className="text-sm text-gray-600 dark:text-[#a5acac]">{bot.description}</p>
                   </div>
                 </div>
               ))}

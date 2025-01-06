@@ -16,7 +16,7 @@ const Dashboard = () => {
         <Modal isOpen={isModalOpen} closeModal={closeModal} />
         <div className="container-info">
           <img className="dashboard-img" src={logo} alt="img" />
-          <h2 className="title">TEN - EVERYTHING AI</h2>
+          <h2 className="title dark:text-white">TEN - EVERYTHING AI</h2>
           <div>
             <div className="btn-container">
               <button className="dashboard-btn">Assistant</button>
@@ -29,7 +29,7 @@ const Dashboard = () => {
           </div>
           <div className="search-container">
             <input
-              className="search-box"
+              className="search-box dark:bg-[#242424]"
               type="search"
               placeholder="Start a new chat"
             />
