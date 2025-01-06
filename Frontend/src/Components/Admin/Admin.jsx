@@ -1,12 +1,15 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CreateBlog from "./CreateBlogForm/CreateBlog";
+import { useAuth } from "../context/authContext";
 
 const Admin = () => {
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
   const [currentPage, setCurrentPage] = React.useState("createblog");
 
   const navigate = useNavigate();
+
+  const { adminLogout } = useAuth();
 
   const toggleSidebar = () => {
     setIsSidebarOpen((prev) => !prev);
@@ -27,9 +30,10 @@ const Admin = () => {
   };
 
   const handleLogout = async () => {
-    await logout();
+    await adminLogout();
     navigate("/admin/login");
   };
+
   return (
     <>
       <nav
