@@ -16,6 +16,7 @@ import FeedBack from "./Pages/Feedback/FeedBack";
 import Blog from "./Pages/BLog/Blog";
 import Admin from "./Components/Admin/Admin";
 import Creators from "./Pages/creators/Creators";
+import Settings from "./Pages/Settings/Settings";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 1024);
@@ -71,6 +72,7 @@ function App() {
                   <Route path="/create-bot" element={<CreateBot />} />
                   <Route path="/register" element={<Register />} />
                   <Route path="/subscribe" element={<Subscribe />} />
+                  <Route path="/settings" element={<Settings />} />
                   <Route path="/feedback" element={<FeedBack />} />
                 </Routes>
               </main>
