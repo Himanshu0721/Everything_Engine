@@ -11,10 +11,10 @@ const verifyAdmin = require("../Authmiddleware/adminMiddleware");
 
 const router = express.Router();
 
-router.post("/create", verifyAdmin, upload.single("image"), createBlog);
+router.post("/create", verifyAdmin, upload.single("file"), createBlog);
 router.get("/allblogs", verifyAdmin, getBlogs);
 router.get("/blog/:id", verifyAdmin, getBlogById);
-router.put("/updateblog/:id", verifyAdmin, upload.single("image"), updatesBlog);
+router.put("/updateblog/:id", verifyAdmin, upload.single("file"), updatesBlog);
 router.delete("/deleteblog/:id", verifyAdmin, deleteBlog);
 
 module.exports = router;

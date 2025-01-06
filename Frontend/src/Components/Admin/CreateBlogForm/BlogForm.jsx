@@ -30,8 +30,7 @@ const BlogCard = ({ title, date, imageUrl }) => {
               className="h-8 w-8"
               onClick={(e) => {
                 e.stopPropagation();
-              }}
-            >
+              }}>
               <Trash2 className="h-4 w-4" />
             </Button>
           </div>
@@ -62,8 +61,7 @@ const BlogCard = ({ title, date, imageUrl }) => {
             <Button
               onClick={() => {
                 setIsEdit(true);
-              }}
-            >
+              }}>
               Edit
             </Button>
           </DialogFooter>
@@ -80,8 +78,7 @@ const BlogCard = ({ title, date, imageUrl }) => {
             <div>
               <label
                 htmlFor="title"
-                className="block text-sm font-medium text-gray-700"
-              >
+                className="block text-sm font-medium text-gray-700">
                 Title
               </label>
               <input
@@ -94,8 +91,7 @@ const BlogCard = ({ title, date, imageUrl }) => {
             <div>
               <label
                 htmlFor="image"
-                className="block text-sm font-medium text-gray-700"
-              >
+                className="block text-sm font-medium text-gray-700">
                 Image
               </label>
               <input
@@ -108,16 +104,14 @@ const BlogCard = ({ title, date, imageUrl }) => {
             <div>
               <label
                 htmlFor="description"
-                className="block text-sm font-medium text-gray-700"
-              >
+                className="block text-sm font-medium text-gray-700">
                 Description
               </label>
               <textarea
                 id="description"
                 name="description"
                 rows="4"
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              ></textarea>
+                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
             </div>
           </form>
           <DialogFooter>
@@ -128,8 +122,7 @@ const BlogCard = ({ title, date, imageUrl }) => {
               onClick={() => {
                 // Handle edit
                 setIsEdit(false);
-              }}
-            >
+              }}>
               Save
             </Button>
           </DialogFooter>

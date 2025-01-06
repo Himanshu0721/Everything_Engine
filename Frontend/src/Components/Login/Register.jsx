@@ -1,19 +1,17 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "./Register.css";
 
 const Register = () => {
-  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     password: "",
-    confirmPassword: "",
   });
 
   const [errors, setErrors] = useState({});
 
+  console.log(formData);
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -51,7 +49,6 @@ const Register = () => {
     e.preventDefault();
     if (validateForm()) {
       alert("Registration successful!");
-      navigate("/verify-email"); // Navigate to the email verification page
     }
   };
 
@@ -113,21 +110,7 @@ const Register = () => {
             <span className="error-text">{errors.password}</span>
           )}
         </div>
-        <div className="form-group">
-          <label htmlFor="confirmPassword">Confirm Password</label>
-          <input
-            type="password"
-            name="confirmPassword"
-            id="confirmPassword"
-            placeholder="Enter your confirm password"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            className={errors.confirmPassword ? "error-input" : ""}
-          />
-          {errors.confirmPassword && (
-            <span className="error-text">{errors.confirmPassword}</span>
-          )}
-        </div>
+
         <button type="submit" className="register-button">
           Register
         </button>
