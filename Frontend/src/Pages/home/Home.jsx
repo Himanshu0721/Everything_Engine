@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import AuthScreen from "./AuthScreen";
 import HomeScreen from "./HomeScreen";
 const Home = () => {
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState(true);
 
   return <>{user ? <HomeScreen /> : <AuthScreen />}</>;
 };
