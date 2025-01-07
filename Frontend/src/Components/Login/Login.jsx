@@ -25,6 +25,7 @@ const Login = () => {
       });
       const responseData = await response.json();
       setUser(responseData);
+      console.log(responseData);
       localStorage.setItem(
         "userToken",
         JSON.stringify(responseData.user.token)
@@ -50,6 +51,8 @@ const Login = () => {
             name="email"
             placeholder="Email address"
             required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="email-input"
           />
           <input
@@ -57,6 +60,8 @@ const Login = () => {
             name="password"
             placeholder="Password"
             required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             className="password-input"
           />
           <button type="submit" className="login-button email">

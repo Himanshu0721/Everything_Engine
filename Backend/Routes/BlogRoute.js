@@ -1,5 +1,5 @@
 const express = require("express");
-const upload = require("../Authmiddleware/multer");
+const upload = require("../middlewares/multer");
 const {
   createBlog,
   getBlogs,
@@ -7,7 +7,7 @@ const {
   deleteBlog,
   updatesBlog,
 } = require("../Controllers/blogController");
-const verifyAdmin = require("../Authmiddleware/adminMiddleware");
+const verifyAdmin = require("../middlewares/adminMiddleware");
 
 const router = express.Router();
 
