@@ -9,7 +9,7 @@ const Login = () => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
-  const handleEmailLogin = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     const requestData = {
       email,
@@ -44,7 +44,7 @@ const Login = () => {
         <div className="text">
           <p>TEN - Everything AI</p>
         </div>
-        <form onSubmit={handleEmailLogin} className="email-form">
+        <form onSubmit={handleLogin} className="email-form">
           <input
             type="email"
             name="email"

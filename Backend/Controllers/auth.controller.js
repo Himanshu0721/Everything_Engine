@@ -4,10 +4,11 @@ const jwt = require("jsonwebtoken");
 
 const SingUpHandler = async (req, res) => {
   try {
-    const { email, password, username } = req.body;
+    const { email, password, username, number } = req.body;
 
-    if (!email || !password || !username) {
-      return req
+    console.log({ email, password, username, number });
+    if (!email || !password || !username || !number) {
+      return res
         .status(400)
         .json({ success: false, message: "All fields are required" });
     }
@@ -35,8 +36,9 @@ const SingUpHandler = async (req, res) => {
 
     const newUser = new User({
       email,
-      password: hashedPassword,
       username,
+      number,
+      password: hashedPassword,
     });
 
     await newUser.save();

@@ -9,7 +9,7 @@ const authRouter = require("./Routes/Auth.Router");
 const contactRoute = require("./Routes/Contact.Router");
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
-const port = 5000;
+const PORT = 5000;
 
 dotenv.config();
 
@@ -28,6 +28,6 @@ app.use("/api/admin", adminRoute);
 app.use("/api", contactRoute);
 app.use("/api/blogs", blogRoute);
 
-app.listen(port, () =>
-  console.log(`Example app listening on port http://localhost:${port}`)
+app.listen(PORT, () =>
+  console.log(`Example app listening on port http://localhost:${PORT}`)
 );
