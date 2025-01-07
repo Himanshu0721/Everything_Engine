@@ -2,24 +2,19 @@ const Blog = require("../Models/blogModel");
 
 const createBlog = async (req, res) => {
   try {
-    console.log("Request body:", req.body);
-    console.log("Request file:", req.file);
-
     const { title, date, description } = req.body;
-
-    console.log("Received file:", req.file);
 
     if (!req.file) {
       return res.status(400).json({ message: "Image file is required" });
     }
 
-    const image = req.file.path;
+    const imageURL = `/uploads/${req.file.filename}`;
 
     if (!title || !date || !description) {
-      return res.status(400).json({ message: "All fields are requiredd" });
+      return res.status(400).json({ message: "All fields are required" });
     }
 
-    const newBlog = new Blog({ title, date, image, description });
+    const newBlog = new Blog({ title, date, image: imageURL, description });
     await newBlog.save();
 
     res

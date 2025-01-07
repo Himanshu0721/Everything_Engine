@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dialog";
 import { Trash2 } from "lucide-react";
 
-const BlogCard = ({ title, date, imageUrl }) => {
+const BlogCard = ({ title, date, imageUrl, description }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
 
@@ -19,7 +19,7 @@ const BlogCard = ({ title, date, imageUrl }) => {
       <Card className="max-w-md cursor-pointer hover:shadow-lg transition-shadow">
         <div className="relative" onClick={() => setIsOpen(true)}>
           <img
-            src={imageUrl || "/api/placeholder/400/200"}
+            src={imageUrl}
             alt={title}
             className="w-full h-48 object-cover rounded-t-lg"
           />
@@ -30,7 +30,8 @@ const BlogCard = ({ title, date, imageUrl }) => {
               className="h-8 w-8"
               onClick={(e) => {
                 e.stopPropagation();
-              }}>
+              }}
+            >
               <Trash2 className="h-4 w-4" />
             </Button>
           </div>
@@ -48,7 +49,7 @@ const BlogCard = ({ title, date, imageUrl }) => {
           </DialogHeader>
           <div className="py-4">
             <img
-              src={imageUrl || "/api/placeholder/400/200"}
+              src={imageUrl}
               alt={title}
               className="w-full h-48 object-cover rounded-lg"
             />
@@ -61,7 +62,8 @@ const BlogCard = ({ title, date, imageUrl }) => {
             <Button
               onClick={() => {
                 setIsEdit(true);
-              }}>
+              }}
+            >
               Edit
             </Button>
           </DialogFooter>
@@ -78,7 +80,8 @@ const BlogCard = ({ title, date, imageUrl }) => {
             <div>
               <label
                 htmlFor="title"
-                className="block text-sm font-medium text-gray-700">
+                className="block text-sm font-medium text-gray-700"
+              >
                 Title
               </label>
               <input
@@ -91,7 +94,8 @@ const BlogCard = ({ title, date, imageUrl }) => {
             <div>
               <label
                 htmlFor="image"
-                className="block text-sm font-medium text-gray-700">
+                className="block text-sm font-medium text-gray-700"
+              >
                 Image
               </label>
               <input
@@ -104,14 +108,16 @@ const BlogCard = ({ title, date, imageUrl }) => {
             <div>
               <label
                 htmlFor="description"
-                className="block text-sm font-medium text-gray-700">
+                className="block text-sm font-medium text-gray-700"
+              >
                 Description
               </label>
               <textarea
                 id="description"
                 name="description"
                 rows="4"
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              ></textarea>
             </div>
           </form>
           <DialogFooter>
@@ -122,7 +128,8 @@ const BlogCard = ({ title, date, imageUrl }) => {
               onClick={() => {
                 // Handle edit
                 setIsEdit(false);
-              }}>
+              }}
+            >
               Save
             </Button>
           </DialogFooter>

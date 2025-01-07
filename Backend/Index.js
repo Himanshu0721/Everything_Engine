@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+const path = require("path");
 const MongoDB = require("./Config/config");
 const blogRoute = require("./Routes/BlogRoute");
 const adminRoute = require("./Routes/AdminRoute");
@@ -13,10 +14,10 @@ const PORT = 5000;
 
 dotenv.config();
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({ limit: "50mb" }));
+app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 app.use(cors());
-app.use("/uploads", express.static("uploads"));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(cookieParser());
 
 MongoDB();
