@@ -23,6 +23,9 @@ import CreatorMonetization from "./Pages/helpCenter/creatorMonetization/CreatorM
 import Subscriptions from "./Pages/helpCenter/subscriptions/Subscriptions";
 import FaqSubscriptions from "./Pages/helpCenter/subscriptions/faqSubscriptions";
 import FaqCreator from "./Pages/helpCenter/creatorMonetization/faqCreator";
+import AdminLogin from "./Components/Admin/AdminLogin/AdminLogin";
+import ProtectedRoute from "./Components/ProtectedRoute";
+
 import Contact from "./Pages/Contact/Contact";
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 1024);
@@ -42,7 +45,16 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <Admin />
+            </ProtectedRoute>
+          }
+        />
+
         <Route path="/blog" element={<Blog />} />
         <Route
           path="*"

@@ -25,7 +25,7 @@ const Profile = () => {
   return (
     <>
       <div className="profile-section">
-      <header className="text-center bg-gray-100 m-0 p-5 text-2xl font-semibold">Profile</header>
+      <header className="text-center bg-gray-100 dark:bg-[#242424] m-0 p-5 text-2xl font-semibold">Profile</header>
 
         <div className="profile-container">
           <div className="profile-header">
@@ -40,7 +40,7 @@ const Profile = () => {
                   alt="img"
                 />
                 <div className="info">
-                  <h2>{name}</h2>
+                  <h2 className="dark:text-white">{name}</h2>
                   <span>{userName}</span>
                 </div>
               </div>

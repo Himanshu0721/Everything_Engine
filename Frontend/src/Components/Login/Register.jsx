@@ -54,10 +54,12 @@ const Register = () => {
 
   return (
     <div className="register-container">
-      <h1>Create an Account</h1>
+      <h1 className="dark:text-[#a5acac]">Create an Account</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name" className="dark:text-[#a5acac]">
+            Name
+          </label>
           <input
             type="text"
             name="name"
@@ -65,12 +67,14 @@ const Register = () => {
             placeholder="Enter your name"
             value={formData.name}
             onChange={handleChange}
-            className={errors.name ? "error-input" : ""}
+            className={`{${errors.name} ? "error-input" : ""} dark:bg-[#242424]`}
           />
           {errors.name && <span className="error-text">{errors.name}</span>}
         </div>
         <div className="form-group">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email" className="dark:text-[#a5acac]">
+            Email
+          </label>
           <input
             type="email"
             name="email"
@@ -78,12 +82,14 @@ const Register = () => {
             placeholder="Enter your Email"
             value={formData.email}
             onChange={handleChange}
-            className={errors.email ? "error-input" : ""}
+            className={`{${errors.email} ? "error-input" : ""} dark:bg-[#242424]`}
           />
           {errors.email && <span className="error-text">{errors.email}</span>}
         </div>
         <div className="form-group">
-          <label htmlFor="phone">Phone Number</label>
+          <label htmlFor="phone" className="dark:text-[#a5acac]">
+            Phone Number
+          </label>
           <input
             type="text"
             name="phone"
@@ -91,12 +97,14 @@ const Register = () => {
             placeholder="Enter your phone number"
             value={formData.phone}
             onChange={handleChange}
-            className={errors.phone ? "error-input" : ""}
+            className={`{${errors.phone} ? "error-input" : ""} dark:bg-[#242424]`}
           />
           {errors.phone && <span className="error-text">{errors.phone}</span>}
         </div>
         <div className="form-group">
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password" className="dark:text-[#a5acac]">
+            Password
+          </label>
           <input
             type="password"
             name="password"
@@ -104,13 +112,12 @@ const Register = () => {
             placeholder="Enter your password"
             value={formData.password}
             onChange={handleChange}
-            className={errors.password ? "error-input" : ""}
+            className={`{${errors.password} ? "error-input" : ""} dark:bg-[#242424]`}
           />
           {errors.password && (
             <span className="error-text">{errors.password}</span>
           )}
         </div>
-
         <button type="submit" className="register-button">
           Register
         </button>

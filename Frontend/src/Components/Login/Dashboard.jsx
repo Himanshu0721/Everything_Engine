@@ -20,15 +20,15 @@ const Dashboard = () => {
         />
       </div>
       <h2>Get started</h2>
-      <h1>Verify email</h1>
-      <p>Your code was sent to your Email</p>
+      <h1 className="dark:text-[#a5acac]">Verify email</h1>
+      <p className="dark:text-[#a5acac]">Your code was sent to your Email</p>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
           value={code}
           onChange={(e) => setCode(e.target.value)}
           placeholder="Code"
-          className="code-input"
+          className="code-input dark:bg-[#242424]"
           required
         />
         <button type="submit" className="verify-button">

@@ -10,16 +10,16 @@ const Creators = () => {
 
   return (
     <>
-      <header className="text-center bg-gray-100 m-0 p-5 text-2xl font-semibold">
+      <header className="text-center bg-gray-100 dark:bg-[#242424] m-0 p-5 text-2xl font-semibold">
         Creators
       </header>
-      <div className="flex flex-col items-center bg-white min-h-screen p-6">
+      <div className="flex flex-col items-center bg-white dark:bg-[#181818] min-h-screen p-6">
         {/* Text Section */}
         <div className="max-w-2xl w-full ">
-          <p className="text-2xl font-bold mb-2 text-start">
+          <p className="text-2xl font-bold mb-2 text-start dark:text-[#a5acac]">
             Join The Entrepreneurship Network's Creators Program
           </p>
-          <p className="text-gray-600 text-base text-start">
+          <p className="text-gray-600 text-base text-start dark:text-gray-500">
             Monetize your skills and earn as users engage with your content.
           </p>
         </div>
@@ -34,11 +34,11 @@ const Creators = () => {
         </div>
 
         {/* Details Section */}
-        <div className="bg-gray-100 p-6 rounded-md max-w-2xl w-full">
-          <h2 className="text-lg font-bold text-gray-800 mb-4 text-start">
+        <div className="bg-gray-100 dark:bg-[#242424] p-6 rounded-md max-w-2xl w-full">
+          <h2 className="text-lg font-bold text-gray-800 mb-4 text-start dark:text-white">
             Unlock Opportunities and Earn More
           </h2>
-          <ul className="space-y-2 text-base text-gray-700">
+          <ul className="space-y-2 text-base text-gray-700 dark:text-white">
             <li className="flex items-center space-x-2">
               <div className="flex items-center justify-center w-7 h-7 bg-green-500 text-white rounded-full font-bold">
                 1
@@ -93,7 +93,7 @@ const Creators = () => {
               Apply Now →
             </button>
           </div>
-          <p className="text-sm text-gray-500 mt-4 text-start">
+          <p className="text-sm text-gray-500 mt-4 text-start dark:text-[#a5acac]">
             By clicking "Apply Now," you agree to The Entrepreneurship Network's{" "}
             <a href="/term-condition" className="text-[#5d5cde]">
               Terms of Service
