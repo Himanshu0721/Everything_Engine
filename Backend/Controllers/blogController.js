@@ -2,7 +2,12 @@ const Blog = require("../Models/blogModel");
 
 const createBlog = async (req, res) => {
   try {
+    console.log("Request body:", req.body);
+    console.log("Request file:", req.file);
+
     const { title, date, description } = req.body;
+
+    console.log("Received file:", req.file);
 
     if (!req.file) {
       return res.status(400).json({ message: "Image file is required" });

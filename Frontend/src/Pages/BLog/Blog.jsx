@@ -13,7 +13,7 @@ const Blog = () => {
       <header className="bg-[#333333] px-4 py-4 md:px-6">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="text-xl font-semibold text-white">Poe</span>
+            <span className="text-xl font-semibold text-white">TEN AI</span>
           </div>
 
           <button
@@ -44,9 +44,6 @@ const Blog = () => {
             </a>
             <a href="/blog" className="text-gray-300 hover:text-indigo-400">
               Blog
-            </a>
-            <a href="#" className="text-gray-300 hover:text-indigo-400">
-              Apps
             </a>
           </nav>
 
@@ -187,8 +184,11 @@ const Blog = () => {
             <div>
               <h4 className="font-semibold mb-4">Company</h4>
               <div className="space-y-2">
-                <a href="#" className="block text-gray-400 hover:text-white">
-                  About Poe
+                <a
+                  href="/about"
+                  className="block text-gray-400 hover:text-white"
+                >
+                  About TEN
                 </a>
                 <a href="#" className="block text-gray-400 hover:text-white">
                   Careers
@@ -198,10 +198,16 @@ const Blog = () => {
             <div>
               <h4 className="font-semibold mb-4">Policy</h4>
               <div className="space-y-2">
-                <a href="#" className="block text-gray-400 hover:text-white">
+                <a
+                  href="/privacy-policy"
+                  className="block text-gray-400 hover:text-white"
+                >
                   Privacy policy
                 </a>
-                <a href="#" className="block text-gray-400 hover:text-white">
+                <a
+                  href="/term-condition"
+                  className="block text-gray-400 hover:text-white"
+                >
                   Terms of service
                 </a>
               </div>
@@ -209,7 +215,10 @@ const Blog = () => {
             <div>
               <h4 className="font-semibold mb-4">Resources</h4>
               <div className="space-y-2">
-                <a href="#" className="block text-gray-400 hover:text-white">
+                <a
+                  href="/help-center"
+                  className="block text-gray-400 hover:text-white"
+                >
                   Help center
                 </a>
                 <a href="#" className="block text-gray-400 hover:text-white">
