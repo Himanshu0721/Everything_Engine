@@ -35,11 +35,12 @@ export const BlogProvider = ({ children }) => {
     }
   };
 
-  const blogCreates = async ({ title, date, image, description }) => {
+  const blogCreates = async ({ title, date, feature, image, description }) => {
     setLoading(true);
     const formData = new FormData();
     formData.append("title", title);
     formData.append("date", date);
+    formData.append("feature", feature);
     formData.append("image", image);
     formData.append("description", description);
     try {

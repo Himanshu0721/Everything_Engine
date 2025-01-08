@@ -26,6 +26,7 @@ import ProtectedRoute from "../../Components/ProtectedRoute";
 import Admin from "@/Components/Admin/Admin";
 import Blog from "../Blog/Blog";
 import Dashboard from "../Dashboard/Dashboard";
+import BlogContent from "../BLog/InsideBlogContent";
 
 const HomeScreen = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 1024);
@@ -54,6 +55,7 @@ const HomeScreen = () => {
         />
 
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:id" element={<BlogContent />} />
         <Route
           path="*"
           element={
@@ -75,7 +77,8 @@ const HomeScreen = () => {
                   isSidebarOpen && window.innerWidth > 1024
                     ? "pl-[21rem]"
                     : "pl-0"
-                }`}>
+                }`}
+              >
                 <Routes>
                   <Route path="/" element={<Dashboard />} />
                   <Route path="/privacy-policy" element={<Privacy />} />

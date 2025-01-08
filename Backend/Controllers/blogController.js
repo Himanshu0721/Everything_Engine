@@ -2,7 +2,7 @@ const Blog = require("../Models/blogModel");
 
 const createBlog = async (req, res) => {
   try {
-    const { title, date, description } = req.body;
+    const { title, date, description, feature } = req.body;
 
     if (!req.file) {
       return res.status(400).json({ message: "Image file is required" });
@@ -10,18 +10,28 @@ const createBlog = async (req, res) => {
 
     const imageURL = `/uploads/${req.file.filename}`;
 
-    if (!title || !date || !description) {
+    if (!title || !date || !description || !feature) {
       return res.status(400).json({ message: "All fields are required" });
     }
 
-    const newBlog = new Blog({ title, date, image: imageURL, description });
+    if (!["All", "Product", "Announcement"].includes(feature)) {
+      return res.status(400).json({ message: "Invalid feature value" });
+    }
+
+    const newBlog = new Blog({
+      title,
+      date,
+      image: imageURL,
+      description,
+      feature,
+    });
     await newBlog.save();
 
     res
       .status(201)
       .json({ message: "Blog created successfully", blog: newBlog });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     res.status(500).json({ error: "Failed to create blog, server error" });
   }
 };
@@ -59,7 +69,7 @@ const getBlogById = async (req, res) => {
 
 const updatesBlog = async (req, res) => {
   const { id } = req.params;
-  const { title, date, description } = req.body;
+  const { title, date, description, feature } = req.body;
 
   try {
     const existBlog = await Blog.findById(id);
@@ -72,9 +82,14 @@ const updatesBlog = async (req, res) => {
       existBlog.image = `/uploads/${req.file.filename}`;
     }
 
+    if (feature && !["All", "Product", "Announcement"].includes(feature)) {
+      return res.status(400).json({ message: "Invalid feature value" });
+    }
+
     existBlog.title = title || existBlog.title;
     existBlog.date = date || existBlog.date;
     existBlog.description = description || existBlog.description;
+    existBlog.feature = feature || existBlog.feature;
 
     await existBlog.save();
 
@@ -82,7 +97,30 @@ const updatesBlog = async (req, res) => {
       .status(200)
       .json({ message: "Blog updated successfully", blog: existBlog });
   } catch (error) {
+    console.error(error);
     res.status(500).json({ error: "Failed to update blog", error });
+  }
+};
+
+const blogFilterByFeature = async (req, res) => {
+  const { feature } = req.params;
+
+  if (!["All", "Product", "Announcement"].includes(feature)) {
+    return res.status(400).json({ message: "Invalid feature value" });
+  }
+
+  try {
+    const blogs = await Blog.find({ feature });
+
+    if (!blogs.length) {
+      return res
+        .status(404)
+        .json({ message: "No blogs found for this feature" });
+    }
+
+    res.status(200).json({ message: "Blogs fetched successfully", blogs });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch blogs by feature", error });
   }
 };
 
@@ -104,4 +142,11 @@ const deleteBlog = async (req, res) => {
   }
 };
 
-module.exports = { createBlog, getBlogs, getBlogById, updatesBlog, deleteBlog };
+module.exports = {
+  createBlog,
+  getBlogs,
+  getBlogById,
+  updatesBlog,
+  blogFilterByFeature,
+  deleteBlog,
+};
