@@ -63,10 +63,13 @@ export default function ContentForm() {
 
       {/* Add new blog */}
       <Dialog open={isAdded} onOpenChange={setIsAdded}>
-        <DialogContent>
+        <DialogContent aria-describedby="add-blog-description">
           <DialogHeader>
             <DialogTitle>Add Blog</DialogTitle>
           </DialogHeader>
+          <p id="add-blog-description" className="text-sm text-gray-600">
+            Fill in the details below to create a new blog.
+          </p>
           <form
             onSubmit={handleSubmit}
             className="space-y-4"
@@ -142,7 +145,6 @@ export default function ContentForm() {
               <Button
                 type="submit"
                 onClick={() => {
-                  // Handle edit
                   setIsAdded(false);
                 }}
               >
@@ -152,16 +154,19 @@ export default function ContentForm() {
           </form>
         </DialogContent>
       </Dialog>
+
       <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-9">
-        {blogs?.map((blog) => (
-          <BlogCard
-            key={blog._id}
-            title={blog.title}
-            imageUrl={`http://localhost:5000${blog.image}`}
-            date={blog.date}
-            description={blog.description}
-          />
-        ))}
+        {Array.isArray(blogs) &&
+          blogs.map((blog) => (
+            <BlogCard
+              key={blog._id}
+              id={blog._id}
+              title={blog.title}
+              imageUrl={`http://localhost:5000${blog.image}`}
+              date={new Date(blog.date).toISOString().split("T")[0]}
+              description={blog.description}
+            />
+          ))}
       </div>
     </>
   );
