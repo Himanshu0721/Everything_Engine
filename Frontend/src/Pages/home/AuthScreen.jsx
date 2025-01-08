@@ -8,8 +8,9 @@ import React from "react";
 const AuthScreen = () => {
   return (
     <>
-      <Login />
       <Routes>
+        <Route index element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/privacy-policy" element={<Privacy />} />
         <Route path="/term-condition" element={<TermCondition />} />
       </Routes>
