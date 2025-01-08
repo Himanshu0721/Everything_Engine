@@ -11,13 +11,14 @@ import {
 import { Trash2 } from "lucide-react";
 import { useBlog } from "@/Context/blogContext";
 
-const BlogCard = ({ title, id, date, imageUrl, description }) => {
+const BlogCard = ({ title, id, date, feature, imageUrl, description }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
 
   const [formData, setFormData] = useState({
     title: title,
     date: date,
+    feature: feature,
     image: null,
     description: description,
   });
@@ -145,6 +146,25 @@ const BlogCard = ({ title, id, date, imageUrl, description }) => {
                 onChange={handleInputChange}
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
+            </div>
+            <div>
+              <label
+                htmlFor="feature"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Feature
+              </label>
+              <select
+                id="feature"
+                value={formData.feature}
+                onChange={handleInputChange}
+                name="feature"
+                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              >
+                <option value="All">All</option>
+                <option value="Product">Product</option>
+                <option value="Announcement">Announcement</option>
+              </select>
             </div>
             <div>
               <label

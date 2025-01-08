@@ -16,6 +16,7 @@ export default function ContentForm() {
   const [blogData, setBlogData] = useState({
     title: "",
     date: "",
+    feature: "",
     image: null,
     description: "",
   });
@@ -26,7 +27,7 @@ export default function ContentForm() {
 
   const { blogs, blogCreates, fetchBlogs } = useBlog();
 
-  const { title, date, image, description } = blogData;
+  const { title, date, feature, image, description } = blogData;
 
   const handleChange = (e) => {
     const { id, value, files } = e.target;
@@ -44,7 +45,7 @@ export default function ContentForm() {
       return;
     }
 
-    await blogCreates({ title, date, image, description });
+    await blogCreates({ title, date, feature, image, description });
     console.log(blogs);
   };
 
@@ -109,6 +110,25 @@ export default function ContentForm() {
             </div>
             <div>
               <label
+                htmlFor="feature"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Feature
+              </label>
+              <select
+                id="feature"
+                value={feature}
+                onChange={handleChange}
+                name="feature"
+                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              >
+                <option value="All">All</option>
+                <option value="Product">Product</option>
+                <option value="Announcement">Announcement</option>
+              </select>
+            </div>
+            <div>
+              <label
                 htmlFor="image"
                 className="block text-sm font-medium text-gray-700"
               >
@@ -161,6 +181,7 @@ export default function ContentForm() {
             <BlogCard
               key={blog._id}
               id={blog._id}
+              feature={blog.feature}
               title={blog.title}
               imageUrl={`http://localhost:5000${blog.image}`}
               date={new Date(blog.date).toISOString().split("T")[0]}

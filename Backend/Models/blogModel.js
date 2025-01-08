@@ -17,6 +17,11 @@ const blogSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  feature: {
+    type: String,
+    enum: ["All", "Product", "Announcement"],
+    required: true,
+  },
 });
 
 const Blog = mongoose.model("Blog", blogSchema);

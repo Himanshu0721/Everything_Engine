@@ -6,6 +6,7 @@ const {
   createBlog,
   getBlogs,
   getBlogById,
+  blogFilterByFeature,
   deleteBlog,
   updatesBlog,
 } = require("../Controllers/blogController");
@@ -45,13 +46,14 @@ const upload = multer({
 
 router.post("/create", verifyAdmin, upload.single("image"), createBlog);
 router.get("/allblogs", verifyAdmin, getBlogs);
-router.get("/blog/:id", verifyAdmin, getBlogById);
+router.get("/blog/:id", getBlogById);
 router.put(
   "/updateblog/:id",
   verifyAdmin,
   upload.single("updateimage"),
   updatesBlog
 );
+router.get("/filterbyfeature", blogFilterByFeature);
 router.delete("/deleteblog/:id", verifyAdmin, deleteBlog);
 
 module.exports = router;
