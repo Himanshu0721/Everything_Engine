@@ -60,28 +60,29 @@ const getBlogById = async (req, res) => {
 const updatesBlog = async (req, res) => {
   const { id } = req.params;
   const { title, date, description } = req.body;
-  const image = req.file ? req.file.path : "Image file is required";
-  try {
-    const updateBlog = await Blog.findByIdAndUpdate(
-      id,
-      {
-        title,
-        date,
-        image,
-        description,
-      },
-      { new: true }
-    );
 
-    if (!updateBlog) {
+  try {
+    const existBlog = await Blog.findById(id);
+
+    if (!existBlog) {
       return res.status(404).json({ message: "Blog not found" });
     }
 
+    if (req.file) {
+      existBlog.image = `/uploads/${req.file.filename}`;
+    }
+
+    existBlog.title = title || existBlog.title;
+    existBlog.date = date || existBlog.date;
+    existBlog.description = description || existBlog.description;
+
+    await existBlog.save();
+
     res
       .status(200)
-      .json({ message: "Blog updated successfully", blog: updateBlog });
+      .json({ message: "Blog updated successfully", blog: existBlog });
   } catch (error) {
-    res.status(500).json({ error: "Failed to update blog.", error });
+    res.status(500).json({ error: "Failed to update blog", error });
   }
 };
 
