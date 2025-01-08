@@ -6,7 +6,6 @@ const SingUpHandler = async (req, res) => {
   try {
     const { email, password, username, number } = req.body;
 
-    console.log({ email, password, username, number });
     if (!email || !password || !username || !number) {
       return res
         .status(400)
@@ -106,13 +105,11 @@ const getUser = async (req, res) => {
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
-    res
-      .status(200)
-      .json({
-        message: "Single user fetched successfully",
-        success: true,
-        user,
-      });
+    res.status(200).json({
+      message: "Single user fetched successfully",
+      success: true,
+      user,
+    });
   } catch (err) {
     res.status(500).json({ error: "Failed to fetch the user" });
   }

@@ -8,7 +8,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const { setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -32,7 +32,8 @@ const Login = () => {
         JSON.stringify(responseData.user.token)
       );
       localStorage.setItem("userData", JSON.stringify(responseData.user));
-      alert(`Login successful: ${responseData.message}`);
+
+      window.location.reload();
     } catch (error) {
       console.log(`An error occurred: ${error.message}`);
     }
