@@ -40,7 +40,10 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => (
           <Link to="/">TEN - Everything AI </Link>
         </div>
         <button onClick={toggleSidebar} className={`pl-[30px] pt-[5px]`}>
-          <FontAwesomeIcon icon={faBars} className="text-2xl text-gray-700 dark:text-white" />
+          <FontAwesomeIcon
+            icon={faBars}
+            className="text-2xl text-gray-700 dark:text-white"
+          />
         </button>
       </div>
       <nav className={styles.nav}>
@@ -327,7 +330,9 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => (
                 </li>
 
                 <li className=" ml-4">
-                  <a href="/blog" className="text-gray-600 dark:text-[#a5acac] hover:text-gray-900">
+                  <a
+                    href="/blog"
+                    className="text-gray-600 dark:text-[#a5acac] hover:text-gray-900">
                     Blog
                   </a>
                 </li>

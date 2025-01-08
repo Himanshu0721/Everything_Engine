@@ -1,13 +1,14 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.svg";
+import { UserContext } from "../../Context/userContext";
 import "./Login.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [user, setUser] = useState(null);
   const navigate = useNavigate();
+  const { setUser } = useContext(UserContext);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -25,11 +26,12 @@ const Login = () => {
       });
       const responseData = await response.json();
       setUser(responseData);
-      console.log(responseData);
+
       localStorage.setItem(
         "userToken",
         JSON.stringify(responseData.user.token)
       );
+      localStorage.setItem("userData", JSON.stringify(responseData.user));
       alert(`Login successful: ${responseData.message}`);
     } catch (error) {
       console.log(`An error occurred: ${error.message}`);
@@ -79,9 +81,9 @@ const Login = () => {
         </p>
 
         <p className="terms">
-          By continuing, you are agreeing to Ten Everything{" "}
-          <a href="#terms">Terms of Service</a> and{" "}
-          <a href="#privacy">Privacy Policy</a>.
+          By continuing, you are agreeing to Ten Everything
+          <Link to="/term-condition">Terms of Service</Link> and
+          <Link to="/privacy-policy">Privacy Policy</Link>.
         </p>
         <hr />
       </div>
