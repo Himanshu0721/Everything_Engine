@@ -100,6 +100,21 @@ const LogInHandler = async (req, res) => {
     res.status(500).json({ success: false, message: "Internal server error" });
   }
 };
+const getUser = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+    res.status(200).json({
+      message: "Single user fetched successfully",
+      success: true,
+      user,
+    });
+  } catch (err) {
+    res.status(500).json({ error: "Failed to fetch the user" });
+  }
+};
 
 const logout = async (req, res) => {
   try {
@@ -111,4 +126,4 @@ const logout = async (req, res) => {
   }
 };
 
-module.exports = { SingUpHandler, LogInHandler, logout };
+module.exports = { SingUpHandler, LogInHandler, logout, getUser };

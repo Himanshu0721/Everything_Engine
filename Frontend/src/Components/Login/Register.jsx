@@ -28,7 +28,7 @@ const Register = () => {
       const responseData = await response.json();
       setUser(responseData);
       localStorage.setItem(
-        "NewUserToken",
+        "userToken",
         JSON.stringify(responseData.user.token)
       );
     } catch (error) {

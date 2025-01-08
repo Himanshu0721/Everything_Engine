@@ -1,10 +1,8 @@
 const mongoose = require("mongoose");
 
-const connectDB = async () => {
+const connectDB = async (MongoUrl) => {
   try {
-    const connect = await mongoose.connect(
-      "mongodb://localhost:27017/everythingEngine"
-    );
+    const connect = await mongoose.connect(MongoUrl);
     connect
       ? console.log("Connected to DB ")
       : console.log("could not connected to DB");

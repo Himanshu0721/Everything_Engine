@@ -2,9 +2,10 @@ const FeedBack = require("../Models/feedback.model");
 
 const feedBack = async (req, res) => {
   try {
-    const { feedBack, rating, username } = req.body;
+    const { feedBack, rating, email } = req.body;
+
     const newFeedBack = new FeedBack({
-      username,
+      email,
       feedBack,
       rating,
     });

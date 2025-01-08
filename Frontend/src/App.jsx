@@ -42,7 +42,13 @@ function App() {
     setIsSidebarOpen((prev) => !prev);
   };
 
-  return <Home />;
+  return (
+    <>
+      <Routes>
+        <Route path="*" element={<Home />} />
+      </Routes>
+    </>
+  );
 }
 
 export default App;

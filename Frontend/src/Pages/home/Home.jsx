@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+
 import AuthScreen from "./AuthScreen";
 import HomeScreen from "./HomeScreen";
 const Home = () => {
-  const [user, setUser] = useState(true);
+  const user = localStorage.getItem("userToken");
 
-  return <>{user ? <HomeScreen /> : <AuthScreen />}</>;
+  const [isUser, setIsUser] = useState(user);
+
+  return <>{isUser ? <HomeScreen /> : <AuthScreen />}</>;
 };
 
 export default Home;
