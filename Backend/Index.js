@@ -29,7 +29,7 @@ app.use("/api/auth", authRouter);
 app.use("/api/admin", adminRoute);
 app.use("/api", contactRoute);
 app.use("/api/blogs", blogRoute);
-app.use("/api/auth/", getUserRoute);
+app.use("/api/auth", getUserRoute);
 
 app.listen(PORT, () =>
   console.log(`Example app listening on port http://localhost:${PORT}`)
