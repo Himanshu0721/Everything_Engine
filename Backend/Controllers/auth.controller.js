@@ -6,7 +6,6 @@ const SingUpHandler = async (req, res) => {
   try {
     const { email, password, username, number } = req.body;
 
-    console.log({ email, password, username, number });
     if (!email || !password || !username || !number) {
       return res
         .status(400)

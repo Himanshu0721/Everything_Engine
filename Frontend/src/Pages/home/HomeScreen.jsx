@@ -80,7 +80,7 @@ const HomeScreen = () => {
                 }`}
               >
                 <Routes>
-                  <Route index element={<Dashboard />} />
+                  <Route path="/" element={<Dashboard />} />
                   <Route path="/privacy-policy" element={<Privacy />} />
                   <Route path="/term-condition" element={<TermCondition />} />
                   <Route path="/profile" element={<Profile />} />

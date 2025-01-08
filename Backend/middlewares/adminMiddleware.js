@@ -16,7 +16,7 @@ const verifyAdmin = async (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    console.log(decoded);
+
     req.admin = decoded;
 
     const admin = await Admin.findById(req.admin._id);
