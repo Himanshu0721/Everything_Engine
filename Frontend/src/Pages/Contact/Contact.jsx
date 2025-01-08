@@ -24,10 +24,10 @@ const Contact = () => {
           Feel free to ask your queries if needed or want to share your thoughts, our support team is here to help you out.
         </p>
         <div className="contact-details">
-          <p><FaBuilding className="icon" />The entrepreneurship network</p>
-          <p><FaEnvelope className="icon" /> info@entrepreneurshipnetwork.net</p>
+          <p style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><FaBuilding className="icon" /> The entrepreneurship network</p>
+          <p style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><FaEnvelope className="icon" /> info@entrepreneurshipnetwork.net</p>
         </div>
-        <div className="social-icons" style={{ display: 'flex', justifyContent: 'flex-end', gap: '30px', marginTop: '100px', fontSize:'33px' }}>
+        <div className="social-icons" style={{ display: 'flex', justifyContent: 'center', gap: '30px', marginTop: '80px', fontSize:'33px' }}>
           <a href="https://www.instagram.com/theentrepreneurshipnetwork?igsh=MW9peTU5c3N3cWczZA==" target="_blank" rel="noopener noreferrer" className="icon-text">
             <FaInstagram className="icon" />
           </a>
@@ -45,11 +45,26 @@ const Contact = () => {
           <textarea name="message" placeholder="Message" rows="5" required></textarea>
           <button type="submit">Submit</button>
         </form>
-        {showSuccess && (
-          <div className="success-message">
-            <FaCheckCircle style={{ color: 'green', marginRight: '5px' }} /> Sent Successfully
-          </div>
-        )}
+        <div
+  id="toast"
+  className={`toast ${showSuccess ? 'show' : ''}`}
+  style={{
+    position: 'fixed',
+    top: '20px',     
+    right: '20px',      
+    zIndex: 1000, 
+    padding: '20px 40px', 
+    fontSize: '19px', 
+    borderRadius: '5px', 
+    background: '#4caf50', 
+    color: 'white', 
+    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+  }}
+>
+  <FaCheckCircle style={{ color: 'white', marginRight: '5px' }} />
+  Sent Successfully
+</div>
+
       </div>
     </div>
   );
