@@ -4,10 +4,10 @@ const jwt = require("jsonwebtoken");
 
 const SingUpHandler = async (req, res) => {
   try {
-    const { email, password, username } = req.body;
+    const { email, password, username, number } = req.body;
 
-    if (!email || !password || !username) {
-      return req
+    if (!email || !password || !username || !number) {
+      return res
         .status(400)
         .json({ success: false, message: "All fields are required" });
     }
@@ -35,8 +35,9 @@ const SingUpHandler = async (req, res) => {
 
     const newUser = new User({
       email,
-      password: hashedPassword,
       username,
+      number,
+      password: hashedPassword,
     });
 
     await newUser.save();
@@ -98,6 +99,21 @@ const LogInHandler = async (req, res) => {
     res.status(500).json({ success: false, message: "Internal server error" });
   }
 };
+const getUser = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+    res.status(200).json({
+      message: "Single user fetched successfully",
+      success: true,
+      user,
+    });
+  } catch (err) {
+    res.status(500).json({ error: "Failed to fetch the user" });
+  }
+};
 
 const logout = async (req, res) => {
   try {
@@ -109,4 +125,4 @@ const logout = async (req, res) => {
   }
 };
 
-module.exports = { SingUpHandler, LogInHandler, logout };
+module.exports = { SingUpHandler, LogInHandler, logout, getUser };

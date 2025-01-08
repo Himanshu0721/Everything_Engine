@@ -3,21 +3,46 @@ import React, { useState } from "react";
 import "./feedBack.css";
 
 const FeedBack = () => {
-  const [starCount, setStarCount] = useState(0);
+  const [rating, setRating] = useState(0);
+  const [feedBack, setFeedback] = useState("");
+  const [email, setEmail] = useState("");
+
+  const feedBackForm = async (e) => {
+    e.preventDefault();
+    const requestData = {
+      email,
+      feedBack,
+      rating,
+    };
+    console.log(requestData);
+    try {
+      const response = await fetch("http://localhost:5000/api/feedback", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestData),
+      });
+      const data = await response.json();
+      console.log("feedback", data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
       <div className="feedback-container">
-        <h1 className="title">Share your experience</h1>
+        <h1 className="title dark:text-white">Share your experience</h1>
 
-        <div className="rating-container">
+        <form onSubmit={feedBackForm} className="rating-container">
           <div className="count-container">
             {[...Array(5)].map((_, index) => {
               return (
                 <span
                   key={index}
-                  className={index + 1 <= starCount ? `selected` : ""}
-                  onClick={() => setStarCount(index + 1)}>
+                  className={index + 1 <= rating ? `selected` : ""}
+                  onClick={() => setRating(index + 1)}>
                   &#9733;
                 </span>
               );
@@ -29,22 +54,26 @@ const FeedBack = () => {
             <span>Excellent</span>
           </div>
           <div className="feedBackForm">
-            <label>Name</label>
+            <label className="dark:text-[#a5acac]">E mail</label>
             <input
-              type="text"
-              className="feedBack-input"
-              placeholder="Enter Your Name"
+              type="email"
+              className="feedBack-input dark:bg-[#242424]"
+              placeholder="Enter Your Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
-            <label>FeedBack</label>
+            <label className="dark:text-[#a5acac]">FeedBack</label>
 
             <textarea
-              className="feedBack-input"
+              className="feedBack-input dark:bg-[#242424]"
               type="textArea"
               placeholder="Give your FeedBack"
+              value={feedBack}
+              onChange={(e) => setFeedback(e.target.value)}
             />
           </div>
           <button className="submit-btn">Submit</button>
-        </div>
+        </form>
       </div>
     </>
   );

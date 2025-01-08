@@ -1,12 +1,15 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CreateBlog from "./CreateBlogForm/CreateBlog";
+import { useAuth } from "../context/authContext";
 
 const Admin = () => {
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
   const [currentPage, setCurrentPage] = React.useState("createblog");
 
   const navigate = useNavigate();
+
+  const { adminLogout } = useAuth();
 
   const toggleSidebar = () => {
     setIsSidebarOpen((prev) => !prev);
@@ -27,9 +30,10 @@ const Admin = () => {
   };
 
   const handleLogout = async () => {
-    await logout();
+    await adminLogout();
     navigate("/admin/login");
   };
+
   return (
     <>
       <nav
@@ -87,7 +91,7 @@ const Admin = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
                   viewBox="0 0 24 24"
-                  class="w-6 h-6"
+                  className="w-6 h-6"
                   aria-hidden="true"
                 >
                   <path d="M16 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-6-6zm-1 2l5 5h-5V4zm-5 10h4v2h-4v-2zm-6-2h4v2H4v-2zm0 4h8v2H4v-2zm0 4h6v2H4v-2z" />

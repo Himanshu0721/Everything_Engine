@@ -1,12 +1,35 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./profile.css";
 import ProfileModal from "./ProfileModal";
 
 const Profile = () => {
   const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
-  const [name, setName] = useState("Name");
-  const [userName, setUserName] = useState("userName");
+
+  const [user, setUser] = useState(" ");
+
   const [image, setImage] = useState(null);
+
+  const userdata = localStorage.getItem("userData");
+
+  const getUser = JSON.parse(userdata);
+
+  const id = getUser._id;
+
+  useEffect(() => {
+    const fetchData = async (userid) => {
+      const response = await fetch(
+        `http://localhost:5000/api/auth/user/${userid}`
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        setUser(data.user);
+      } else {
+        alert("user fetched successfully");
+      }
+    };
+    fetchData(id);
+  }, [id]);
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -25,7 +48,9 @@ const Profile = () => {
   return (
     <>
       <div className="profile-section">
-      <header className="text-center bg-gray-100 m-0 p-5 text-2xl font-semibold">Profile</header>
+        <header className="text-center bg-gray-100 dark:bg-[#242424] m-0 p-5 text-2xl font-semibold">
+          Profile
+        </header>
 
         <div className="profile-container">
           <div className="profile-header">
@@ -40,8 +65,11 @@ const Profile = () => {
                   alt="img"
                 />
                 <div className="info">
-                  <h2>{name}</h2>
-                  <span>{userName}</span>
+                  <h2 className="dark:text-white">
+                    {" "}
+                    {user.username ? `${user.username} ` : "name"}
+                  </h2>
+                  <span>{user.email ? `${user.email}` : "email"}</span>
                 </div>
               </div>
             </div>

@@ -14,12 +14,12 @@ const Subscriptions = () => {
             <div className="flex items-center gap-2">
               <Link
                 to="/help-center"
-                className="text-blue-600 hover:text-blue-700"
+                className="text-blue-600 hover:text-blue-700 dark:text-purple-600 dark:hover:text-purple-700"
               >
                 Help Center
               </Link>
               <span className="text-gray-500">&gt;</span>
-              <span className="text-gray-600">Subscriptions</span>
+              <span className="text-gray-600 dark:text-[#a5acac]">Subscriptions</span>
             </div>
           </nav>
 
@@ -28,7 +28,7 @@ const Subscriptions = () => {
             <input
               type="text"
               placeholder="Search"
-              className="w-full px-4 py-2 pl-10 border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 pl-10 border rounded-full focus:outline-none focus:ring-2 dark:bg-[#242424] focus:ring-blue-500"
             />
             <Search
               className="absolute left-3 top-2.5 text-gray-400"
@@ -40,14 +40,14 @@ const Subscriptions = () => {
 
       {/* Main Content */}
       <main className="max-w-6xl mx-auto px-6 py-8">
-        <h1 className="text-3xl font-bold mb-8">Subscriptions</h1>
+        <h1 className="text-3xl font-bold mb-8 dark:text-[#a5acac]">Subscriptions</h1>
 
         {/* FAQs Section */}
         <div className="mb-12">
-          <h2 className="text-xl font-semibold text-gray-800 mb-4">FAQs</h2>
+          <h2 className="text-xl font-semibold text-gray-800 mb-4 dark:text-purple-800">FAQs</h2>
           <Link
             to="/help-center/subscriptions/faqs"
-            className="block text-blue-600 hover:text-blue-700 hover:underline"
+            className="block text-blue-600 hover:text-blue-700 dark:text-purple-600 dark:hover:text-purple-700 hover:underline"
           >
             TEN - Everything AI Subscriptions FAQs
           </Link>

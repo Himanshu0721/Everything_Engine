@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Home from "./Pages/home/Home";
+<<<<<<< HEAD
 import Sidebar from "./Components/Sidebar/Sidebar";
 import Privacy from "./Pages/privacy/Privacy";
 import TermCondition from "./Pages/termCondition/TermCondition";
@@ -26,24 +26,14 @@ import FaqSubscriptions from "./Pages/helpCenter/subscriptions/faqSubscriptions"
 import FaqCreator from "./Pages/helpCenter/creatorMonetization/faqCreator";
 import Contact from "./Pages/Contact/Contact";
 import UserGuidelines from "./Pages/Usage-guidelines/UserGuidelines";
+=======
+
+>>>>>>> 692b2a0da3062fdd89f8050cc9bd71dce10ada89
 function App() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 1024);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsSidebarOpen(window.innerWidth >= 1024);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const toggleSidebar = () => {
-    setIsSidebarOpen((prev) => !prev);
-  };
-
   return (
-    <BrowserRouter>
+    <>
       <Routes>
+<<<<<<< HEAD
         <Route path="/admin" element={<Admin />} />
         <Route path="/blog" element={<Blog />} />
         <Route
@@ -113,8 +103,11 @@ function App() {
             </>
           }
         />
+=======
+        <Route path="*" element={<Home />} />
+>>>>>>> 692b2a0da3062fdd89f8050cc9bd71dce10ada89
       </Routes>
-    </BrowserRouter>
+    </>
   );
 }
 
