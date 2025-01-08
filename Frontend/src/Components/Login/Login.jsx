@@ -32,6 +32,7 @@ const Login = () => {
         JSON.stringify(responseData.user.token)
       );
       localStorage.setItem("userData", JSON.stringify(responseData.user));
+      window.location.reload();
       alert(`Login successful: ${responseData.message}`);
     } catch (error) {
       console.log(`An error occurred: ${error.message}`);
@@ -75,7 +76,8 @@ const Login = () => {
           Don't have an account?{" "}
           <button
             className="register-link"
-            onClick={() => navigate("/register")}>
+            onClick={() => navigate("/register")}
+          >
             Register here
           </button>
         </p>
