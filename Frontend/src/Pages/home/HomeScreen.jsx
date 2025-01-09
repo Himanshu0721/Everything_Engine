@@ -28,6 +28,8 @@ import Blog from "../Blog/Blog";
 import Dashboard from "../Dashboard/Dashboard";
 import BlogContent from "../BLog/InsideBlogContent"
 import UserGuidelines from "../Usage-guidelines/UserGuidelines"
+import AboutPage from "../about/About";
+
 const HomeScreen = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 1024);
   useEffect(() => {
@@ -85,6 +87,7 @@ const HomeScreen = () => {
                   <Route path="/term-condition" element={<TermCondition />} />
                   <Route path="/profile" element={<Profile />} />
                   <Route path="/login" element={<Login />} />
+                  <Route path="/about" element={<AboutPage />} />
                   <Route path="/creators" element={<Creators />} />
                   <Route path="/explore" element={<Explore />} />
                   <Route path="/create-bot" element={<CreateBot />} />
