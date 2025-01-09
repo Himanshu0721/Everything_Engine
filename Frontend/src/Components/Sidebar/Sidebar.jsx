@@ -255,13 +255,8 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => (
             </li>
             <li>
               <Link
-<<<<<<< HEAD
                 to="/contact-us"
-                className="flex items-center space-x-2 border-b-2 border-gray-200 gap-10 hover:bg-gray-100 p-4">
-=======
-                to="/contact"
                 className="flex items-center space-x-2 border-b-2 border-gray-200 gap-10 dark:border-white dark:hover:bg-gray-900 hover:bg-gray-100 p-4">
->>>>>>> 692b2a0da3062fdd89f8050cc9bd71dce10ada89
                 <FontAwesomeIcon
                   icon={faPhoneAlt}
                   className="text-black-300"

@@ -26,8 +26,8 @@ import ProtectedRoute from "../../Components/ProtectedRoute";
 import Admin from "@/Components/Admin/Admin";
 import Blog from "../Blog/Blog";
 import Dashboard from "../Dashboard/Dashboard";
-import BlogContent from "../BLog/InsideBlogContent";
-
+import BlogContent from "../BLog/InsideBlogContent"
+import UserGuidelines from "../Usage-guidelines/UserGuidelines"
 const HomeScreen = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 1024);
   useEffect(() => {
@@ -95,7 +95,8 @@ const HomeScreen = () => {
                   <Route path="/settings" element={<Settings />} />
                   <Route path="/help-center" element={<HelpCenter />} />
                   <Route path="/help-center/general" element={<General />} />
-                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/contact-us" element={<Contact />} />
+                  <Route path="/usage-guidlines" element={<UserGuidelines />} />
                   <Route
                     path="/help-center/creator-monetization"
                     element={<CreatorMonetization />}

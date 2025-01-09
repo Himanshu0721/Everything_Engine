@@ -1,6 +1,6 @@
 import React from "react";
-import "./UserGuidelines.css"; // Importing the CSS file
-import Guidelines from "../../assets/guideline.jpg"; // Importing the image
+import "./UserGuidelines.css";
+import Guidelines from "../../assets/guideline.jpg"; 
 
 const UserGuidelines = () => {
   return (
