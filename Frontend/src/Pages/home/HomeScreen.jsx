@@ -27,6 +27,7 @@ import Admin from "@/Components/Admin/Admin";
 import Blog from "../Blog/Blog";
 import Dashboard from "../Dashboard/Dashboard";
 import BlogContent from "../BLog/InsideBlogContent";
+import UserGuidelines from "../Usage-guidelines/UserGuidelines";
 
 const HomeScreen = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 1024);
@@ -80,7 +81,7 @@ const HomeScreen = () => {
                 }`}
               >
                 <Routes>
-                  <Route path="/" element={<Dashboard />} />
+                  <Route x element={<Dashboard />} />
                   <Route path="/privacy-policy" element={<Privacy />} />
                   <Route path="/term-condition" element={<TermCondition />} />
                   <Route path="/profile" element={<Profile />} />
@@ -88,6 +89,7 @@ const HomeScreen = () => {
                   <Route path="/creators" element={<Creators />} />
                   <Route path="/explore" element={<Explore />} />
                   <Route path="/create-bot" element={<CreateBot />} />
+                  <Route path="/guidelines" element={<UserGuidelines />} />
                   <Route path="/register" element={<Register />} />
                   <Route path="/subscribe" element={<Subscribe />} />
                   <Route path="/settings" element={<Settings />} />
