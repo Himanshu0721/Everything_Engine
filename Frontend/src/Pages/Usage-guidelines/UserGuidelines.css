@@ -1,0 +1,84 @@
+/* User Guidelines CSS */
+
+.guidelines-container {
+  font-family: Arial, sans-serif;
+  color: #4a4a4a;
+  margin: 0;
+  padding: 0px;
+  max-width: 200vh;
+  
+}
+
+.guidelines-header {
+  text-align: center;
+  background-color: #f3f4f6;
+  margin: 0;
+  padding: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.guidelines-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.guidelines-content {
+  padding: 10px;
+}
+
+.guidelines-section {
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+
+.guidelines-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.guidelines-text {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.guidelines-list {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.guidelines-list-item {
+  margin-bottom: 10px;
+}
+
+.guidelines-link {
+  color: #5d5cde;
+  text-decoration: none;
+}
+
+.guidelines-link:hover {
+  text-decoration: underline;
+}
+@media (max-width:480px){
+  .guidelines-title{
+    font-size: 17px;
+  }
+  .guidelines-text{
+    font-size: 14px;
+  }
+  .guidelines-section{
+    font-size: 14px;
+  }
+
+}
