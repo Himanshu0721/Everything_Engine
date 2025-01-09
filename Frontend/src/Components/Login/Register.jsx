@@ -11,6 +11,7 @@ const Register = () => {
   const [errors, setErrors] = useState({});
 
   const navigate = useNavigate();
+
   const handleSignUp = async (e) => {
     e.preventDefault();
     const requestData = {
