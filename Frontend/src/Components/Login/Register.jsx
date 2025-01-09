@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Register.css";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [username, setUserName] = useState("");
@@ -9,6 +10,7 @@ const Register = () => {
   const [user, setUser] = useState(null);
   const [errors, setErrors] = useState({});
 
+  const navigate = useNavigate();
   const handleSignUp = async (e) => {
     e.preventDefault();
     const requestData = {
@@ -31,6 +33,9 @@ const Register = () => {
         "userToken",
         JSON.stringify(responseData.user.token)
       );
+      localStorage.setItem("userData", JSON.stringify(responseData.user));
+      navigate("/");
+      window.location.reload();
     } catch (error) {
       console.log(`An error occurred: ${error.message}`);
     }

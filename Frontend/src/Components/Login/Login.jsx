@@ -76,8 +76,7 @@ const Login = () => {
           Don't have an account?{" "}
           <button
             className="register-link"
-            onClick={() => navigate("/register")}
-          >
+            onClick={() => navigate("/register")}>
             Register here
           </button>
         </p>
