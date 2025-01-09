@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./Register.css";
+import logo from "../../assets/logo.svg";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [username, setUserName] = useState("");
@@ -8,6 +10,8 @@ const Register = () => {
   const [number, setNumber] = useState();
   const [user, setUser] = useState(null);
   const [errors, setErrors] = useState({});
+
+  const navigate = useNavigate();
 
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -31,6 +35,9 @@ const Register = () => {
         "userToken",
         JSON.stringify(responseData.user.token)
       );
+      localStorage.setItem("userData", JSON.stringify(responseData.user));
+      navigate("/");
+      window.location.reload();
     } catch (error) {
       console.log(`An error occurred: ${error.message}`);
     }
@@ -39,7 +46,10 @@ const Register = () => {
 
   return (
     <div className="register-container">
-      <h1 className="dark:text-[#a5acac]">Create an Account</h1>
+      <div className="image-container">
+        <img src={logo} alt="logo" className="custom-image" />
+      </div>
+      <h3 className="dark:text-[#a5acac]">Create an Account</h3>
       <form onSubmit={handleSignUp}>
         <div className="form-group">
           <label htmlFor="name" className="dark:text-[#a5acac]">
@@ -106,6 +116,13 @@ const Register = () => {
         <button type="submit" className="register-button">
           Register
         </button>
+        <div className="already-registered">
+          Already registerd?
+          <Link className="redirect-to-login" to="/">
+            {" "}
+            Login
+          </Link>
+        </div>
       </form>
     </div>
   );
