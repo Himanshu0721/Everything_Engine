@@ -48,17 +48,13 @@ const Blog = () => {
           </button>
 
           <nav className="hidden md:flex text-xl items-center gap-6">
-            <a href="#" className="text-gray-300 hover:text-indigo-400">
+            <a href="/about" className="text-gray-300 hover:text-indigo-400">
               About
             </a>
             <a href="/blog" className="text-gray-300 hover:text-indigo-400">
               Blog
             </a>
           </nav>
-
-          <button className="hidden md:block px-4 py-2 bg-indigo-600 hover:bg-indigo-700 rounded-md text-white">
-            Sign up
-          </button>
         </div>
 
         {isMenuOpen && (
@@ -69,9 +65,6 @@ const Blog = () => {
             <a href="#" className="text-gray-300 hover:text-indigo-400">
               Blog
             </a>
-            <button className="w-full px-4 py-2 bg-indigo-600 hover:bg-indigo-700 rounded-md text-white">
-              Sign up
-            </button>
           </nav>
         )}
       </header>

@@ -5,6 +5,7 @@ const ProfileModal = ({
   closeProfileModal,
   handleImageChange,
   isProfileModalOpen,
+  setUser,
   image,
 }) => {
   if (!isProfileModalOpen) return null;
@@ -48,7 +49,12 @@ const ProfileModal = ({
             <div className="user-info">
               <div className="flex mt-2">
                 <label>Name</label>
-                <input className="input-name" type="text" placeholder="Name" />
+                <input
+                  className="input-name"
+                  type="text"
+                  placeholder="Name"
+                  onChange={(e) => setUser(e.target.value)}
+                />
               </div>
               <div className="flex mt-2">
                 <label>UserName</label>
@@ -56,6 +62,7 @@ const ProfileModal = ({
                   type="text"
                   className="user-name"
                   placeholder="userName"
+                  onChange={(e) => setUser(e.target.value)}
                 />
               </div>
             </div>
