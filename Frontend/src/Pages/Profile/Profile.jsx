@@ -66,7 +66,6 @@ const Profile = () => {
                 />
                 <div className="info">
                   <h2 className="dark:text-white">
-                    {" "}
                     {user.username ? `${user.username} ` : "name"}
                   </h2>
                   <span>{user.email ? `${user.email}` : "email"}</span>
@@ -78,6 +77,7 @@ const Profile = () => {
                 isProfileModalOpen={isProfileModalOpen}
                 closeProfileModal={closeProfileModal}
                 handleImageChange={handleImageChange}
+                setUser={setUser}
                 image={image}
               />
               <button className="edit-btn" onClick={openProfileModal}>

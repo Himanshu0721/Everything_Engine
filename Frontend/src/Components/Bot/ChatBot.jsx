@@ -49,7 +49,7 @@ const ChatBot = () => {
 
   return (
     <div className="min-h-screen bg-gray-100">
-      <div className="container mx-auto max-w-4xl p-4">
+      <div className="container mx-auto max-w-4xl px-4">
         <div className="bg-white rounded-lg shadow-lg">
           <div className="p-4 border-b flex items-center gap-2">
             <Bot className="w-6 h-6 text-blue-500" />
