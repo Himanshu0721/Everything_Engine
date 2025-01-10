@@ -20,7 +20,9 @@ const Blog = () => {
       <header className="bg-[#333333] px-4 py-4 md:px-6">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="text-xl font-semibold text-white">TEN AI</span>
+            <Link to="/">
+              <span className="text-xl font-semibold text-white">TEN AI</span>
+            </Link>
           </div>
 
           <button

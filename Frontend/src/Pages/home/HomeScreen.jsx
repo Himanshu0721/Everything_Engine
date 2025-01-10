@@ -30,6 +30,7 @@ import BlogContent from "../BLog/InsideBlogContent";
 import UserGuidelines from "../Usage-guidelines/UserGuidelines";
 import AboutPage from "../about/About";
 import ChatBot from "@/Components/Bot/ChatBot";
+import ComingSoon from "../ComingSoon";
 
 const HomeScreen = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 1024);
@@ -84,11 +85,13 @@ const HomeScreen = () => {
               >
                 <Routes>
                   <Route index element={<Dashboard />} />
+                  <Route path="*" element={<ComingSoon />} />
                   <Route path="/privacy-policy" element={<Privacy />} />
                   <Route path="/term-condition" element={<TermCondition />} />
                   <Route path="/profile" element={<Profile />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/about" element={<AboutPage />} />
+                  <Route path="/contact" element={<Contact />} />
                   <Route path="/creators" element={<Creators />} />
                   <Route path="/explore" element={<Explore />} />
                   <Route path="/create-bot" element={<CreateBot />} />
