@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Register.css";
 import logo from "../../assets/logo.svg";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [username, setUserName] = useState("");
@@ -10,6 +11,8 @@ const Register = () => {
   const [number, setNumber] = useState();
   const [user, setUser] = useState(null);
   const [errors, setErrors] = useState({});
+
+  const navigate = useNavigate();
 
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -29,10 +32,13 @@ const Register = () => {
       });
       const responseData = await response.json();
       setUser(responseData);
+      localStorage.setItem("userData", JSON.stringify(responseData.user));
       localStorage.setItem(
         "userToken",
         JSON.stringify(responseData.user.token)
       );
+      navigate("/");
+      window.location.reload();
     } catch (error) {
       console.log(`An error occurred: ${error.message}`);
     }
@@ -111,8 +117,12 @@ const Register = () => {
         <button type="submit" className="register-button">
           Register
         </button>
-        <div className="already-registered">Already registerd?  
-          <Link className="redirect-to-login" to="/">  Login</Link>
+        <div className="already-registered">
+          Already registerd?
+          <Link className="redirect-to-login" to="/">
+            {" "}
+            Login
+          </Link>
         </div>
       </form>
     </div>

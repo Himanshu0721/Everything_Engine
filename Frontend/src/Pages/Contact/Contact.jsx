@@ -30,13 +30,17 @@ const Contact = () => {
         body: JSON.stringify(requestData),
       });
       await response.json();
-
+  
       setShowSuccess(true);
+      setName("");
+      setEmail("");
+      setMessage("");
     } catch (error) {
       console.error(error);
     }
     setTimeout(() => setShowSuccess(false), 3000);
   };
+  
 
   return (
     <div className="contact-container">

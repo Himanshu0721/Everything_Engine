@@ -1,5 +1,6 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { IoMdInformationCircleOutline } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 import { SiChakraui } from "react-icons/si";
 import Modal from "./Modal/Modal";
 import { Link } from "react-router-dom";
@@ -13,6 +14,7 @@ const Settings = () => {
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
   const [points, setPoints] = useState(10);
+  const navigate = useNavigate();
   const [phoneNo, setPhoneNo] = useState(getUser.number);
 
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -23,6 +25,11 @@ const Settings = () => {
 
   const handleChangeNumber = (e) => {
     setPhoneNo(e.target.value);
+  };
+  const handelLogOut = () => {
+    localStorage.removeItem("userToken");
+    navigate("/");
+    window.location.reload();
   };
 
   return (
@@ -181,7 +188,7 @@ const Settings = () => {
           </Link>
         </div>
       </div>
-      <div className="mt-3 lg:px-28 md:px-24 px-6">
+      <div onClick={handelLogOut} className="mt-3 lg:px-28 md:px-24 px-6">
         <div className="text-red-700 dark:text-[#e3567c] dark:hover:text-red-600 text-[1.15rem] cursor-pointer rounded-2xl">
           <div className="lg:mx-[43%] md:mx-[40%] mx-[35%] lg:w-[13%] md:w-[19%] w-[32%] hover:bg-[#f7f7f7] dark:hover:bg-[#464e4e] hover:rounded-3xl px-5 py-3.5">
             Log out

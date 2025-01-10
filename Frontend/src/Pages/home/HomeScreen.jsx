@@ -28,6 +28,8 @@ import Blog from "../Blog/Blog";
 import Dashboard from "../Dashboard/Dashboard";
 import BlogContent from "../BLog/InsideBlogContent";
 import UserGuidelines from "../Usage-guidelines/UserGuidelines";
+import AboutPage from "../about/About";
+import ChatBot from "@/Components/Bot/ChatBot";
 
 const HomeScreen = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 1024);
@@ -86,6 +88,7 @@ const HomeScreen = () => {
                   <Route path="/term-condition" element={<TermCondition />} />
                   <Route path="/profile" element={<Profile />} />
                   <Route path="/login" element={<Login />} />
+                  <Route path="/about" element={<AboutPage />} />
                   <Route path="/creators" element={<Creators />} />
                   <Route path="/explore" element={<Explore />} />
                   <Route path="/create-bot" element={<CreateBot />} />
@@ -97,7 +100,9 @@ const HomeScreen = () => {
                   <Route path="/settings" element={<Settings />} />
                   <Route path="/help-center" element={<HelpCenter />} />
                   <Route path="/help-center/general" element={<General />} />
-                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/contact-us" element={<Contact />} />
+                  <Route path="/usage-guidlines" element={<UserGuidelines />} />
+                  <Route path="/chatbot" element={<ChatBot />} />
                   <Route
                     path="/help-center/creator-monetization"
                     element={<CreatorMonetization />}
