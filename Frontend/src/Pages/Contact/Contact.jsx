@@ -30,7 +30,7 @@ const Contact = () => {
         body: JSON.stringify(requestData),
       });
       await response.json();
-  
+
       setShowSuccess(true);
       setName("");
       setEmail("");
@@ -40,7 +40,6 @@ const Contact = () => {
     }
     setTimeout(() => setShowSuccess(false), 3000);
   };
-  
 
   return (
     <div className="contact-container">
@@ -51,10 +50,10 @@ const Contact = () => {
           thoughts, our support team is here to help you out.
         </p>
         <div className="contact-details">
-          <p style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <p style={{ display: "flex", alignItems: "center", gap: "10px" }}>
             <FaBuilding className="icon" /> The entrepreneurship network
           </p>
-          <p style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <p style={{ display: "flex", alignItems: "center", gap: "10px" }}>
             <FaEnvelope className="icon" /> info@entrepreneurshipnetwork.net
           </p>
         </div>
@@ -65,20 +64,23 @@ const Contact = () => {
             justifyContent: "center",
             gap: "30px",
             marginTop: "80px",
-            fontSize: '33px'
-          }}>
+            fontSize: "33px",
+          }}
+        >
           <a
             href="https://www.instagram.com/theentrepreneurshipnetwork?igsh=MW9peTU5c3N3cWczZA=="
             target="_blank"
             rel="noopener noreferrer"
-            className="icon-text">
+            className="icon-text"
+          >
             <FaInstagram className="icon" />
           </a>
           <a
             href="https://www.linkedin.com/company/the-entrepreneurship-network/"
             target="_blank"
             rel="noopener noreferrer"
-            className="icon-text">
+            className="icon-text"
+          >
             <FaLinkedin className="icon" />
           </a>
         </div>
@@ -112,25 +114,27 @@ const Contact = () => {
             className="dark:bg-[#242424]"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            required></textarea>
+            required
+          ></textarea>
           <button type="submit">Submit</button>
         </form>
         <div
           id="toast"
-          className={`toast ${showSuccess ? 'show' : ''}`}
+          className={`toast ${showSuccess ? "show" : ""}`}
           style={{
-            position: 'fixed',
-            top: '20px',
-            right: '20px',
+            position: "fixed",
+            top: "20px",
+            right: "20px",
             zIndex: 1000,
-            padding: '20px 40px',
-            fontSize: '19px',
-            borderRadius: '5px',
-            background: '#4caf50',
-            color: 'white',
-            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
-          }}>
-          <FaCheckCircle style={{ color: 'white', marginRight: '5px' }} />
+            padding: "20px 40px",
+            fontSize: "19px",
+            borderRadius: "5px",
+            background: "#4caf50",
+            color: "white",
+            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+          }}
+        >
+          <FaCheckCircle style={{ color: "white", marginRight: "5px" }} />
           Sent Successfully
         </div>
       </div>

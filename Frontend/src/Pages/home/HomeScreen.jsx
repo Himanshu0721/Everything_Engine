@@ -26,9 +26,11 @@ import ProtectedRoute from "../../Components/ProtectedRoute";
 import Admin from "@/Components/Admin/Admin";
 import Blog from "../Blog/Blog";
 import Dashboard from "../Dashboard/Dashboard";
-import BlogContent from "../BLog/InsideBlogContent"
-import UserGuidelines from "../Usage-guidelines/UserGuidelines"
+import BlogContent from "../BLog/InsideBlogContent";
+import UserGuidelines from "../Usage-guidelines/UserGuidelines";
 import AboutPage from "../about/About";
+import ChatBot from "@/Components/Bot/ChatBot";
+import ComingSoon from "../ComingSoon";
 
 const HomeScreen = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 1024);
@@ -82,15 +84,18 @@ const HomeScreen = () => {
                 }`}
               >
                 <Routes>
-                  <Route path="/" element={<Dashboard />} />
+                  <Route index element={<Dashboard />} />
+                  <Route path="*" element={<ComingSoon />} />
                   <Route path="/privacy-policy" element={<Privacy />} />
                   <Route path="/term-condition" element={<TermCondition />} />
                   <Route path="/profile" element={<Profile />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/about" element={<AboutPage />} />
+                  <Route path="/contact" element={<Contact />} />
                   <Route path="/creators" element={<Creators />} />
                   <Route path="/explore" element={<Explore />} />
                   <Route path="/create-bot" element={<CreateBot />} />
+                  <Route path="/guidelines" element={<UserGuidelines />} />
                   <Route path="/register" element={<Register />} />
                   <Route path="/subscribe" element={<Subscribe />} />
                   <Route path="/settings" element={<Settings />} />
@@ -100,6 +105,7 @@ const HomeScreen = () => {
                   <Route path="/help-center/general" element={<General />} />
                   <Route path="/contact-us" element={<Contact />} />
                   <Route path="/usage-guidlines" element={<UserGuidelines />} />
+                  <Route path="/chatbot" element={<ChatBot />} />
                   <Route
                     path="/help-center/creator-monetization"
                     element={<CreatorMonetization />}
