@@ -7,8 +7,9 @@ import "./Login.css";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
-  const { user, setUser } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -25,67 +26,82 @@ const Login = () => {
         body: JSON.stringify(requestData),
       });
       const responseData = await response.json();
-      setUser(responseData);
 
+      if (!response.ok) {
+        setErrors({ form: responseData.message || 'Login failed' });
+        return;
+      }
+
+      setUser(responseData);
       localStorage.setItem("userToken", responseData.user.token);
       localStorage.setItem("userData", JSON.stringify(responseData.user));
-
       window.location.reload();
     } catch (error) {
+      setErrors({ form: 'An error occurred during login' });
       console.log(`An error occurred: ${error.message}`);
     }
   };
 
   return (
-    <>
+    <div className="login-wrapper">
       <div className="login-container">
         <div className="image-container">
-          <img src={logo} alt="logo" className="custom-image" />
+          <img src={ logo } alt="logo" className="custom-image" />
         </div>
-        <div className="text">
-          <p>TEN - Everything AI</p>
-        </div>
-        <form onSubmit={handleLogin} className="email-form">
-          <input
-            type="email"
-            name="email"
-            placeholder="Email address"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="email-input"
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="password-input"
-          />
-          <button type="submit" className="login-button email">
+        <h3>Login to Your Account</h3>
+
+        <form onSubmit={ handleLogin }>
+          <div className="form-group">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={ email }
+              onChange={ (e) => setEmail(e.target.value) }
+              className={ errors.email ? 'error-input' : '' }
+              required
+            />
+            { errors.email && <span className="error-text">{ errors.email }</span> }
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={ password }
+              onChange={ (e) => setPassword(e.target.value) }
+              className={ errors.password ? 'error-input' : '' }
+              required
+            />
+            { errors.password && <span className="error-text">{ errors.password }</span> }
+          </div>
+
+          { errors.form && <span className="error-text">{ errors.form }</span> }
+
+          <button type="submit" className="login-button">
             Login
           </button>
         </form>
 
-        <p className="register-option dark:text-[#a5acac]">
-          Don't have an account?{" "}
-          <button
-            className="register-link"
-            onClick={() => navigate("/register")}>
-            Register here
-          </button>
-        </p>
+        <div className="already-registered">
+          <p>
+            Don't have an account?{ " " }
+            <button onClick={ () => navigate("/register") } className="redirect-to-login">
+              Register here
+            </button>
+          </p>
+        </div>
 
         <p className="terms">
-          By continuing, you are agreeing to Ten Everything
-          <Link to="/term-condition">Terms of Service</Link> and
+          By continuing, you are agreeing to Ten Everything's{ " " }
+          <Link to="/term-condition">Terms of Service</Link> and{ " " }
           <Link to="/privacy-policy">Privacy Policy</Link>.
         </p>
-        <hr />
       </div>
-    </>
+    </div>
   );
 };
 
