@@ -51,7 +51,7 @@ export default function ContentForm() {
 
   return (
     <>
-      <div className="flex justify-between items-center mb-8">
+      <div className="flex justify-between items-center mb-8 max-sm:flex-col max-sm:items-start max-sm:gap-4">
         <h1 className="text-3xl font-bold text-gray-800">Create Blog</h1>
         <button
           onClick={() => setIsAdded(true)}
@@ -89,7 +89,7 @@ export default function ContentForm() {
                 value={title}
                 onChange={handleChange}
                 name="title"
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 block w-full border px-2 py-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
             </div>
             <div>
@@ -105,7 +105,7 @@ export default function ContentForm() {
                 value={date}
                 onChange={handleChange}
                 name="date"
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 block w-full border px-2 py-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
             </div>
             <div>
@@ -120,7 +120,7 @@ export default function ContentForm() {
                 value={feature}
                 onChange={handleChange}
                 name="feature"
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 block w-full border px-2 py-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               >
                 <option value="All">All</option>
                 <option value="Product">Product</option>

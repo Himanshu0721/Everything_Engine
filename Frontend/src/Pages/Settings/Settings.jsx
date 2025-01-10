@@ -69,7 +69,8 @@ const Settings = () => {
             </div>
             <div
               onClick={() => setOpen(true)}
-              className="text-md font-medium bg-[#e4e7e7] dark:bg-[#464e4e] dark:text-white py-1.5 px-4 rounded-3xl cursor-pointer hover:bg-slate-300 dark:hover:bg-slate-500">
+              className="text-md font-medium bg-[#e4e7e7] dark:bg-[#464e4e] dark:text-white py-1.5 px-4 rounded-3xl cursor-pointer hover:bg-slate-300 dark:hover:bg-slate-500"
+            >
               Edit
             </div>
           </div>
@@ -99,7 +100,8 @@ const Settings = () => {
           </div>
           <div
             onClick={() => setOpen2(true)}
-            className="text-[#3b3abe] dark:text-[#9494fa] text-sm cursor-pointer">
+            className="text-[#3b3abe] dark:text-[#9494fa] text-sm cursor-pointer"
+          >
             Change phone number
           </div>
         </div>
@@ -122,7 +124,8 @@ const Settings = () => {
               />
               <label
                 htmlFor="theme"
-                className="text-lg font-normal text-black dark:text-white whitespace-nowrap">
+                className="text-lg font-normal text-black dark:text-white whitespace-nowrap"
+              >
                 Light theme
               </label>
             </div>
@@ -137,7 +140,8 @@ const Settings = () => {
               />
               <label
                 htmlFor="theme"
-                className="text-lg font-normal text-black dark:text-white whitespace-nowrap">
+                className="text-lg font-normal text-black dark:text-white whitespace-nowrap"
+              >
                 Dark theme
               </label>
             </div>
@@ -208,7 +212,8 @@ const Settings = () => {
           </div>
           <button
             onClick={() => setOpen(false)}
-            className="bg-[#3b3abe] hover:bg-[#3b3aaa] text-white w-[94%] my-5 py-2.5 mx-4 rounded-xl mb-8">
+            className="bg-[#3b3abe] hover:bg-[#3b3aaa] text-white w-[94%] my-5 py-2.5 mx-4 rounded-xl mb-8"
+          >
             Save
           </button>
         </div>
@@ -229,7 +234,8 @@ const Settings = () => {
           </div>
           <button
             onClick={() => setOpen2(false)}
-            className="bg-[#3b3abe] hover:bg-[#3b3aaa] my-3 text-white w-[40%] py-3 mx-[30%] rounded-xl mb-10">
+            className="bg-[#3b3abe] hover:bg-[#3b3aaa] my-3 text-white w-[40%] py-3 mx-[30%] rounded-xl mb-10"
+          >
             Change number
           </button>
         </div>

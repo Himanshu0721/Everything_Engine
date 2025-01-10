@@ -32,7 +32,6 @@ const Login = () => {
         JSON.stringify(responseData.user.token)
       );
       localStorage.setItem("userData", JSON.stringify(responseData.user));
-
       window.location.reload();
     } catch (error) {
       console.log(`An error occurred: ${error.message}`);
