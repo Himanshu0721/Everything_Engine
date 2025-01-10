@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Register.css";
 import logo from "../../assets/logo.svg";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [username, setUserName] = useState("");
@@ -31,11 +32,11 @@ const Register = () => {
       });
       const responseData = await response.json();
       setUser(responseData);
+      localStorage.setItem("userData", JSON.stringify(responseData.user));
       localStorage.setItem(
         "userToken",
         JSON.stringify(responseData.user.token)
       );
-      localStorage.setItem("userData", JSON.stringify(responseData.user));
       navigate("/");
       window.location.reload();
     } catch (error) {

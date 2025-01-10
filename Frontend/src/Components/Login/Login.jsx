@@ -27,10 +27,7 @@ const Login = () => {
       const responseData = await response.json();
       setUser(responseData);
 
-      localStorage.setItem(
-        "userToken",
-        JSON.stringify(responseData.user.token)
-      );
+      localStorage.setItem("userToken", responseData.user.token);
       localStorage.setItem("userData", JSON.stringify(responseData.user));
 
       window.location.reload();
