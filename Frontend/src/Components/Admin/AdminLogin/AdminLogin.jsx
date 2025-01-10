@@ -83,7 +83,7 @@ const AdminLogin = () => {
                 />
               </div>
             </div>
-            <Button type="submit" variant="outline">
+            <Button type="submit" variant="outline" className="mt-4">
               Login
             </Button>
           </form>

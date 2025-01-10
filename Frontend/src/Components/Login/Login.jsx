@@ -29,7 +29,6 @@ const Login = () => {
 
       localStorage.setItem("userToken", responseData.user.token);
       localStorage.setItem("userData", JSON.stringify(responseData.user));
-
       window.location.reload();
     } catch (error) {
       console.log(`An error occurred: ${error.message}`);

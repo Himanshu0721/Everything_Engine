@@ -80,9 +80,10 @@ const HomeScreen = () => {
                   isSidebarOpen && window.innerWidth > 1024
                     ? "pl-[21rem]"
                     : "pl-0"
-                }`}>
+                }`}
+              >
                 <Routes>
-                  <Route path="/" element={<Dashboard />} />
+                  <Route index element={<Dashboard />} />
                   <Route path="/privacy-policy" element={<Privacy />} />
                   <Route path="/term-condition" element={<TermCondition />} />
                   <Route path="/profile" element={<Profile />} />
@@ -91,6 +92,7 @@ const HomeScreen = () => {
                   <Route path="/creators" element={<Creators />} />
                   <Route path="/explore" element={<Explore />} />
                   <Route path="/create-bot" element={<CreateBot />} />
+                  <Route path="/guidelines" element={<UserGuidelines />} />
                   <Route path="/register" element={<Register />} />
                   <Route path="/subscribe" element={<Subscribe />} />
                   <Route path="/settings" element={<Settings />} />
