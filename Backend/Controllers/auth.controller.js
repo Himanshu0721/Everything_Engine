@@ -115,14 +115,28 @@ const getUser = async (req, res) => {
   }
 };
 
-const logout = async (req, res) => {
+const updateUser = async (req, res) => {
   try {
-    res.clearCookie("jwt-ten");
-    res.status(200).json({ success: true, message: "Logged out successfully" });
+    const user = await User.findById(req.params.id);
+    const { username, email } = req.body;
+
+    if (!username || !email) {
+      return res
+        .status(400)
+        .json({ message: "Username and email are required." });
+    }
+    if (!user) {
+      return res.status(404).json({ message: "User not found." });
+    }
+    user.username = username;
+    user.email = email;
+
+    return res
+      .status(200)
+      .json({ message: "User updated successfully.", user });
   } catch (error) {
-    console.log("Error in logout controller", error.message);
-    res.status(500).json({ success: false, message: "Internal server error" });
+    return res.json({ message: error });
   }
 };
 
-module.exports = { SingUpHandler, LogInHandler, logout, getUser };
+module.exports = { SingUpHandler, LogInHandler, updateUser, getUser };

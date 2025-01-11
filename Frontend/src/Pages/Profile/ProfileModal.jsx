@@ -1,13 +1,26 @@
 import { IoMdClose } from "react-icons/io";
 import "./profileModal.css";
+import { useState, useContext, useEffect } from "react";
+import { UserContext } from "@/Context/userContext";
 
 const ProfileModal = ({
   closeProfileModal,
   handleImageChange,
   isProfileModalOpen,
-  setUser,
   image,
 }) => {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const { user, updateUser } = useContext(UserContext);
+  const id = localStorage.getItem("userId");
+
+  const handelSubmit = (id, username, email) => {
+    updateUser(id, username, email);
+    closeProfileModal();
+  };
+
   if (!isProfileModalOpen) return null;
 
   const handleClose = (e) => {
@@ -15,6 +28,7 @@ const ProfileModal = ({
       closeProfileModal();
     }
   };
+
   return (
     <>
       <div className="profile-modal-overlay" onClick={handleClose}>
@@ -24,7 +38,9 @@ const ProfileModal = ({
             onClick={closeProfileModal}>
             <IoMdClose />
           </button>
-          <div className="flex flex-col justify-center items-center">
+          <form
+            onSubmit={handelSubmit}
+            className="flex flex-col justify-center items-center">
             <h2 className="font-semibold text-2xl">Profile</h2>
             <div className="profile-img">
               <div className="profile-edit">
@@ -53,7 +69,8 @@ const ProfileModal = ({
                   className="input-name"
                   type="text"
                   placeholder="Name"
-                  onChange={(e) => setUser(e.target.value)}
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                 />
               </div>
               <div className="flex mt-2">
@@ -62,11 +79,19 @@ const ProfileModal = ({
                   type="text"
                   className="user-name"
                   placeholder="userName"
-                  onChange={(e) => setUser(e.target.value)}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+              <div className="mt-2">
+                <input
+                  type="button"
+                  className="mt-1 cursor-pointer w-full text-lg  text-white  bg-violet-600 py-2 px-6 rounded  "
+                  value="Save"
                 />
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </>

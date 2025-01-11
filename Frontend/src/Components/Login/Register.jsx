@@ -3,6 +3,7 @@ import "./Register.css";
 import logo from "../../assets/logo.svg";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "@/Context/userContext";
 
 const Register = () => {
   const [username, setUserName] = useState("");
@@ -31,8 +32,8 @@ const Register = () => {
         body: JSON.stringify(requestData),
       });
       const responseData = await response.json();
-      setUser(responseData);
-      localStorage.setItem("userData", JSON.stringify(responseData.user));
+
+      localStorage.setItem("userId", responseData.user._id);
       localStorage.setItem(
         "userToken",
         JSON.stringify(responseData.user.token)

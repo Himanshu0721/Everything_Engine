@@ -20,7 +20,6 @@ const Settings = () => {
   const handleChange = (e) => {
     setPoints(e.target.value);
   };
-
   const handleChangeNumber = (e) => {
     setPhoneNo(e.target.value);
   };
