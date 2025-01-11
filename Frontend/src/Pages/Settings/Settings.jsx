@@ -5,19 +5,17 @@ import { SiChakraui } from "react-icons/si";
 import Modal from "./Modal/Modal";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../../Context/ThemeContext";
+import { UserContext } from "@/Context/userContext";
 
 const Settings = () => {
-  const userdata = localStorage.getItem("userData");
-
-  const getUser = JSON.parse(userdata);
-
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
   const [points, setPoints] = useState(10);
   const navigate = useNavigate();
-  const [phoneNo, setPhoneNo] = useState(getUser.number);
+  const [phoneNo, setPhoneNo] = useState();
 
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const { user } = useContext(UserContext);
 
   const handleChange = (e) => {
     setPoints(e.target.value);
@@ -76,8 +74,7 @@ const Settings = () => {
             </div>
             <div
               onClick={() => setOpen(true)}
-              className="text-md font-medium bg-[#e4e7e7] dark:bg-[#464e4e] dark:text-white py-1.5 px-4 rounded-3xl cursor-pointer hover:bg-slate-300 dark:hover:bg-slate-500"
-            >
+              className="text-md font-medium bg-[#e4e7e7] dark:bg-[#464e4e] dark:text-white py-1.5 px-4 rounded-3xl cursor-pointer hover:bg-slate-300 dark:hover:bg-slate-500">
               Edit
             </div>
           </div>
@@ -90,7 +87,7 @@ const Settings = () => {
         <div className="text-sm text-[#5d6565] dark:text-[#a5acac]">Email</div>
         <div className="bg-[#f7f7f7] dark:bg-[#242424] px-5 py-3.5 rounded-2xl mt-2">
           <div className="text-lg font-normal dark:text-white">
-            {getUser.email}
+            {user.user.email}
           </div>
           <div className="text-[#8d9696] dark:text-[#737d7d] text-sm">
             Primary email
@@ -103,12 +100,11 @@ const Settings = () => {
         </div>
         <div className="bg-[#f7f7f7] dark:bg-[#242424] px-5 py-3.5 rounded-2xl mt-2">
           <div className="text-lg font-normal dark:text-white">
-            +91 {phoneNo}
+            +91 {user.user.number}
           </div>
           <div
             onClick={() => setOpen2(true)}
-            className="text-[#3b3abe] dark:text-[#9494fa] text-sm cursor-pointer"
-          >
+            className="text-[#3b3abe] dark:text-[#9494fa] text-sm cursor-pointer">
             Change phone number
           </div>
         </div>
@@ -131,8 +127,7 @@ const Settings = () => {
               />
               <label
                 htmlFor="theme"
-                className="text-lg font-normal text-black dark:text-white whitespace-nowrap"
-              >
+                className="text-lg font-normal text-black dark:text-white whitespace-nowrap">
                 Light theme
               </label>
             </div>
@@ -147,8 +142,7 @@ const Settings = () => {
               />
               <label
                 htmlFor="theme"
-                className="text-lg font-normal text-black dark:text-white whitespace-nowrap"
-              >
+                className="text-lg font-normal text-black dark:text-white whitespace-nowrap">
                 Dark theme
               </label>
             </div>
@@ -219,8 +213,7 @@ const Settings = () => {
           </div>
           <button
             onClick={() => setOpen(false)}
-            className="bg-[#3b3abe] hover:bg-[#3b3aaa] text-white w-[94%] my-5 py-2.5 mx-4 rounded-xl mb-8"
-          >
+            className="bg-[#3b3abe] hover:bg-[#3b3aaa] text-white w-[94%] my-5 py-2.5 mx-4 rounded-xl mb-8">
             Save
           </button>
         </div>
@@ -241,8 +234,7 @@ const Settings = () => {
           </div>
           <button
             onClick={() => setOpen2(false)}
-            className="bg-[#3b3abe] hover:bg-[#3b3aaa] my-3 text-white w-[40%] py-3 mx-[30%] rounded-xl mb-10"
-          >
+            className="bg-[#3b3abe] hover:bg-[#3b3aaa] my-3 text-white w-[40%] py-3 mx-[30%] rounded-xl mb-10">
             Change number
           </button>
         </div>

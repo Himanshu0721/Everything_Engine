@@ -1,35 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useContext } from "react";
 import "./profile.css";
 import ProfileModal from "./ProfileModal";
+import { UserContext } from "@/Context/userContext";
 
 const Profile = () => {
   const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
 
-  const [user, setUser] = useState(" ");
-
   const [image, setImage] = useState(null);
 
-  const userdata = localStorage.getItem("userData");
-
-  const getUser = JSON.parse(userdata);
-
-  const id = getUser._id;
-
-  useEffect(() => {
-    const fetchData = async (userid) => {
-      const response = await fetch(
-        `http://localhost:5000/api/auth/user/${userid}`
-      );
-
-      if (response.ok) {
-        const data = await response.json();
-        setUser(data.user);
-      } else {
-        alert("user fetched successfully");
-      }
-    };
-    fetchData(id);
-  }, [id]);
+  const { user } = useContext(UserContext);
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -66,9 +45,11 @@ const Profile = () => {
                 />
                 <div className="info">
                   <h2 className="dark:text-white">
-                    {user.username ? `${user.username} ` : "name"}
+                    {user.user.username ? `${user.user.username} ` : "name"}
                   </h2>
-                  <span>{user.email ? `${user.email}` : "email"}</span>
+                  <span>
+                    {user.user.email ? `${user.user.email}` : "email"}
+                  </span>
                 </div>
               </div>
             </div>
@@ -77,7 +58,6 @@ const Profile = () => {
                 isProfileModalOpen={isProfileModalOpen}
                 closeProfileModal={closeProfileModal}
                 handleImageChange={handleImageChange}
-                setUser={setUser}
                 image={image}
               />
               <button className="edit-btn" onClick={openProfileModal}>

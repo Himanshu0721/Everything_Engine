@@ -106,7 +106,7 @@ const getUser = async (req, res) => {
       return res.status(404).json({ error: "User not found" });
     }
     res.status(200).json({
-      message: "Single user fetched successfully",
+      message: "user fetched successfully",
       success: true,
       user,
     });
