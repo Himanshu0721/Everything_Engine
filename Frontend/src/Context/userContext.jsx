@@ -1,5 +1,4 @@
 import axios from "axios";
-import { setDate } from "date-fns";
 import { createContext, useState } from "react";
 
 export const UserContext = createContext(null);
@@ -17,6 +16,7 @@ export const UserProvider = ({ children }) => {
       console.log(err);
     }
   };
+
   const updateUser = async (userId, username, email) => {
     try {
       const response = await fetch(
@@ -29,7 +29,7 @@ export const UserProvider = ({ children }) => {
       );
 
       const data = await response.json();
-      setDate(data);
+      setUser(data);
     } catch (error) {
       console.log(`Error: ${error.message}`);
     }

@@ -6,6 +6,7 @@ import Modal from "./Modal/Modal";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../../Context/ThemeContext";
 import { UserContext } from "@/Context/userContext";
+import { toast } from "react-toastify";
 
 const Settings = () => {
   const [open, setOpen] = useState(false);
@@ -25,6 +26,7 @@ const Settings = () => {
   };
   const handelLogOut = () => {
     localStorage.removeItem("userToken");
+    toast.success("log out success");
     navigate("/");
     window.location.reload();
   };

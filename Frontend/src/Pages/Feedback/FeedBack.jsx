@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import "./feedBack.css";
+import { toast } from "react-toastify";
 
 const FeedBack = () => {
   const [rating, setRating] = useState(0);
@@ -24,7 +25,9 @@ const FeedBack = () => {
         body: JSON.stringify(requestData),
       });
       const data = await response.json();
-      console.log("feedback", data);
+      data.success === true
+        ? toast.success(data.message)
+        : toast.error("All field require");
     } catch (error) {
       console.log(error);
     }

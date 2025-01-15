@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.svg";
+import { toast } from "react-toastify";
 import { UserContext } from "../../Context/userContext";
 import "./Login.css";
 
@@ -27,22 +28,20 @@ const Login = () => {
       });
       const responseData = await response.json();
 
-      if (!response.ok) {
-        setErrors({ form: responseData.message || "Login failed" });
-        return;
-      }
+      responseData.success === true
+        ? toast.success("Login success")
+        : toast.error(responseData.message);
 
       localStorage.setItem("userToken", responseData.user.token);
       localStorage.setItem("userId", responseData.user._id);
       window.location.reload();
     } catch (error) {
-      setErrors({ form: "An error occurred during login" });
       console.log(`An error occurred: ${error.message}`);
     }
   };
 
   return (
-    <div className="login-wrapper">
+    <div className="login-wrapper ">
       <div className="login-container">
         <div className="image-container">
           <img src={logo} alt="logo" className="custom-image" />
@@ -51,7 +50,9 @@ const Login = () => {
 
         <form onSubmit={handleLogin}>
           <div className="form-group">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email" className="dark:text-[#a5acac]">
+              Email
+            </label>
             <input
               type="email"
               id="email"
@@ -65,7 +66,9 @@ const Login = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password" className="dark:text-[#a5acac]">
+              Password
+            </label>
             <input
               type="password"
               id="password"
@@ -87,7 +90,7 @@ const Login = () => {
           </button>
         </form>
 
-        <div className="already-registered">
+        <div className="already-registered dark:text-[#a5acac]">
           <p>
             Don't have an account?{" "}
             <button
@@ -97,8 +100,7 @@ const Login = () => {
             </button>
           </p>
         </div>
-
-        <p className="terms">
+        <p className="terms dark:text-[#a5acac]">
           By continuing, you are agreeing to Ten Everything's{" "}
           <Link to="/term-condition">Terms of Service</Link> and{" "}
           <Link to="/privacy-policy">Privacy Policy</Link>.

@@ -11,7 +11,7 @@ const getUserRoute = require("./Routes/Auth.Router");
 const contactRoute = require("./Routes/Contact.Router");
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 dotenv.config();
 

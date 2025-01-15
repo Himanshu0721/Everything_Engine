@@ -7,6 +7,7 @@ import {
   FaLinkedin,
   FaCheckCircle,
 } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const Contact = () => {
   const [showSuccess, setShowSuccess] = useState(false);
@@ -29,16 +30,13 @@ const Contact = () => {
         },
         body: JSON.stringify(requestData),
       });
-      await response.json();
-
-      setShowSuccess(true);
-      setName("");
-      setEmail("");
-      setMessage("");
+      const data = await response.json();
+      data.status == true
+        ? toast.success(data.message)
+        : toast.error("All field require");
     } catch (error) {
       console.error(error);
     }
-    setTimeout(() => setShowSuccess(false), 3000);
   };
 
   return (
@@ -65,22 +63,19 @@ const Contact = () => {
             gap: "30px",
             marginTop: "80px",
             fontSize: "33px",
-          }}
-        >
+          }}>
           <a
             href="https://www.instagram.com/theentrepreneurshipnetwork?igsh=MW9peTU5c3N3cWczZA=="
             target="_blank"
             rel="noopener noreferrer"
-            className="icon-text"
-          >
+            className="icon-text">
             <FaInstagram className="icon" />
           </a>
           <a
             href="https://www.linkedin.com/company/the-entrepreneurship-network/"
             target="_blank"
             rel="noopener noreferrer"
-            className="icon-text"
-          >
+            className="icon-text">
             <FaLinkedin className="icon" />
           </a>
         </div>
@@ -96,7 +91,6 @@ const Contact = () => {
             className="dark:bg-[#242424]"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            required
           />
           <input
             type="email"
@@ -105,7 +99,6 @@ const Contact = () => {
             className="dark:bg-[#242424]"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
           />
           <textarea
             name="message"
@@ -113,9 +106,7 @@ const Contact = () => {
             rows="5"
             className="dark:bg-[#242424]"
             value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            required
-          ></textarea>
+            onChange={(e) => setMessage(e.target.value)}></textarea>
           <button type="submit">Submit</button>
         </form>
         <div
@@ -132,8 +123,7 @@ const Contact = () => {
             background: "#4caf50",
             color: "white",
             boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-          }}
-        >
+          }}>
           <FaCheckCircle style={{ color: "white", marginRight: "5px" }} />
           Sent Successfully
         </div>

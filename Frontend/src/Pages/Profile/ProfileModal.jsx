@@ -11,12 +11,12 @@ const ProfileModal = ({
 }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
 
-  const { user, updateUser } = useContext(UserContext);
+  const { updateUser } = useContext(UserContext);
   const id = localStorage.getItem("userId");
 
-  const handelSubmit = (id, username, email) => {
+  const handelSubmit = (e, id, username, email) => {
+    e.preventDefault();
     updateUser(id, username, email);
     closeProfileModal();
   };
@@ -39,7 +39,7 @@ const ProfileModal = ({
             <IoMdClose />
           </button>
           <form
-            onSubmit={handelSubmit}
+            onSubmit={(e) => handelSubmit(e, id, username, email)}
             className="flex flex-col justify-center items-center">
             <h2 className="font-semibold text-2xl">Profile</h2>
             <div className="profile-img">
@@ -74,21 +74,21 @@ const ProfileModal = ({
                 />
               </div>
               <div className="flex mt-2">
-                <label>UserName</label>
+                <label>Email</label>
                 <input
                   type="text"
                   className="user-name"
-                  placeholder="userName"
+                  placeholder="Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div className="mt-2">
-                <input
-                  type="button"
-                  className="mt-1 cursor-pointer w-full text-lg  text-white  bg-violet-600 py-2 px-6 rounded  "
-                  value="Save"
-                />
+                <button
+                  type="submit"
+                  className="mt-1 cursor-pointer w-full text-lg  text-white  bg-violet-600 py-2 px-6 rounded  ">
+                  Save
+                </button>
               </div>
             </div>
           </form>

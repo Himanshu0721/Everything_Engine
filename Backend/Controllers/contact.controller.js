@@ -9,9 +9,9 @@ const contactForm = async (req, res) => {
       message,
     });
     await contactForm.save();
-    res.status(200).json({ success: true, message: "Details Sent" });
+    return res.status(200).json({ success: true, message: "Details Sent" });
   } catch (error) {
-    res.status(400).json({ success: false, message: error.message });
+    return res.status(400).json({ success: false, message: error.message });
   }
 };
 

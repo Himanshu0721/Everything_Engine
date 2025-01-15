@@ -10,7 +10,7 @@ const feedBack = async (req, res) => {
       rating,
     });
     await newFeedBack.save();
-    res.json({ success: true, message: "Feedback sent" });
+    res.status(200).json({ success: true, message: "Feedback sent" });
   } catch (error) {
     return res.status(400).json({ success: false, message: error.message });
   }
