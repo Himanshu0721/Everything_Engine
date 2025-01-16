@@ -132,6 +132,7 @@ const updateUser = async (req, res) => {
     user.username = username;
     user.email = email;
 
+    await user.save();
     return res
       .status(200)
       .json({ message: "User updated successfully.", user });

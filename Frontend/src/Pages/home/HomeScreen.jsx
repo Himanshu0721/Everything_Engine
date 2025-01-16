@@ -31,6 +31,7 @@ import UserGuidelines from "../Usage-guidelines/UserGuidelines";
 import AboutPage from "../about/About";
 import ChatBot from "@/Components/Bot/ChatBot";
 import ComingSoon from "../ComingSoon";
+import TenBot from "../TenBot/TenBot";
 
 const HomeScreen = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 1024);
@@ -81,8 +82,7 @@ const HomeScreen = () => {
                   isSidebarOpen && window.innerWidth > 1024
                     ? "pl-[21rem]"
                     : "pl-0"
-                }`}
-              >
+                }`}>
                 <Routes>
                   <Route index element={<Dashboard />} />
                   <Route path="*" element={<ComingSoon />} />
@@ -94,6 +94,7 @@ const HomeScreen = () => {
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/creators" element={<Creators />} />
                   <Route path="/explore" element={<Explore />} />
+                  <Route path="/tenBot" element={<TenBot />} />
                   <Route path="/create-bot" element={<CreateBot />} />
                   <Route path="/guidelines" element={<UserGuidelines />} />
                   <Route path="/register" element={<Register />} />
@@ -101,11 +102,11 @@ const HomeScreen = () => {
                   <Route path="/settings" element={<Settings />} />
                   <Route path="/feedback" element={<FeedBack />} />
                   <Route path="/settings" element={<Settings />} />
-                  <Route path="/help-center" element={<HelpCenter />} />
-                  <Route path="/help-center/general" element={<General />} />
                   <Route path="/contact-us" element={<Contact />} />
                   <Route path="/usage-guidlines" element={<UserGuidelines />} />
                   <Route path="/chatbot" element={<ChatBot />} />
+                  <Route path="/help-center" element={<HelpCenter />} />
+                  <Route path="/help-center/general" element={<General />} />
                   <Route
                     path="/help-center/creator-monetization"
                     element={<CreatorMonetization />}
