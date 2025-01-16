@@ -20,7 +20,9 @@ const Blog = () => {
       <header className="bg-[#333333] px-4 py-4 md:px-6">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="text-xl font-semibold text-white">TEN AI</span>
+            <Link to="/">
+              <span className="text-xl font-semibold text-white">TEN AI</span>
+            </Link>
           </div>
 
           <button
@@ -46,17 +48,13 @@ const Blog = () => {
           </button>
 
           <nav className="hidden md:flex text-xl items-center gap-6">
-            <a href="#" className="text-gray-300 hover:text-indigo-400">
+            <a href="/about" className="text-gray-300 hover:text-indigo-400">
               About
             </a>
             <a href="/blog" className="text-gray-300 hover:text-indigo-400">
               Blog
             </a>
           </nav>
-
-          <button className="hidden md:block px-4 py-2 bg-indigo-600 hover:bg-indigo-700 rounded-md text-white">
-            Sign up
-          </button>
         </div>
 
         {isMenuOpen && (
@@ -67,9 +65,6 @@ const Blog = () => {
             <a href="#" className="text-gray-300 hover:text-indigo-400">
               Blog
             </a>
-            <button className="w-full px-4 py-2 bg-indigo-600 hover:bg-indigo-700 rounded-md text-white">
-              Sign up
-            </button>
           </nav>
         )}
       </header>

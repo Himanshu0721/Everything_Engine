@@ -134,7 +134,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => (
 
             <li>
               <Link
-                to="/your-bots"
+                to="/tenBot"
                 className="flex items-center space-x-2  border-gray-200 dark:border-white gap-10 hover:bg-gray-100 dark:hover:bg-gray-900 p-4"
                 style={{ borderBottom: "7px solid #e5e7eb" }}>
                 <img
@@ -147,7 +147,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => (
                   }}
                 />
                 <span className="text-sm sm:text-sm md:text-base lg:text-lg">
-                  Your Bot
+                  Ten Bot
                 </span>
               </Link>
             </li>
@@ -255,8 +255,8 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => (
             </li>
             <li>
               <Link
-                to="/contact-us"
-                className="flex items-center space-x-2 border-b-2 border-gray-200 gap-10 dark:border-white dark:hover:bg-gray-900 hover:bg-gray-100 p-4">
+                to="/contact"
+                className="flex items-center space-x-2 border-b-2 border-gray-200 gap-10 hover:bg-gray-100 p-4">
                 <FontAwesomeIcon
                   icon={faPhoneAlt}
                   className="text-black-300"

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./Register.css";
 import logo from "../../assets/logo.svg";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const [username, setUserName] = useState("");
@@ -30,13 +32,16 @@ const Register = () => {
         body: JSON.stringify(requestData),
       });
       const responseData = await response.json();
-      setUser(responseData);
+      responseData.success === true
+        ? toast.success("Signup success")
+        : toast.error(responseData.message);
+      localStorage.setItem("userId", responseData.user._id);
       localStorage.setItem(
         "userToken",
         JSON.stringify(responseData.user.token)
       );
-      localStorage.setItem("userData", JSON.stringify(responseData.user));
       navigate("/");
+
       window.location.reload();
     } catch (error) {
       console.log(`An error occurred: ${error.message}`);
@@ -87,7 +92,7 @@ const Register = () => {
           </label>
           <input
             type="text"
-            name="phone"
+            name="number"
             id="phone"
             placeholder="Enter your phone number"
             value={number}

@@ -1,14 +1,16 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.svg";
+import { toast } from "react-toastify";
 import { UserContext } from "../../Context/userContext";
 import "./Login.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
-  const { user, setUser } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -25,14 +27,13 @@ const Login = () => {
         body: JSON.stringify(requestData),
       });
       const responseData = await response.json();
-      setUser(responseData);
 
-      localStorage.setItem(
-        "userToken",
-        JSON.stringify(responseData.user.token)
-      );
-      localStorage.setItem("userData", JSON.stringify(responseData.user));
+      responseData.success === true
+        ? toast.success("Login success")
+        : toast.error(responseData.message);
 
+      localStorage.setItem("userToken", responseData.user.token);
+      localStorage.setItem("userId", responseData.user._id);
       window.location.reload();
     } catch (error) {
       console.log(`An error occurred: ${error.message}`);
@@ -40,55 +41,72 @@ const Login = () => {
   };
 
   return (
-    <>
+    <div className="login-wrapper ">
       <div className="login-container">
         <div className="image-container">
           <img src={logo} alt="logo" className="custom-image" />
         </div>
-        <div className="text">
-          <p>TEN - Everything AI</p>
-        </div>
-        <form onSubmit={handleLogin} className="email-form">
-          <input
-            type="email"
-            name="email"
-            placeholder="Email address"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="email-input"
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="password-input"
-          />
-          <button type="submit" className="login-button email">
+        <h3>Login to Your Account</h3>
+
+        <form onSubmit={handleLogin}>
+          <div className="form-group">
+            <label htmlFor="email" className="dark:text-[#a5acac]">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className={errors.email ? "error-input" : ""}
+              required
+            />
+            {errors.email && <span className="error-text">{errors.email}</span>}
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="password" className="dark:text-[#a5acac]">
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className={errors.password ? "error-input" : ""}
+              required
+            />
+            {errors.password && (
+              <span className="error-text">{errors.password}</span>
+            )}
+          </div>
+
+          {errors.form && <span className="error-text">{errors.form}</span>}
+
+          <button type="submit" className="login-button">
             Login
           </button>
         </form>
 
-        <p className="register-option dark:text-[#a5acac]">
-          Don't have an account?{" "}
-          <button
-            className="register-link"
-            onClick={() => navigate("/register")}>
-            Register here
-          </button>
-        </p>
-
-        <p className="terms">
-          By continuing, you are agreeing to Ten Everything
-          <Link to="/term-condition">Terms of Service</Link> and
+        <div className="already-registered dark:text-[#a5acac]">
+          <p>
+            Don't have an account?{" "}
+            <button
+              onClick={() => navigate("/register")}
+              className="redirect-to-login">
+              Register here
+            </button>
+          </p>
+        </div>
+        <p className="terms dark:text-[#a5acac]">
+          By continuing, you are agreeing to Ten Everything's{" "}
+          <Link to="/term-condition">Terms of Service</Link> and{" "}
           <Link to="/privacy-policy">Privacy Policy</Link>.
         </p>
-        <hr />
       </div>
-    </>
+    </div>
   );
 };
 

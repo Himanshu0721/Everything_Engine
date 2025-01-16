@@ -16,6 +16,7 @@
   padding: 20px;
   border-radius: 8px;
   width: 500px;
+  height: 400px;
   text-align: center;
   position: relative;
 }
@@ -39,11 +40,13 @@
 }
 .user-info {
   width: 100%;
+  height: 25vh;
+  margin-top: 10px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+
   flex-direction: column;
-  height: 10vh;
 }
 .input-name {
   border-bottom: 1px solid black;

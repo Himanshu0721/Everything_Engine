@@ -7,6 +7,7 @@ import {
   FaLinkedin,
   FaCheckCircle,
 } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const Contact = () => {
   const [showSuccess, setShowSuccess] = useState(false);
@@ -29,18 +30,14 @@ const Contact = () => {
         },
         body: JSON.stringify(requestData),
       });
-      await response.json();
-  
-      setShowSuccess(true);
-      setName("");
-      setEmail("");
-      setMessage("");
+      const data = await response.json();
+      data.status == true
+        ? toast.success(data.message)
+        : toast.error("All field require");
     } catch (error) {
       console.error(error);
     }
-    setTimeout(() => setShowSuccess(false), 3000);
   };
-  
 
   return (
     <div className="contact-container">
@@ -51,10 +48,10 @@ const Contact = () => {
           thoughts, our support team is here to help you out.
         </p>
         <div className="contact-details">
-          <p style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <p style={{ display: "flex", alignItems: "center", gap: "10px" }}>
             <FaBuilding className="icon" /> The entrepreneurship network
           </p>
-          <p style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <p style={{ display: "flex", alignItems: "center", gap: "10px" }}>
             <FaEnvelope className="icon" /> info@entrepreneurshipnetwork.net
           </p>
         </div>
@@ -65,7 +62,7 @@ const Contact = () => {
             justifyContent: "center",
             gap: "30px",
             marginTop: "80px",
-            fontSize: '33px'
+            fontSize: "33px",
           }}>
           <a
             href="https://www.instagram.com/theentrepreneurshipnetwork?igsh=MW9peTU5c3N3cWczZA=="
@@ -94,7 +91,6 @@ const Contact = () => {
             className="dark:bg-[#242424]"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            required
           />
           <input
             type="email"
@@ -103,7 +99,6 @@ const Contact = () => {
             className="dark:bg-[#242424]"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
           />
           <textarea
             name="message"
@@ -111,26 +106,25 @@ const Contact = () => {
             rows="5"
             className="dark:bg-[#242424]"
             value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            required></textarea>
+            onChange={(e) => setMessage(e.target.value)}></textarea>
           <button type="submit">Submit</button>
         </form>
         <div
           id="toast"
-          className={`toast ${showSuccess ? 'show' : ''}`}
+          className={`toast ${showSuccess ? "show" : ""}`}
           style={{
-            position: 'fixed',
-            top: '20px',
-            right: '20px',
+            position: "fixed",
+            top: "20px",
+            right: "20px",
             zIndex: 1000,
-            padding: '20px 40px',
-            fontSize: '19px',
-            borderRadius: '5px',
-            background: '#4caf50',
-            color: 'white',
-            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+            padding: "20px 40px",
+            fontSize: "19px",
+            borderRadius: "5px",
+            background: "#4caf50",
+            color: "white",
+            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
           }}>
-          <FaCheckCircle style={{ color: 'white', marginRight: '5px' }} />
+          <FaCheckCircle style={{ color: "white", marginRight: "5px" }} />
           Sent Successfully
         </div>
       </div>

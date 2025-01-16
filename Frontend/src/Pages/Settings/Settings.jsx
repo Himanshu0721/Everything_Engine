@@ -5,29 +5,28 @@ import { SiChakraui } from "react-icons/si";
 import Modal from "./Modal/Modal";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../../Context/ThemeContext";
+import { UserContext } from "@/Context/userContext";
+import { toast } from "react-toastify";
 
 const Settings = () => {
-  const userdata = localStorage.getItem("userData");
-
-  const getUser = JSON.parse(userdata);
-
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
   const [points, setPoints] = useState(10);
   const navigate = useNavigate();
-  const [phoneNo, setPhoneNo] = useState(getUser.number);
+  const [phoneNo, setPhoneNo] = useState();
 
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const { user } = useContext(UserContext);
 
   const handleChange = (e) => {
     setPoints(e.target.value);
   };
-
   const handleChangeNumber = (e) => {
     setPhoneNo(e.target.value);
   };
   const handelLogOut = () => {
     localStorage.removeItem("userToken");
+    toast.success("log out success");
     navigate("/");
     window.location.reload();
   };
@@ -89,7 +88,7 @@ const Settings = () => {
         <div className="text-sm text-[#5d6565] dark:text-[#a5acac]">Email</div>
         <div className="bg-[#f7f7f7] dark:bg-[#242424] px-5 py-3.5 rounded-2xl mt-2">
           <div className="text-lg font-normal dark:text-white">
-            {getUser.email}
+            {user.user.email}
           </div>
           <div className="text-[#8d9696] dark:text-[#737d7d] text-sm">
             Primary email
@@ -102,7 +101,7 @@ const Settings = () => {
         </div>
         <div className="bg-[#f7f7f7] dark:bg-[#242424] px-5 py-3.5 rounded-2xl mt-2">
           <div className="text-lg font-normal dark:text-white">
-            +91 {phoneNo}
+            +91 {user.user.number}
           </div>
           <div
             onClick={() => setOpen2(true)}

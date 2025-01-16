@@ -3,7 +3,6 @@
   justify-content: space-between;
   height: 100vh;
   padding: 30px;
-  
 }
 
 .contact-info {
@@ -31,11 +30,10 @@
   margin-top: 40px;
 }
 
-.social-icons  {
+.social-icons {
   margin-right: 10px;
   font-size: 70px;
   margin-left: 100px;
-  
 }
 
 .background-block {
@@ -147,7 +145,7 @@
   }
 }
 
-@media (max-width: 1326px){
+@media (max-width: 1326px) {
   .contact-container {
     flex-direction: column;
     align-items: center;
@@ -168,15 +166,14 @@
 
   .contact-info p {
     font-size: 18px;
-    
   }
 
   .contact-details {
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    justify-content: center; 
-    margin-top: 20px; 
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
     margin-bottom: -20px;
   }
 
@@ -202,24 +199,21 @@
 
   .social-icons a {
     font-size: 35px;
-    
   }
-  .social-icons{
+  .social-icons {
     margin-right: 110px;
-    
   }
 }
-@media (max-width: 985px){
-  .contact-info p{
+@media (max-width: 985px) {
+  .contact-info p {
     padding-right: -10;
   }
-
 }
-@media (max-width: 596px){
+@media (max-width: 596px) {
   .contact-info h2 {
     font-size: 28px;
   }
-  .contact-info p{
+  .contact-info p {
     font-size: 15px;
   }
   .social-icons a {
@@ -229,52 +223,51 @@
     margin-bottom: 15px;
     font-size: 17px;
   }
-  .contact-details{
+  .contact-details {
     margin-bottom: -30px;
   }
-} 
-@media (max-width: 424px){
+}
+@media (max-width: 424px) {
   .contact-info h2 {
     font-size: 26px;
   }
-  .contact-info p{
+  .contact-info p {
     font-size: 13px;
   }
   .social-icons a {
     font-size: 28px;
-    
   }
-  .social-icons{
+  .social-icons {
     margin-left: 120px;
   }
   .contact-form h3 {
     margin-bottom: 15px;
     font-size: 16px;
   }
-  .contact-details{
+  .contact-details {
     margin-bottom: -50px;
   }
 }
-@media (max-width: 350px){
+@media (max-width: 350px) {
   .contact-info h2 {
     font-size: 24px;
     margin-left: 20px;
   }
-  .contact-info p{
+  .contact-info p {
     font-size: 12px;
     margin-left: 10px;
   }
   .social-icons a {
     font-size: 26px;
   }
-  .social-icons{
+  .social-icons {
     margin-left: 135px;
   }
   .contact-form h3 {
     margin-bottom: 15px;
     font-size: 13px;
   }
-  .contact-details{
+  .contact-details {
     margin-bottom: -60px;
   }
 }

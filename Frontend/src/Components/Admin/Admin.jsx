@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CreateBlog from "./CreateBlogForm/CreateBlog";
 import { useAuth } from "../context/authContext";
 
 const Admin = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
-  const [currentPage, setCurrentPage] = React.useState("createblog");
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState("createblog");
 
   const navigate = useNavigate();
 
@@ -46,7 +46,7 @@ const Admin = () => {
               <button
                 onClick={toggleSidebar}
                 type="button"
-                className="inline-flex items-center p-2 text-sm text-white rounded-lg sm:hidden focus:outline-none focus:ring-2"
+                className="inline-flex items-center p-2 text-sm text-white rounded-lg md:hidden focus:outline-none focus:ring-2"
               >
                 <span className="sr-only">Toggle sidebar</span>
                 <svg
@@ -76,7 +76,7 @@ const Admin = () => {
       <aside
         className={`fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } border-r md:translate-x-0`}
+        } border-r sm:translate-x-0`}
         style={{ background: "linear-gradient(to bottom, #000000, #434343)" }}
         aria-label="Sidebar"
       >
