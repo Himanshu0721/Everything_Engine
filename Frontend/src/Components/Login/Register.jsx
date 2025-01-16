@@ -125,7 +125,7 @@ const Register = () => {
           Already registerd?
           <Link className="redirect-to-login" to="/">
             {" "}
-            Login   git add .
+            Login  
 
           </Link>
         </div>
