@@ -1,143 +1,144 @@
+/* Main container */
+
 .feedback-container {
-  width: 100%;
-  height: 90vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.count-btn {
-  padding: 20px 25px;
-  border-radius: 50%;
-  background: rgb(178, 103, 240);
-  color: white;
-  font-size: 1.2rem;
-  cursor: pointer;
-}
-.count-container {
-  justify-content: space-between;
-  display: flex;
-  width: 40%;
-  margin-bottom: 0px;
-}
-.count-container > span {
-  font-size: 5rem;
-  cursor: pointer;
-}
-.selected {
-  color: gold;
-}
-.rating-container {
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  display: flex;
-}
-.expression {
-  justify-content: space-between;
-  display: flex;
-  width: 40%;
-  margin-bottom: 20px;
-}
-.expression span {
-  font-size: 20px;
-  font-weight: 500;
-}
-.feedBackForm {
-  width: 50%;
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-  align-items: flex-start;
-  flex-direction: column;
-}
-.feedBackForm > label {
-  margin: 10px 0;
-}
-.feedBack-input {
-  display: flex;
-  justify-content: flex-start;
-  padding: 10px 5px;
-  width: 100%;
-  background: #f7f7f7;
-  outline: 1px solid rgb(224, 223, 223);
-  border: 1px solid rgb(224, 223, 223);
-  border-radius: 5px;
-  transition: 0.1s;
-}
-.feedBack-input:focus {
-  outline: 3px solid #7ea4e0;
-  outline-offset: 1px;
-}
-.submit-btn {
-  margin: 10px 15px;
-  background: rgb(178, 103, 240);
-  border-radius: 10px;
-  color: white;
-  padding: 10px 20px;
-  font-size: 1.3rem;
-  font-weight: 500;
-}
-
-@media screen and (max-width: 800px) {
-  .count-container > span {
-    font-size: 5rem;
-    cursor: pointer;
-  }
-  .title {
-    font-size: rem;
-    margin-top: 50px;
-    margin-bottom: 0;
-  }
-  .rating-container {
-    width: 100%;
+    height: 100vh;
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    display: flex;
-  }
-  .count-container {
-    justify-content: space-between;
-    display: flex;
-    width: 60%;
-    margin-bottom: 0px;
-  }
-  .feedBackForm {
-    width: 50%;
-  }
+    text-align: center;
+    padding: 2rem;
 }
-@media screen and (max-width: 550px) {
-  .feedback-container {
-    width: 100%;
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-  }
-  .title {
-    font-size: 1.2rem;
-    margin-top: 50px;
-    margin-bottom: 0;
-  }
-  .count-container {
-    justify-content: space-between;
-    display: flex;
-    width: 60%;
-    margin-bottom: 0px;
-  }
-  .count-container > span {
+
+
+/* Title */
+
+.title {
     font-size: 2rem;
-  }
-  .expression {
-    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+/* Form container */
+
+.feedback-form {
+    width: 50%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(243, 238, 238, 0.1);
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* Rating stars */
+
+.rating-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.rating-container span {
+    font-size: 2rem;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: color 0.3s;
+}
+
+.rating-container span.selected {
+    color: gold;
+}
+
+
+/* Rating labels */
+
+.expression {
+    display: flex;
+    justify-content: space-between;
     width: 60%;
     margin-bottom: 20px;
-  }
-  .feedBackForm {
-    width: 90%;
-  }
+}
+
+.expression span {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+
+/* Input fields */
+
+.input-group {
+    width: 100%;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.feedback-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border 0.3s;
+    font-size: 1rem;
+}
+
+.feedback-input:focus {
+    border-color: #7ea4e0;
+}
+
+
+/* Submit button */
+
+.submit-btn {
+    width: 100%;
+    background: rgb(178, 103, 240);
+    border: none;
+    color: white;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.3s;
+}
+
+.submit-btn:hover {
+    background: rgb(150, 80, 220);
+}
+
+
+/* Responsive Design */
+
+@media screen and (max-width: 800px) {
+    .feedback-form {
+        width: 70%;
+    }
+    .expression {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .feedback-container {
+        padding: 10px;
+    }
+    .title {
+        font-size: 1.5rem;
+    }
+    .feedback-form {
+        width: 90%;
+    }
+    .expression {
+        width: 100%;
+    }
 }

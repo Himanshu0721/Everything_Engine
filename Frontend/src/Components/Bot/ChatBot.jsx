@@ -56,7 +56,7 @@ const ChatBot = () => {
         } else {
           clearInterval(typingInterval);
         }
-      }, 0); 
+      }, 0);
     } catch (error) {
       console.error("Error getting response:", error);
       const errorMessage = {
@@ -75,40 +75,44 @@ const ChatBot = () => {
   }, [messages]);
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      <div className="container mx-auto max-w-4xl px-4">
-        <div className="bg-white rounded-lg shadow-lg">
-          <div className="p-4 border-b flex items-center gap-2">
+    <div className="min-h-screen dark:bg-[#242424] dark:text-white">
+      <div className="container mx-auto max-w-4xl px-4 pt-16 md:pt-20">
+        <div className="dark:text-white rounded-lg shadow-lg bg-white dark:bg-[#1e1e1e] relative flex flex-col h-[calc(100vh-8rem)]">
+          {/* Fixed Header */ }
+          <div className="p-4 md:p-6 border-b flex items-center gap-3 bg-white dark:bg-[#1e1e1e] rounded-t-lg">
             <Bot className="w-6 h-6 text-blue-500" />
-            <h1 className="text-xl font-semibold">
+            <h1 className="text-lg md:text-xl font-semibold">
               Chat with TEN Everything Engine
             </h1>
           </div>
 
-          {/* Chat container with ref */}
+          {/* Scrollable Messages Area */ }
           <div
-            className="h-[538px] overflow-y-auto p-4 space-y-4"
-            ref={chatContainerRef}
+            className="flex-1 overflow-y-auto p-4 md:p-6 space-y-4 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600"
+            ref={ chatContainerRef }
           >
-            {messages.length === 0 ? (
-              <div className="text-center text-gray-500 mt-8">
-                <Bot className="w-12 h-12 mx-auto mb-4 text-gray-400" />
-                <p>Start a conversation with TEN Everything Engine</p>
+            { messages.length === 0 ? (
+              <div className="text-center dark:text-white mt-8 space-y-3">
+                <Bot className="w-12 h-12 mx-auto mb-4 dark:text-white opacity-80" />
+                <p className="text-gray-600 dark:text-gray-300">
+                  Start a conversation with TEN Everything Engine
+                </p>
               </div>
             ) : (
               messages.map((message, index) => (
-                <ChatMessage key={index} message={message} />
+                <ChatMessage key={ index } message={ message } />
               ))
-            )}
-            {isLoading && (
-              <div className="flex items-center justify-center">
+            ) }
+            { isLoading && (
+              <div className="flex items-center justify-center py-4">
                 <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
               </div>
-            )}
+            ) }
           </div>
 
-          <div className="p-4 border-t">
-            <ChatInput onSendMessage={handleSendMessage} isLoading={isLoading} />
+          {/* Fixed Input Area */ }
+          <div className="p-4 md:p-6 border-t bg-white dark:bg-[#1e1e1e] rounded-b-lg">
+            <ChatInput onSendMessage={ handleSendMessage } isLoading={ isLoading } />
           </div>
         </div>
       </div>

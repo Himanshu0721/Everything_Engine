@@ -43,69 +43,69 @@ const Dashboard = () => {
 
   const BotButton = ({ bot }) => (
     <button
-      className={`flex items-center gap-2 px-4 py-2 rounded-full ${bot.color}  hover:opacity-90 shadow-sm`}>
-      {typeof bot.icon === "string" && bot.icon.startsWith("http") ? (
-        <img src={bot.icon} alt="" className="w-5 h-5 rounded" />
+      className={ `flex items-center gap-2 px-4 py-2 rounded-full ${bot.color}  hover:opacity-90 shadow-sm` }>
+      { typeof bot.icon === "string" && bot.icon.startsWith("http") ? (
+        <img src={ bot.icon } alt="" className="w-5 h-5 rounded" />
       ) : (
         <div
-          className={`w-5 h-5 rounded flex items-center justify-center text-white ${bot.iconBg}`}>
-          {bot.icon}
+          className={ `w-5 h-5 rounded flex items-center justify-center text-white ${bot.iconBg}` }>
+          { bot.icon }
         </div>
-      )}
-      <span className="text-sm font-medium text-gray-700">{bot.name}</span>
+      ) }
+      <span className="text-sm font-medium text-gray-700">{ bot.name }</span>
     </button>
   );
 
   const hasMoreBots = moreBots.length > 0;
   return (
-    <section className="min-h-screen bg-white flex flex-col items-center px-6 py-8">
-      <Modal isOpen={isModalOpen} closeModal={closeModal} />
+    <section className="min-h-screen dark:bg-[#242424] flex flex-col items-center px-6 py-8">
+      <Modal isOpen={ isModalOpen } closeModal={ closeModal } />
       <div className="h-12"></div>
       <div className="h-11"></div>
       <div className="h-10"></div>
       <div className="flex items-center justify-center gap-4 mt-18 mb-9">
-        <img src={logo} alt="Logo" className="h-24 mt-4 mb-4" />
-        <span className="text-black text-xl font-semibold">Everything AI</span>
+        <img src={ logo } alt="Logo" className="h-24 mt-4 mb-4" />
+        <span className="dark:text-white text-xl font-semibold">Everything AI</span>
       </div>
       <div className="flex flex-wrap justify-center gap-4 mb-7">
-        {visibleBots.map((bot, index) => (
+        { visibleBots.map((bot, index) => (
           <BotButton
-            key={index}
-            bot={{
+            key={ index }
+            bot={ {
               ...bot,
               color: "bg-gray-50 rounded-full border border-black px-4 py-2",
               iconBg: "bg-blue-500",
-            }}
+            } }
           />
-        ))}
+        )) }
         <button
-          onClick={() => hasMoreBots && setShowMoreBots(true)}
+          onClick={ () => hasMoreBots && setShowMoreBots(true) }
           className="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 hover:opacity-90 shadow-sm">
           <span className="w-5 h-5 flex items-center justify-center">⚡</span>
           <span className="text-sm font-medium text-gray-700">
-            {hasMoreBots ? "More" : "Coming soon"}
+            { hasMoreBots ? "More" : "Coming soon" }
           </span>
         </button>
-        <button className="dashboard-btn" onClick={openModal}>
+        <button className="dashboard-btn" onClick={ openModal }>
           More
         </button>
       </div>
 
-      {/* Keep the Dialog component for when there are more bots */}
-      {hasMoreBots && (
-        <Dialog open={showMoreBots} onOpenChange={setShowMoreBots}>
+      {/* Keep the Dialog component for when there are more bots */ }
+      { hasMoreBots && (
+        <Dialog open={ showMoreBots } onOpenChange={ setShowMoreBots }>
           <DialogContent>
             <DialogHeader>
               <DialogTitle>More Bots</DialogTitle>
             </DialogHeader>
             <div className="grid gap-2">
-              {moreBots.map((bot, index) => (
-                <BotButton key={index} bot={bot} />
-              ))}
+              { moreBots.map((bot, index) => (
+                <BotButton key={ index } bot={ bot } />
+              )) }
             </div>
           </DialogContent>
         </Dialog>
-      )}
+      ) }
 
       <div className="w-full max-w-2xl mb-9">
         <div className="relative flex items-center bg-gray-50 rounded-2xl border border-gray-200 shadow-sm">
@@ -115,8 +115,8 @@ const Dashboard = () => {
           <input
             type="text"
             placeholder="Start a new chat"
-            value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
+            value={ searchText }
+            onChange={ (e) => setSearchText(e.target.value) }
             className="flex-1 bg-transparent py-4 text-base text-gray-800 placeholder-gray-400 focus:outline-none"
           />
           <button className="p-4 hover:bg-gray-100 transition-colors">
@@ -131,7 +131,7 @@ const Dashboard = () => {
 
       <div className="w-full max-w-5xl">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-bold text-gray-900">Official bots</h2>
+          <h2 className="text-xl font-bold dark:text-white">Official bots</h2>
           <div className="flex gap-2">
             {/*(if there are more than 9 bots)<button className="text-sm text-violet-600 hover:underline">See all</button>
             <div className="flex gap-1">
@@ -155,44 +155,44 @@ const Dashboard = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          {bots
+          { bots
             .slice(currentSlide * 6, currentSlide * 6 + 6)
             .map((bot, index) => (
               <>
-                <Link key={index} to={"/chatbot"}>
+                <Link key={ index } to={ "/chatbot" }>
                   <div className="flex items-center gap-3 p-4 rounded-xl border border-gray-200 hover:border-gray-300 cursor-pointer ">
-                    {typeof bot.icon === "string" &&
-                    bot.icon.startsWith("http") ? (
+                    { typeof bot.icon === "string" &&
+                      bot.icon.startsWith("http") ? (
                       <img
-                        src={bot.icon}
+                        src={ bot.icon }
                         alt=""
                         className="w-12 h-12 rounded-xl"
                       />
                     ) : (
                       <div className="w-12 h-12 rounded-xl bg-gray-900 flex items-center justify-center text-lg font-medium">
-                        {bot.icon}
+                        { bot.icon }
                       </div>
-                    )}
+                    ) }
                     <div>
-                      <h3 className="font-medium text-gray-900">{bot.name}</h3>
-                      <p className="text-sm text-gray-500">Official</p>
+                      <h3 className="font-medium dark:text-white">{ bot.name }</h3>
+                      <p className="text-sm dark:text-white">Official</p>
                     </div>
                   </div>
                 </Link>
               </>
-            ))}
+            )) }
         </div>
       </div>
 
-      <Dialog open={showMoreBots} onOpenChange={setShowMoreBots}>
+      <Dialog open={ showMoreBots } onOpenChange={ setShowMoreBots }>
         <DialogContent>
           <DialogHeader>
             <DialogTitle>More Bots</DialogTitle>
           </DialogHeader>
           <div className="grid gap-2">
-            {moreBots.map((bot, index) => (
-              <BotButton key={index} bot={bot} />
-            ))}
+            { moreBots.map((bot, index) => (
+              <BotButton key={ index } bot={ bot } />
+            )) }
           </div>
         </DialogContent>
       </Dialog>

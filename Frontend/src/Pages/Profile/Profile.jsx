@@ -36,31 +36,30 @@ const Profile = () => {
             <div className="profile-info">
               <div className="profile-img">
                 <img
-                  src={`${
-                    image
-                      ? image
-                      : "https://media.istockphoto.com/id/1214428300/vector/default-profile-picture-avatar-photo-placeholder-vector-illustration.jpg?s=612x612&w=0&k=20&c=vftMdLhldDx9houN4V-g3C9k0xl6YeBcoB_Rk6Trce0="
-                  } `}
+                  src={ `${image
+                    ? image
+                    : "https://media.istockphoto.com/id/1214428300/vector/default-profile-picture-avatar-photo-placeholder-vector-illustration.jpg?s=612x612&w=0&k=20&c=vftMdLhldDx9houN4V-g3C9k0xl6YeBcoB_Rk6Trce0="
+                    } ` }
                   alt="img"
                 />
                 <div className="info">
                   <h2 className="dark:text-white">
-                    {user.user.username ? `${user.user.username} ` : "name"}
+                    { user.user.username ? `${user.user.username} ` : "name" }
                   </h2>
                   <span>
-                    {user.user.email ? `${user.user.email}` : "email"}
+                    { user.user.email ? `${user.user.email}` : "email" }
                   </span>
                 </div>
               </div>
             </div>
             <div>
               <ProfileModal
-                isProfileModalOpen={isProfileModalOpen}
-                closeProfileModal={closeProfileModal}
-                handleImageChange={handleImageChange}
-                image={image}
+                isProfileModalOpen={ isProfileModalOpen }
+                closeProfileModal={ closeProfileModal }
+                handleImageChange={ handleImageChange }
+                image={ image }
               />
-              <button className="edit-btn" onClick={openProfileModal}>
+              <button className="edit-btn" onClick={ openProfileModal }>
                 Edit
               </button>
             </div>

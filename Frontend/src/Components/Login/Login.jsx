@@ -44,11 +44,11 @@ const Login = () => {
     <div className="login-wrapper ">
       <div className="login-container">
         <div className="image-container">
-          <img src={logo} alt="logo" className="custom-image" />
+          <img src={ logo } alt="logo" className="custom-image" />
         </div>
         <h3>Login to Your Account</h3>
 
-        <form onSubmit={handleLogin}>
+        <form onSubmit={ handleLogin }>
           <div className="form-group">
             <label htmlFor="email" className="dark:text-[#a5acac]">
               Email
@@ -57,12 +57,12 @@ const Login = () => {
               type="email"
               id="email"
               name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className={errors.email ? "error-input" : ""}
+              value={ email }
+              onChange={ (e) => setEmail(e.target.value) }
+              className={ `${errors.name ? "error-input" : ""} dark:bg-[#242424]` }
               required
             />
-            {errors.email && <span className="error-text">{errors.email}</span>}
+            { errors.email && <span className="error-text">{ errors.email }</span> }
           </div>
 
           <div className="form-group">
@@ -73,17 +73,17 @@ const Login = () => {
               type="password"
               id="password"
               name="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className={errors.password ? "error-input" : ""}
+              value={ password }
+              onChange={ (e) => setPassword(e.target.value) }
+              className={ `${errors.name ? "error-input" : ""} dark:bg-[#242424]` }
               required
             />
-            {errors.password && (
-              <span className="error-text">{errors.password}</span>
-            )}
+            { errors.password && (
+              <span className="error-text">{ errors.password }</span>
+            ) }
           </div>
 
-          {errors.form && <span className="error-text">{errors.form}</span>}
+          { errors.form && <span className="error-text">{ errors.form }</span> }
 
           <button type="submit" className="login-button">
             Login
@@ -92,17 +92,17 @@ const Login = () => {
 
         <div className="already-registered dark:text-[#a5acac]">
           <p>
-            Don't have an account?{" "}
+            Don't have an account?{ " " }
             <button
-              onClick={() => navigate("/register")}
+              onClick={ () => navigate("/register") }
               className="redirect-to-login">
               Register here
             </button>
           </p>
         </div>
         <p className="terms dark:text-[#a5acac]">
-          By continuing, you are agreeing to Ten Everything's{" "}
-          <Link to="/term-condition">Terms of Service</Link> and{" "}
+          By continuing, you are agreeing to Ten Everything's{ " " }
+          <Link to="/term-condition">Terms of Service</Link> and{ " " }
           <Link to="/privacy-policy">Privacy Policy</Link>.
         </p>
       </div>

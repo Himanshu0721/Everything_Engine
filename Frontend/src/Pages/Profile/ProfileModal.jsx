@@ -1,6 +1,9 @@
-import { IoMdClose } from "react-icons/io";
-import "./profileModal.css";
-import { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { X } from "lucide-react";
 import { UserContext } from "@/Context/userContext";
 
 const ProfileModal = ({
@@ -11,11 +14,10 @@ const ProfileModal = ({
 }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
-
   const { updateUser } = useContext(UserContext);
   const id = localStorage.getItem("userId");
 
-  const handelSubmit = (e, id, username, email) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     updateUser(id, username, email);
     closeProfileModal();
@@ -30,71 +32,77 @@ const ProfileModal = ({
   };
 
   return (
-    <>
-      <div className="profile-modal-overlay" onClick={handleClose}>
-        <div className="profile-modal-content">
-          <button
-            className="profile-modal-close-btn"
-            onClick={closeProfileModal}>
-            <IoMdClose />
-          </button>
-          <form
-            onSubmit={(e) => handelSubmit(e, id, username, email)}
-            className="flex flex-col justify-center items-center">
-            <h2 className="font-semibold text-2xl">Profile</h2>
-            <div className="profile-img">
-              <div className="profile-edit">
-                <img
-                  src={`${
-                    image
-                      ? image
-                      : "https://media.istockphoto.com/id/1214428300/vector/default-profile-picture-avatar-photo-placeholder-vector-illustration.jpg?s=612x612&w=0&k=20&c=vftMdLhldDx9houN4V-g3C9k0xl6YeBcoB_Rk6Trce0="
-                  }`}
-                  alt=""
-                  style={{ maxWidth: "500px", display: "block" }}
-                />
-                <input
+    <div
+      className="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+      onClick={ handleClose }
+    >
+      <Card className="w-full max-w-md relative bg-white">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="absolute right-2 top-2"
+          onClick={ closeProfileModal }
+        >
+          <X className="h-4 w-4" />
+        </Button>
+
+        <CardHeader>
+          <CardTitle className="text-center">Profile</CardTitle>
+        </CardHeader>
+
+        <CardContent>
+          <form onSubmit={ handleSubmit } className="space-y-6">
+            <div className="space-y-4">
+              <div className="flex flex-col items-center gap-4">
+                <div className="relative w-32 h-32 rounded-full overflow-hidden">
+                  <img
+                    src={ image || "https://media.istockphoto.com/id/1214428300/vector/default-profile-picture-avatar-photo-placeholder-vector-illustration.jpg?s=612x612&w=0&k=20&c=vftMdLhldDx9houN4V-g3C9k0xl6YeBcoB_Rk6Trce0=" }
+                    alt="Profile"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <Input
                   type="file"
                   id="image"
                   name="image"
-                  className="mt-1 block w-full text-sm  text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
-                  onChange={handleImageChange}
+                  onChange={ handleImageChange }
+                  className="w-full"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="username">Name</Label>
+                <Input
+                  id="username"
+                  type="text"
+                  placeholder="Enter your name"
+                  value={ username }
+                  onChange={ (e) => setUsername(e.target.value) }
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="email">Email</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="Enter your email"
+                  value={ email }
+                  onChange={ (e) => setEmail(e.target.value) }
                 />
               </div>
             </div>
-            <div className="user-info">
-              <div className="flex mt-2">
-                <label>Name</label>
-                <input
-                  className="input-name"
-                  type="text"
-                  placeholder="Name"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                />
-              </div>
-              <div className="flex mt-2">
-                <label>Email</label>
-                <input
-                  type="text"
-                  className="user-name"
-                  placeholder="Email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </div>
-              <div className="mt-2">
-                <button
-                  type="submit"
-                  className="mt-1 cursor-pointer w-full text-lg  text-white  bg-violet-600 py-2 px-6 rounded  ">
-                  Save
-                </button>
-              </div>
-            </div>
+
+            <Button
+              type="submit"
+              className="w-full bg-violet-600 hover:bg-violet-700 text-white"
+            >
+              Save Changes
+            </Button>
           </form>
-        </div>
-      </div>
-    </>
+        </CardContent>
+      </Card>
+    </div>
   );
 };
 
