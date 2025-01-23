@@ -6,11 +6,11 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/Components/ui/card";
-import { Label } from "@/Components/ui/label";
-import { Input } from "@/Components/ui/input";
-import { Button } from "@/Components/ui/button";
-import { useAuth } from "@/Components/context/authContext";
+} from "../../../Components/ui/card";
+import { Label } from "../../../Components/ui/label";
+import { Input } from "../../../Components/ui/input";
+import { Button } from "../../../Components/ui/button";
+import { useAuth } from "../../../Components/context/authContext";
 import { useNavigate } from "react-router-dom";
 
 const AdminLogin = () => {

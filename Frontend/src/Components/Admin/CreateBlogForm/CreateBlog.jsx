@@ -6,10 +6,10 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/Components/ui/dialog";
-import { Button } from "@/Components/ui/button";
+} from "../../../Components/ui/dialog";
+import { Button } from "../../../Components/ui/button";
 import { useEffect, useState } from "react";
-import { useBlog } from "@/Context/blogContext";
+import { useBlog } from "../../../Context/blogContext";
 
 export default function ContentForm() {
   const [isAdded, setIsAdded] = useState(false);
@@ -55,8 +55,7 @@ export default function ContentForm() {
         <h1 className="text-3xl font-bold text-gray-800">Create Blog</h1>
         <button
           onClick={() => setIsAdded(true)}
-          className="flex items-center bg-blue-500 text-white px-4 py-2 rounded-md"
-        >
+          className="flex items-center bg-blue-500 text-white px-4 py-2 rounded-md">
           <Plus size={20} />
           Add Blog
         </button>
@@ -74,13 +73,11 @@ export default function ContentForm() {
           <form
             onSubmit={handleSubmit}
             className="space-y-4"
-            encType="multipart/form-data"
-          >
+            encType="multipart/form-data">
             <div>
               <label
                 htmlFor="title"
-                className="block text-sm font-medium text-gray-700"
-              >
+                className="block text-sm font-medium text-gray-700">
                 Title
               </label>
               <input
@@ -95,8 +92,7 @@ export default function ContentForm() {
             <div>
               <label
                 htmlFor="date"
-                className="block text-sm font-medium text-gray-700"
-              >
+                className="block text-sm font-medium text-gray-700">
                 Date
               </label>
               <input
@@ -111,8 +107,7 @@ export default function ContentForm() {
             <div>
               <label
                 htmlFor="feature"
-                className="block text-sm font-medium text-gray-700"
-              >
+                className="block text-sm font-medium text-gray-700">
                 Feature
               </label>
               <select
@@ -120,8 +115,7 @@ export default function ContentForm() {
                 value={feature}
                 onChange={handleChange}
                 name="feature"
-                className="mt-1 block w-full border px-2 py-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              >
+                className="mt-1 block w-full border px-2 py-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                 <option value="All">All</option>
                 <option value="Product">Product</option>
                 <option value="Announcement">Announcement</option>
@@ -130,8 +124,7 @@ export default function ContentForm() {
             <div>
               <label
                 htmlFor="image"
-                className="block text-sm font-medium text-gray-700"
-              >
+                className="block text-sm font-medium text-gray-700">
                 Image
               </label>
               <input
@@ -145,8 +138,7 @@ export default function ContentForm() {
             <div>
               <label
                 htmlFor="description"
-                className="block text-sm font-medium text-gray-700"
-              >
+                className="block text-sm font-medium text-gray-700">
                 Description
               </label>
               <textarea
@@ -155,8 +147,7 @@ export default function ContentForm() {
                 onChange={handleChange}
                 name="description"
                 rows="4"
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              ></textarea>
+                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
             </div>
             <DialogFooter>
               <Button variant="outline" onClick={() => setIsAdded(false)}>
@@ -166,8 +157,7 @@ export default function ContentForm() {
                 type="submit"
                 onClick={() => {
                   setIsAdded(false);
-                }}
-              >
+                }}>
                 Save
               </Button>
             </DialogFooter>
