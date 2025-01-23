@@ -2,9 +2,9 @@
   "name": "backend",
   "version": "1.0.0",
   "type": "commonjs",
-  "main": "index.js",
+  "main": "Backend/index.js",
   "scripts": {
-    "script": "node index.js"
+    "script": "node Backend/index.js"
   },
   "author": "",
   "license": "ISC",
