@@ -78,7 +78,7 @@ const Blog = () => {
               >
                 <div className="relative">
                   <img
-                    src={`http://localhost:5000${blog.image}`}
+                    src={`https://everything-engine-cdek.onrender.com${blog.image}`}
                     alt={blog.title}
                     className="w-full h-56 object-cover"
                   />

@@ -173,7 +173,7 @@ export default function ContentForm() {
               id={blog._id}
               feature={blog.feature}
               title={blog.title}
-              imageUrl={`http://localhost:5000${blog.image}`}
+              imageUrl={`https://everything-engine-cdek.onrender.com${blog.image}`}
               date={new Date(blog.date).toISOString().split("T")[0]}
               description={blog.description}
             />

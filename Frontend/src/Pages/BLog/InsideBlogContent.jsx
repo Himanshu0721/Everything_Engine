@@ -105,7 +105,7 @@ const BlogContent = () => {
 
         <div className="mb-10 rounded-xl overflow-hidden shadow-2xl">
           <img
-            src={`http://localhost:5000${blog.image}`}
+            src={`https://everything-engine-cdek.onrender.com${blog.image}`}
             alt={blog.title}
             className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-300"
           />

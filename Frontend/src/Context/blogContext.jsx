@@ -12,7 +12,7 @@ export const BlogProvider = ({ children }) => {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/blogs/allblogs", {
+      const response = await fetch("https://everything-engine-cdek.onrender.com/api/blogs/allblogs", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -44,7 +44,7 @@ export const BlogProvider = ({ children }) => {
     formData.append("image", image);
     formData.append("description", description);
     try {
-      const response = await fetch("http://localhost:5000/api/blogs/create", {
+      const response = await fetch("https://everything-engine-cdek.onrender.com/api/blogs/create", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -77,7 +77,7 @@ export const BlogProvider = ({ children }) => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/blogs/updateblog/${id}`,
+        `https://everything-engine-cdek.onrender.com/api/blogs/updateblog/${id}`,
         {
           method: "PUT",
           headers: {
@@ -106,7 +106,7 @@ export const BlogProvider = ({ children }) => {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:5000/api/blogs/deleteblog/${id}`,
+        `https://everything-engine-cdek.onrender.com/api/blogs/deleteblog/${id}`,
         {
           method: "DELETE",
           headers: {

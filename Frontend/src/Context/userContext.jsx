@@ -9,7 +9,7 @@ export const UserProvider = ({ children }) => {
   const fetchUser = async (userId) => {
     try {
       const { data } = await axios.get(
-        `http://localhost:5000/api/auth/user/${userId}`
+        `https://everything-engine-cdek.onrender.com/api/auth/user/${userId}`
       );
       setUser(data);
     } catch (err) {
@@ -20,7 +20,7 @@ export const UserProvider = ({ children }) => {
   const updateUser = async (userId, username, email) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/auth/user/update/${userId}`,
+        `https://everything-engine-cdek.onrender.com/api/auth/user/update/${userId}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
