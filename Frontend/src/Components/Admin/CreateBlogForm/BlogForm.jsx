@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardFooter } from "../../../Components/ui/card";
+import { Button } from "../../../Components/ui/button";
 import {
   Dialog,
   DialogContent,
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
+} from "../../../Components/ui/dialog";
 import { Trash2 } from "lucide-react";
-import { useBlog } from "@/Context/blogContext";
+import { useBlog } from "../../../Context/blogContext";
 
 const BlogCard = ({ title, id, date, feature, imageUrl, description }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -80,8 +80,7 @@ const BlogCard = ({ title, id, date, feature, imageUrl, description }) => {
               onClick={(e) => {
                 e.stopPropagation();
                 confirmDelete(id);
-              }}
-            >
+              }}>
               <Trash2 className="h-4 w-4" />
             </Button>
           </div>
@@ -112,8 +111,7 @@ const BlogCard = ({ title, id, date, feature, imageUrl, description }) => {
             <Button
               onClick={() => {
                 setIsEdit(true);
-              }}
-            >
+              }}>
               Edit
             </Button>
           </DialogFooter>
@@ -129,13 +127,11 @@ const BlogCard = ({ title, id, date, feature, imageUrl, description }) => {
           <form
             className="space-y-4"
             encType="multipart/form-data"
-            onSubmit={handleSubmit}
-          >
+            onSubmit={handleSubmit}>
             <div>
               <label
                 htmlFor="title"
-                className="block text-sm font-medium text-gray-700"
-              >
+                className="block text-sm font-medium text-gray-700">
                 Title
               </label>
               <input
@@ -150,8 +146,7 @@ const BlogCard = ({ title, id, date, feature, imageUrl, description }) => {
             <div>
               <label
                 htmlFor="feature"
-                className="block text-sm font-medium text-gray-700"
-              >
+                className="block text-sm font-medium text-gray-700">
                 Feature
               </label>
               <select
@@ -159,8 +154,7 @@ const BlogCard = ({ title, id, date, feature, imageUrl, description }) => {
                 value={formData.feature}
                 onChange={handleInputChange}
                 name="feature"
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              >
+                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                 <option value="All">All</option>
                 <option value="Product">Product</option>
                 <option value="Announcement">Announcement</option>
@@ -169,8 +163,7 @@ const BlogCard = ({ title, id, date, feature, imageUrl, description }) => {
             <div>
               <label
                 htmlFor="updateimage"
-                className="block text-sm font-medium text-gray-700"
-              >
+                className="block text-sm font-medium text-gray-700">
                 Image
               </label>
               <input
@@ -184,8 +177,7 @@ const BlogCard = ({ title, id, date, feature, imageUrl, description }) => {
             <div>
               <label
                 htmlFor="description"
-                className="block text-sm font-medium text-gray-700"
-              >
+                className="block text-sm font-medium text-gray-700">
                 Description
               </label>
               <textarea
@@ -194,8 +186,7 @@ const BlogCard = ({ title, id, date, feature, imageUrl, description }) => {
                 rows="4"
                 value={formData.description}
                 onChange={handleInputChange}
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              ></textarea>
+                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
             </div>
             <DialogFooter>
               <Button variant="outline" onClick={() => setIsEdit(false)}>
