@@ -24,7 +24,7 @@ import Contact from "../Contact/Contact";
 import AdminLogin from "../../Components/Admin/AdminLogin/AdminLogin";
 import ProtectedRoute from "../../Components/ProtectedRoute";
 import Admin from "@/Components/Admin/Admin";
-import Blog from "../Blog/Blog";
+import Blog from "../BLog/Blog";
 import Dashboard from "../Dashboard/Dashboard";
 import BlogContent from "../BLog/InsideBlogContent";
 import UserGuidelines from "../Usage-guidelines/UserGuidelines";
