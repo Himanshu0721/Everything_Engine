@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./register";
+import "./register.css";
 import logo from "../../assets/logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
