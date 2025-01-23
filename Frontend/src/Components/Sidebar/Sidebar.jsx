@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import styles from "./Sidebar.module.css";
+import styles from "./sidebar.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
@@ -275,98 +275,90 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => (
         <section className="bg-gray-100 mt-4">
           <div className="flex flex-col gap-2 bg-white dark:bg-[#181818]">
             <div className="flex flex-row items-center gap-4 ml-12">
-              <p
-                className="flex items-center gap-4 cursor-pointer dark:text-[#a5acac] hover:text-[#5d5cdd] text-sm sm:text-sm md:text-base"
-                onClick={() =>
-                  (window.location.href = "https://www.linkedin.com")
-                }>
-                Follow Us
-                <span className="text-[#5d5cde]">
-                  <FontAwesomeIcon
-                    icon={faLinkedin}
-                    style={{
-                      fontSize: "1.3rem",
-                      color: "#0077b5",
-                      cursor: "pointer",
-                    }}
-                    onMouseEnter={() => setIsHovered(true)}
-                    onMouseLeave={() => setIsHovered(false)}
-                  />
-                </span>
+              <p className="flex items-center gap-4 cursor-pointer dark:text-[#a5acac] hover:text-[#5d5cdd] text-sm sm:text-sm md:text-base">
+                <Link to="https://www.linkedin.com" target="_blank">
+                  Follow Us
+                  <span className="text-[#5d5cde] mx-3">
+                    <FontAwesomeIcon
+                      icon={faLinkedin}
+                      style={{
+                        fontSize: "1.3rem",
+                        color: "#0077b5",
+                        cursor: "pointer",
+                      }}
+                      onMouseEnter={() => setIsHovered(true)}
+                      onMouseLeave={() => setIsHovered(false)}
+                    />
+                  </span>
+                </Link>
               </p>
-              <p
-                className="flex items-center gap-4 cursor-pointer dark:text-[#a5acac] hover:text-[#5d5cdd] text-sm sm:text-sm md:text-base"
-                onClick={() =>
-                  (window.location.href = "info@entrepreneurshipnetwork.net")
-                }>
-                Join Us
-                <span className="text-[#5d5cde]">
-                  <FontAwesomeIcon
-                    onClick={() =>
-                      (window.location.href =
-                        "mailto:info@entrepreneurshipnetwork.net")
-                    }
-                    icon={faEnvelope}
-                    style={{
-                      color: "#5d5cde",
-                      fontSize: "1.2rem",
-                      cursor: "pointer",
-                    }}
-                    onMouseEnter={() => setIsJoin(true)}
-                    onMouseLeave={() => setIsJoin(false)}
-                  />
-                </span>
+              <p className="flex items-center gap-4 cursor-pointer dark:text-[#a5acac] hover:text-[#5d5cdd] text-sm sm:text-sm md:text-base">
+                <Link to="info@entrepreneurshipnetwork.net" target="_blank">
+                  Join Us
+                  <span className="text-[#5d5cde] mx-3">
+                    <FontAwesomeIcon
+                      icon={faEnvelope}
+                      style={{
+                        color: "#5d5cde",
+                        fontSize: "1.2rem",
+                        cursor: "pointer",
+                      }}
+                      onMouseEnter={() => setIsJoin(true)}
+                      onMouseLeave={() => setIsJoin(false)}
+                    />
+                  </span>
+                </Link>
               </p>
             </div>
 
             <div>
               <ul className="flex  flex-wrap mb-4 list-disc pl-5 text-gray-600 pr-4 items-center  text-xs sm:text-sm ml-4 mt-0">
                 <li className=" ml-6">
-                  <a
-                    href="/about"
+                  <Link
+                    to="/about"
                     className="text-gray-600 dark:text-[#a5acac] hover:text-gray-900">
                     About
-                  </a>
+                  </Link>
                 </li>
 
                 <li className=" ml-4">
-                  <a
-                    href="/blog"
+                  <Link
+                    to="/blog"
                     className="text-gray-600 dark:text-[#a5acac] hover:text-gray-900">
                     Blog
-                  </a>
+                  </Link>
                 </li>
 
                 <li className=" ml-4">
-                  <a
-                    href="/careers"
+                  <Link
+                    to="/careers"
                     className="text-gray-600 dark:text-[#a5acac] hover:text-gray-900">
                     Careers
-                  </a>
+                  </Link>
                 </li>
 
                 <li className=" ml-6">
-                  <a
-                    href="/help-center"
+                  <Link
+                    to="/help-center"
                     className="text-gray-600 dark:text-[#a5acac] hover:text-gray-900">
                     Help Center
-                  </a>
+                  </Link>
                 </li>
 
                 <li className=" ml-4">
-                  <a
-                    href="/privacy-policy"
+                  <Link
+                    to="/privacy-policy"
                     className="text-gray-600 dark:text-[#a5acac] hover:text-gray-900">
                     Privacy Policy
-                  </a>
+                  </Link>
                 </li>
 
                 <li className=" ml-6">
-                  <a
-                    href="/term-condition"
+                  <Link
+                    to="/term-condition"
                     className="text-gray-600 dark:text-[#a5acac] hover:text-gray-900">
                     Terms & Conditions
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

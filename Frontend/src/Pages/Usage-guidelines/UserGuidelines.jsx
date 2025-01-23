@@ -1,5 +1,5 @@
 import React from "react";
-import "./UserGuidelines.css";
+import "./userGuidelines.css";
 import Guidelines from "../../assets/guideline-la-gi.jpg";
 
 const UserGuidelines = () => {

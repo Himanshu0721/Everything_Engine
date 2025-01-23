@@ -36,51 +36,50 @@ const FeedBack = () => {
     <div className="feedback-container">
       <h1 className="title dark:text-white">Share your experience</h1>
 
-      <form onSubmit={ feedBackForm } className="feedback-form">
-        {/* Rating Section */ }
+      <form onSubmit={feedBackForm} className="feedback-form">
+        {/* Rating Section */}
         <div className="rating-container">
-          { [...Array(5)].map((_, index) => (
+          {[...Array(5)].map((_, index) => (
             <span
-              key={ index }
-              className={ index + 1 <= rating ? "selected" : "" }
-              onClick={ () => setRating(index + 1) }
-            >
+              key={index}
+              className={index + 1 <= rating ? "selected" : ""}
+              onClick={() => setRating(index + 1)}>
               ★
             </span>
-          )) }
+          ))}
         </div>
 
-        {/* Rating Labels */ }
+        {/* Rating Labels */}
         <div className="expression">
           <span>Bad</span>
           <span>Good</span>
           <span>Excellent</span>
         </div>
 
-        {/* Email Input */ }
+        {/* Email Input */}
         <div className="input-group">
           <label className="dark:text-[#a5acac]">Email</label>
           <input
             type="email"
             className="feedback-input dark:bg-[#242424]"
             placeholder="Enter Your Email"
-            value={ email }
-            onChange={ (e) => setEmail(e.target.value) }
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
 
-        {/* Feedback Input */ }
+        {/* Feedback Input */}
         <div className="input-group">
           <label className="dark:text-[#a5acac]">Feedback</label>
           <textarea
             className="feedback-input dark:bg-[#242424]"
             placeholder="Give your Feedback"
-            value={ feedBack }
-            onChange={ (e) => setFeedback(e.target.value) }
+            value={feedBack}
+            onChange={(e) => setFeedback(e.target.value)}
           />
         </div>
 
-        {/* Submit Button */ }
+        {/* Submit Button */}
         <button className="submit-btn" type="submit">
           Submit
         </button>

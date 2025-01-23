@@ -8,8 +8,12 @@ export const ChatMessage = ({ message }) => {
   const isUser = message.role === "user";
 
   return (
-    <div className={`flex items-start gap-4 ${isUser ? "flex-row-reverse" : ""}`}>
-      <div className={`p-2 rounded-full ${isUser ? "bg-blue-500" : "bg-gray-500"}`}>
+    <div
+      className={`flex items-start gap-4 ${isUser ? "flex-row-reverse" : ""}`}>
+      <div
+        className={`p-2 rounded-full ${
+          isUser ? "bg-blue-500" : "bg-gray-500"
+        }`}>
         {isUser ? (
           <MessageCircle className="w-5 h-5 text-white" />
         ) : (
@@ -24,8 +28,7 @@ export const ChatMessage = ({ message }) => {
           overflowX: "auto", // Allow horizontal scrolling if content overflows
           wordWrap: "break-word", // Break long words to fit the container
           whiteSpace: "pre-wrap", // Preserve spaces and line breaks
-        }}
-      >
+        }}>
         {isUser ? (
           <p className="text-gray-800">{message.content}</p>
         ) : (
@@ -42,8 +45,7 @@ export const ChatMessage = ({ message }) => {
                     customStyle={{
                       overflowX: "auto", // Handle horizontal scrolling within code blocks
                       whiteSpace: "pre-wrap", // Wrap code lines to prevent overflow
-                    }}
-                  >
+                    }}>
                     {String(children).replace(/\n$/, "")}
                   </SyntaxHighlighter>
                 ) : (
@@ -53,14 +55,12 @@ export const ChatMessage = ({ message }) => {
                     style={{
                       overflowX: "auto", // Handle inline code overflow
                       whiteSpace: "pre-wrap", // Wrap text if necessary
-                    }}
-                  >
+                    }}>
                     {children}
                   </code>
                 );
               },
-            }}
-          >
+            }}>
             {message.content}
           </ReactMarkdown>
         )}

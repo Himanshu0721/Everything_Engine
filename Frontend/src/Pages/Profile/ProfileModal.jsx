@@ -1,9 +1,10 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { X } from "lucide-react";
+import "./profileModal.css";
 import { UserContext } from "@/Context/userContext";
 
 const ProfileModal = ({
@@ -34,15 +35,13 @@ const ProfileModal = ({
   return (
     <div
       className="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
-      onClick={ handleClose }
-    >
+      onClick={handleClose}>
       <Card className="w-full max-w-md relative bg-white">
         <Button
           variant="ghost"
           size="icon"
           className="absolute right-2 top-2"
-          onClick={ closeProfileModal }
-        >
+          onClick={closeProfileModal}>
           <X className="h-4 w-4" />
         </Button>
 
@@ -51,12 +50,15 @@ const ProfileModal = ({
         </CardHeader>
 
         <CardContent>
-          <form onSubmit={ handleSubmit } className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-4">
               <div className="flex flex-col items-center gap-4">
                 <div className="relative w-32 h-32 rounded-full overflow-hidden">
                   <img
-                    src={ image || "https://media.istockphoto.com/id/1214428300/vector/default-profile-picture-avatar-photo-placeholder-vector-illustration.jpg?s=612x612&w=0&k=20&c=vftMdLhldDx9houN4V-g3C9k0xl6YeBcoB_Rk6Trce0=" }
+                    src={
+                      image ||
+                      "https://media.istockphoto.com/id/1214428300/vector/default-profile-picture-avatar-photo-placeholder-vector-illustration.jpg?s=612x612&w=0&k=20&c=vftMdLhldDx9houN4V-g3C9k0xl6YeBcoB_Rk6Trce0="
+                    }
                     alt="Profile"
                     className="w-full h-full object-cover"
                   />
@@ -65,7 +67,7 @@ const ProfileModal = ({
                   type="file"
                   id="image"
                   name="image"
-                  onChange={ handleImageChange }
+                  onChange={handleImageChange}
                   className="w-full"
                 />
               </div>
@@ -76,8 +78,8 @@ const ProfileModal = ({
                   id="username"
                   type="text"
                   placeholder="Enter your name"
-                  value={ username }
-                  onChange={ (e) => setUsername(e.target.value) }
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                 />
               </div>
 
@@ -87,16 +89,15 @@ const ProfileModal = ({
                   id="email"
                   type="email"
                   placeholder="Enter your email"
-                  value={ email }
-                  onChange={ (e) => setEmail(e.target.value) }
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
             </div>
 
             <Button
               type="submit"
-              className="w-full bg-violet-600 hover:bg-violet-700 text-white"
-            >
+              className="w-full bg-violet-600 hover:bg-violet-700 text-white">
               Save Changes
             </Button>
           </form>

@@ -1,5 +1,5 @@
 import { IoMdClose } from "react-icons/io";
-import "./Modal.css";
+import "./modal.css";
 
 const Modal = ({ isOpen, closeModal }) => {
   if (!isOpen) return null;

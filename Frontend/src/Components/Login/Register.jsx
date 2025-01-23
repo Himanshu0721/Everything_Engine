@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Register.css";
+import "./register";
 import logo from "../../assets/logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -49,11 +49,11 @@ const Register = () => {
     <div className="register-wrapper">
       <div className="register-container">
         <div className="image-container">
-          <img src={ logo } alt="logo" className="custom-image" />
+          <img src={logo} alt="logo" className="custom-image" />
         </div>
         <h3 className="dark:text-[#a5acac]">Create an Account</h3>
 
-        <form onSubmit={ handleSignUp }>
+        <form onSubmit={handleSignUp}>
           <div className="form-group">
             <label htmlFor="name" className="dark:text-[#a5acac]">
               Name
@@ -62,13 +62,15 @@ const Register = () => {
               type="text"
               name="name"
               id="name"
-              value={ username }
-              onChange={ (e) => setUserName(e.target.value) }
+              value={username}
+              onChange={(e) => setUserName(e.target.value)}
               placeholder="Enter your name"
-              className={ `${errors.name ? "error-input" : ""} dark:bg-[#242424]` }
+              className={`${
+                errors.name ? "error-input" : ""
+              } dark:bg-[#242424]`}
               required
             />
-            { errors.name && <span className="error-text">{ errors.name }</span> }
+            {errors.name && <span className="error-text">{errors.name}</span>}
           </div>
 
           <div className="form-group">
@@ -80,12 +82,14 @@ const Register = () => {
               name="email"
               id="email"
               placeholder="Enter your Email"
-              value={ email }
-              onChange={ (e) => setEmail(e.target.value) }
-              className={ `${errors.email ? "error-input" : ""} dark:bg-[#242424]` }
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className={`${
+                errors.email ? "error-input" : ""
+              } dark:bg-[#242424]`}
               required
             />
-            { errors.email && <span className="error-text">{ errors.email }</span> }
+            {errors.email && <span className="error-text">{errors.email}</span>}
           </div>
 
           <div className="form-group">
@@ -97,12 +101,14 @@ const Register = () => {
               name="number"
               id="phone"
               placeholder="Enter your phone number"
-              value={ number }
-              onChange={ (e) => setNumber(e.target.value) }
-              className={ `${errors.phone ? "error-input" : ""} dark:bg-[#242424]` }
+              value={number}
+              onChange={(e) => setNumber(e.target.value)}
+              className={`${
+                errors.phone ? "error-input" : ""
+              } dark:bg-[#242424]`}
               required
             />
-            { errors.phone && <span className="error-text">{ errors.phone }</span> }
+            {errors.phone && <span className="error-text">{errors.phone}</span>}
           </div>
 
           <div className="form-group">
@@ -114,14 +120,16 @@ const Register = () => {
               name="password"
               id="password"
               placeholder="Enter your password"
-              value={ password }
-              onChange={ (e) => setPassword(e.target.value) }
-              className={ `${errors.password ? "error-input" : ""} dark:bg-[#242424]` }
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className={`${
+                errors.password ? "error-input" : ""
+              } dark:bg-[#242424]`}
               required
             />
-            { errors.password && (
-              <span className="error-text">{ errors.password }</span>
-            ) }
+            {errors.password && (
+              <span className="error-text">{errors.password}</span>
+            )}
           </div>
 
           <button type="submit" className="register-button">
@@ -129,7 +137,7 @@ const Register = () => {
           </button>
 
           <div className="already-registered dark:text-[#a5acac]">
-            Already registered?{ " " }
+            Already registered?{" "}
             <Link className="redirect-to-login" to="/">
               Login
             </Link>
@@ -137,8 +145,8 @@ const Register = () => {
         </form>
 
         <p className="terms dark:text-[#a5acac]">
-          By continuing, you are agreeing to Ten Everything's{ " " }
-          <Link to="/term-condition">Terms of Service</Link> and{ " " }
+          By continuing, you are agreeing to Ten Everything's{" "}
+          <Link to="/term-condition">Terms of Service</Link> and{" "}
           <Link to="/privacy-policy">Privacy Policy</Link>.
         </p>
       </div>
